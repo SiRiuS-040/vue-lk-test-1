@@ -1,0 +1,9 @@
+.ui-select {
+  &.vue-select {
+    &:deep(.control) {
+      padding: 4px 8px;
+      border-color: var(--color-Text-Light-Grey);
+      border-radius: 8px;
+    }
+  }
+}

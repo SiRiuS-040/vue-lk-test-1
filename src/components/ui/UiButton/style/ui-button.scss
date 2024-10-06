@@ -4,13 +4,7 @@
   text-transform: uppercase;
   border: 1px solid transparent;
 
-  // width: auto;
-  // height: auto;
-
   transition: all 0.3s;
-
-  // font-size: 12px;
-  // line-height: 1.2;
 
   display: inline-flex;
   flex-direction: row;
@@ -31,7 +25,7 @@
   &--size-m {
     min-height: 42px;
     border-radius: 10px;
-    padding: 8px 16px;
+    padding: 11px 16px;
   }
 
   &--size-l {
@@ -41,25 +35,7 @@
   }
 
   &--has-icon {
-    padding: 12px 50px;
-  }
-
-  &--format-clear {
-    border-radius: 0;
-    padding: 0;
-  }
-
-  &--format-clear-square {
-    padding: 0px;
-    min-width: 42px;
-    aspect-ratio: 1 / 1;
-  }
-
-  &--format-clear-rounded {
-    border-radius: 50%;
-    padding: 0px;
-    min-width: 42px;
-    aspect-ratio: 1 / 1;
+    padding: 11px 50px;
   }
 
   &--theme-primary {
@@ -72,13 +48,13 @@
   }
 
   &--theme-outline {
-    border-color: var(--color-Primary-Red);
+    border-color: var(--color-Secondary-Light-Red);
     background-color: transparent;
-    color: var(--color-Primary-Red);
+    color: var(--color-Secondary-Light-Red);
 
     &:hover {
-      border-color: var(--color-Secondary-Light-Red);
-      color: var(--color-Secondary-Light-Red);
+      border-color: var(--color-Primary-Red);
+      color: var(--color-Primary-Red);
     }
   }
 
@@ -93,14 +69,40 @@
     }
   }
 
+  &--theme-clear {
+    border-radius: 0;
+    padding: 0;
+  }
+
+  &--format-square {
+    padding: 0px;
+    min-width: 42px;
+    aspect-ratio: 1 / 1;
+  }
+
+  &--format-circle {
+    border-radius: 50%;
+    padding: 0px;
+    min-width: 42px;
+    aspect-ratio: 1 / 1;
+  }
+
   &:hover {
     transition: all 0.3s;
     cursor: pointer;
   }
 
-  &.disabled {
-    opacity: 0.2;
-    cursor: default;
+  &--disabled {
+    border-color: var(--color-Text-Line-Grey);
+    background-color: transparent;
+    color: var(--color-Text-Grey);
+    cursor: no-drop;
+
+    &:hover {
+      border-color: var(--color-Text-Line-Grey);
+      color: var(--color-text);
+      cursor: no-drop;
+    }
   }
 
   &__icon {
@@ -113,5 +115,9 @@
       left: auto;
       right: 16px;
     }
+  }
+
+  &+.ui-button {
+    margin-left: 12px;
   }
 }
