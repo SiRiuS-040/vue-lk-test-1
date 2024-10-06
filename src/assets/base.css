@@ -1,0 +1,88 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --color-Primary-Red: rgb(217, 14, 50);
+  --color-Primary-Dark-Red: #A60933;
+  --color-Primary-Dark: #282828;
+  --color-Primary-White: #FFFFFF;
+
+  --color-Text-Black: #293148;
+  --color-Text-Dark-Grey: rgba(41, 49, 72, 0.8);
+  --color-Text-Grey: rgba(41, 49, 72, 0.6);
+  --color-Text-Light-Grey: rgba(41, 49, 72, 0.45);
+  --color-Text-Line-Grey: #E4E4E4;
+  --color-Text-White: #FFFFFF;
+  --color-Text-White-45: rgba(255, 255, 255, 0.45);
+  --color-Text-White-20: rgba(255, 255, 255, 0.2);
+
+  --color-Secondary-Dark-Red: #59051C;
+  --color-Secondary-Light-Red: #E86E84;
+  --color-Secondary-Blue: #7895FF;
+  --color-Secondary-Green: #7FC75E;
+  --color-Secondary-Gray: #EDEDED;
+  --color-Secondary-Gray: #EDEDED;
+}
+
+:root {
+  --color-background: var(--color-Primary-White);
+  --color-text: var(--color-Text-Black);
+  --color-button-text: var(--color-Text-White);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-Primary-Dark);
+    --color-text: var(--color-Text-White);
+    --color-button-text: var(--color-Text-White);
+  }
+}
+
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+} */
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 {
+  font-size: 32px;
+  line-height: 38px;
+}
+
+h2, .h2 {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+h3, .h3 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
