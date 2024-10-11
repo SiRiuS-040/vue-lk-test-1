@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import AuthContent from "@/components/shared/AuthContent/AuthContent.vue";
 
-import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
+import RestoreForm from "@/components/shared/forms/RestoreForm/RestoreForm.vue";
 </script>
 <template>
   <AuthContent>
     <template #image>
-      <img src="@/assets/img/car-1.png" alt="" />
-      <h2>Digitale Lösungen für den Fahrzeughandel</h2>
+      <img src="@/assets/img/key-1.png" alt="" />
     </template>
     <template #form>
-      <LoginForm />
+      <RestoreForm />
     </template>
   </AuthContent>
 </template>

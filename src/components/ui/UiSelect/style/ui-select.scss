@@ -1,9 +1,68 @@
 .ui-select {
-  &.vue-select {
-    &:deep(.control) {
-      padding: 4px 8px;
-      border-color: var(--color-Text-Light-Grey);
-      border-radius: 8px;
+  display: inline-block;
+  width: auto;
+
+  &--theme-clear {
+    & .multiselect__tags {
+      border: none;
+      background-color: transparent;
+    }
+
+    & .multiselect__single {
+      background-color: transparent;
+      color: var(--color-Text-Light-Grey);
+    }
+
+    & .multiselect__content-wrapper {
+      border: none;
+      background: transparent;
+    }
+
+    & .multiselect__option {
+      background: transparent;
+      padding: 0;
+      padding-left: 12px;
+      color: var(--color-Text-Light-Grey);
+
+      &.multiselect__option--selected {
+        color: var(--color-Text-Light-Grey);
+      }
+
+      &.multiselect__option--highlight {
+        color: var(--color-Primary-Red);
+      }
+    }
+  }
+
+  &--theme-clear-white {
+    & .multiselect__tags {
+      border: none;
+      background-color: transparent;
+    }
+
+    & .multiselect__single {
+      background-color: transparent;
+      color: var(--color-Text-Light-Grey);
+    }
+
+    & .multiselect__content-wrapper {
+      border: none;
+      background: transparent;
+    }
+
+    & .multiselect__option {
+      background: transparent;
+      padding: 0;
+      padding-left: 12px;
+      color: var(--color-Text-White);
+
+      &.multiselect__option--selected {
+        color: var(--color-Text-White);
+      }
+
+      &.multiselect__option--highlight {
+        color: var(--color-Text-White);
+      }
     }
   }
 }

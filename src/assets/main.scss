@@ -3,17 +3,38 @@
 
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-
+  padding: 0;
+  background-color: var(--color-Text-Line-Grey);
+  font-weight: normal;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
 
   & * {
-    font-weight: normal;
-    font-family: "DM Sans", sans-serif;
-    font-size: 16px;
-    line-height: 24px;
+    box-sizing: border-box;
   }
+}
+
+h1,
+.h1 {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+h2,
+.h2 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+h3,
+.h3 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
 a {
@@ -42,5 +63,22 @@ a {
 
 .flex-8 {
   display: flex;
+  gap: 8px;
+}
+
+.flex-center-8 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flex-16 {
+  display: flex;
+  gap: 16px;
+}
+
+.grid-8-8 {
+  display: grid;
+  grid-template-columns: repeat(16, min-content);
   gap: 8px;
 }

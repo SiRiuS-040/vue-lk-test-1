@@ -23,7 +23,7 @@
 }
 
 :root {
-  --color-background: var(--color-Primary-White);
+  --color-background: var(--color-Text-Line-Grey);
   --color-text: var(--color-Text-Black);
   --color-button-text: var(--color-Text-White);
 }
@@ -55,22 +55,5 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
-
-
-
-h1, .h1 {
-  font-size: 32px;
-  line-height: 38px;
-}
-
-h2, .h2 {
-  font-size: 24px;
-  line-height: 28px;
-}
-
-h3, .h3 {
-  font-size: 20px;
-  line-height: 24px;
-}
-

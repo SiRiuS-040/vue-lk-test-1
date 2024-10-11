@@ -95,8 +95,8 @@ export enum IconName {
     USER = 'user',
     ZOOM = 'zoom',
 
-    GERMANY = 'germany',
-    PORTUGAL = 'portugal',
+    GER = 'germany',
+    PT = 'portugal',
     UK = 'uk',
     USA = 'usa',
 }
@@ -144,8 +144,8 @@ export const UIICON = {
     [IconName.USER]: User,
     [IconName.ZOOM]: Zoom,
 
-    [IconName.GERMANY]: Germany,
-    [IconName.PORTUGAL]: Portugal,
+    [IconName.GER]: Germany,
+    [IconName.PT]: Portugal,
     [IconName.UK]: Uk,
     [IconName.USA]: Usa,
 }
