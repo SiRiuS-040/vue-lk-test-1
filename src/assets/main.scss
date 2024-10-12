@@ -10,10 +10,6 @@
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
   line-height: 24px;
-
-  & * {
-    box-sizing: border-box;
-  }
 }
 
 h1,
@@ -34,6 +30,30 @@ h3,
 .h3 {
   font-size: 20px;
   line-height: 24px;
+  font-weight: 400;
+}
+
+.text-1 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.text-2 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.text-3 {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.text-4 {
+  font-size: 15px;
+  line-height: 22px;
   font-weight: 400;
 }
 

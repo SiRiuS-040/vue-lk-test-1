@@ -13,7 +13,7 @@ export interface IProps {
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  theme: SelectTheme.DEFAULT
+  theme: SelectTheme.DEFAULT,
 });
 const selected = defineModel();
 const classes = computed(() => {

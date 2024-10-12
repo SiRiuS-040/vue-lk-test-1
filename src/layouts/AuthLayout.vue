@@ -1,18 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
-import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
-import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
-import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
-import { SelectTheme } from "@/components/ui/UiSelect/model/types";
+import LangSelect from "@/components/shared/LangSelect/LangSelect.vue";
 
-const route = useRoute()
-const langOptions = ["UK", "PT", "GER"];
-const langModel = ref("PT");
-
-const selectedLngIcon = computed(() => {
-  return langModel.value ?? IconName[langModel.value];
-});
+const route = useRoute();
 </script>
 
 <template>
@@ -20,13 +10,7 @@ const selectedLngIcon = computed(() => {
     <div class="auth-layout__wrapper">
       <div class="auth-layout__header">
         <span class="">Demo Test</span>
-        <span class="auth-layout__langselect">
-          <UiIcon :icon="IconName[selectedLngIcon]" :key="selectedLngIcon" />
-          <UiSelect
-            v-model="langModel"
-            :options="langOptions"
-          />
-        </span>
+        <LangSelect class="auth-layout__langselect" />
       </div>
       <div class="auth-layout__content">
         <RouterView />
@@ -133,10 +117,6 @@ const selectedLngIcon = computed(() => {
 
   &__langselect {
     z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
   }
 
   &__content {

@@ -2,6 +2,7 @@
   --color-Primary-Red: rgb(217, 14, 50);
   --color-Primary-Dark-Red: #A60933;
   --color-Primary-Dark: #282828;
+  --color-Primary-Light-Gray: rgb(243, 246, 248);
   --color-Primary-White: #FFFFFF;
 
   --color-Text-Black: #293148;
@@ -36,13 +37,13 @@
   }
 }
 
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
-} */
+}
 
 body {
   min-height: 100vh;

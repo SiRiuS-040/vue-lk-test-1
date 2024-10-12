@@ -12,6 +12,4 @@ import RestoreForm from "@/components/shared/forms/RestoreForm/RestoreForm.vue";
     </template>
   </AuthContent>
 </template>
-<style scope lang="scss">
-</style>
-
+<style scope lang="scss"></style>
