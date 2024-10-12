@@ -27,8 +27,9 @@ const restorePassword = () => {
         label="Email address"
         placeholder="name@domian.com"
       />
-      <UiButton @click.prevent="restorePassword"> Restore Password </UiButton>
-
+      <div class="restore-form__controls">
+        <UiButton @click.prevent="restorePassword"> Restore Password </UiButton>
+      </div>
       <div class="restore-form__to-login">
         I remembered the password!
         <router-link to="/auth-login">SIGN IN </router-link>
@@ -49,7 +50,14 @@ const restorePassword = () => {
     gap: 24px;
   }
 
+  &__controls {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__to-login {
+    margin-top: 16px;
     text-align: center;
   }
 }

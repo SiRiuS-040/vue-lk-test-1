@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scope lang="scss">
 .auth-content {
   display: grid;
   grid-template-columns: 1fr;
@@ -48,6 +48,13 @@
       @media (min-width: 1440px) {
         max-width: none;
         width: 577px;
+      }
+    }
+
+    & .restore-view__img {
+      @media (min-width: 1440px) {
+        max-width: none;
+        width: 488px;
       }
     }
   }

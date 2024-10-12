@@ -2,6 +2,12 @@
   display: inline-block;
   width: auto;
 
+  &--theme-default {
+    & .multiselect__tags {
+      border: none;
+    }
+  }
+
   &--theme-clear {
     & .multiselect__tags {
       border: none;

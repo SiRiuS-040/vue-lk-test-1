@@ -6,13 +6,15 @@ import Multiselect from "vue-multiselect";
 import { SelectTheme } from "@/components/ui/UiSelect/model/types";
 
 export interface IProps {
-  options?: [];
+  options?: string[] | object[] | any[];
   hasDefault?: boolean;
   placeholder?: string;
   theme?: SelectTheme;
 }
 
-const props = defineProps<IProps>();
+const props = withDefaults(defineProps<IProps>(), {
+  theme: SelectTheme.DEFAULT
+});
 const selected = defineModel();
 const classes = computed(() => {
   return [props.theme ? `ui-select--theme-${props.theme}` : ""];

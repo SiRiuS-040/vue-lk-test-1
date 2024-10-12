@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
 import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 import { SelectTheme } from "@/components/ui/UiSelect/model/types";
 
+const route = useRoute()
 const langOptions = ["UK", "PT", "GER"];
 const langModel = ref("PT");
 
@@ -14,7 +16,7 @@ const selectedLngIcon = computed(() => {
 </script>
 
 <template>
-  <div class="auth-layout">
+  <div class="auth-layout" :key="route.path">
     <div class="auth-layout__wrapper">
       <div class="auth-layout__header">
         <span class="">Demo Test</span>
@@ -23,8 +25,6 @@ const selectedLngIcon = computed(() => {
           <UiSelect
             v-model="langModel"
             :options="langOptions"
-            :theme="SelectTheme.CLEAR"
-            class=""
           />
         </span>
       </div>
@@ -50,9 +50,10 @@ const selectedLngIcon = computed(() => {
   transition: opacity 0.1s;
   animation-duration: 0.3s;
 
+  min-height: 100vh;
+
   @media (min-width: 768px) {
     padding: 20px 20px;
-    height: 100vh;
   }
 
   @media (min-width: 1440px) {
@@ -95,7 +96,7 @@ const selectedLngIcon = computed(() => {
       bottom: 0;
       right: 0;
       width: 100%;
-      height: 600px;
+      height: 630px;
       background-color: var(--color-Primary-White);
       transition: all 0.5s;
 
@@ -135,6 +136,7 @@ const selectedLngIcon = computed(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
   }
 
   &__content {
@@ -142,9 +144,11 @@ const selectedLngIcon = computed(() => {
     max-height: 80%;
     width: -webkit-fill-available;
     margin-top: 100px;
+    margin-bottom: 50px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1440px) {
       margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }

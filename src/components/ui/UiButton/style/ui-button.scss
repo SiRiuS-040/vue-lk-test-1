@@ -9,8 +9,8 @@
   justify-content: center;
   gap: 16px;
 
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
 
   &--size-auto {
     padding: 2px;
@@ -25,17 +25,17 @@
   &--size-m {
     min-height: 42px;
     border-radius: 10px;
-    padding: 11px 16px;
+    padding: 13px 16px;
   }
 
   &--size-l {
     border-radius: 10px;
-    padding: 12px 50px;
+    padding: 13px 50px;
     min-width: 300px;
   }
 
   &--has-icon {
-    padding: 11px 50px;
+    padding: 13px 50px;
   }
 
   &--theme-primary {

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import AuthContent from "@/components/shared/AuthContent/AuthContent.vue";
-
+import AuthContent from "@/components/layout/AuthContent/AuthContent.vue";
 import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
 </script>
 <template>
