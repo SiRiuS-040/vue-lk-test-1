@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style scope lang="scss">
+<style scoped lang="scss">
 .auth-content {
   display: grid;
   grid-template-columns: 1fr;

@@ -12,6 +12,8 @@ export const useAppMenuStore = defineStore('appMenu', {
   getters: {},
   actions: {
     triggerMenuState() {
+      console.log('triggerMenuState');
+
       this.isOpen = !this.isOpen
     }
   },

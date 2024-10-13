@@ -18,20 +18,12 @@ import { useAppMenuStore } from "@/stores/app-menu.ts";
 const router = useRouter();
 const route = useRoute();
 
-const windowWidth = ref(window.innerWidth);
-
-console.log(windowWidth.value);
-
-const istMobile = computed(() => {
-  return windowWidth.value < 768;
-});
-
 const appMenuStore = useAppMenuStore();
 </script>
 <template>
   <div class="default-layout">
     <div class="default-layout__wrapper">
-      <AppMenu class="default-layout__app-menu"> </AppMenu>
+      <AppMenu class="default-layout__app-menu" />
       <div class="default-layout__content">
         <div class="default-layout__header">
           <h1 class="default-layout__page-title">
@@ -49,9 +41,7 @@ const appMenuStore = useAppMenuStore();
             </span>
             <LangSelect />
             <UiButton
-              v-show="istMobile"
-              :format="ButtonFormat.SQUARE"
-              :theme="ButtonTheme.OUTLINE"
+              :theme="ButtonTheme.CLEAR"
               class="default-layout__header-burger"
               @click="appMenuStore.triggerMenuState()"
             >
@@ -65,13 +55,13 @@ const appMenuStore = useAppMenuStore();
   </div>
 </template>
 
-<style scope lang="scss">
+<style scoped lang="scss">
 .default-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 16px;
+  padding: 4px 4px;
 
   opacity: 1;
   animation-name: fade-out;
@@ -81,10 +71,13 @@ const appMenuStore = useAppMenuStore();
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  // max-height: 100vh;
+
+  max-height: 100vh;
 
   @media (min-width: 768px) {
     padding: 20px 20px;
+
+    max-height: none;
   }
 
   @media (min-width: 1440px) {
@@ -194,6 +187,8 @@ const appMenuStore = useAppMenuStore();
   }
 
   &__header-burger {
+    display: flex;
+
     @media (min-width: 768px) {
       display: none;
     }

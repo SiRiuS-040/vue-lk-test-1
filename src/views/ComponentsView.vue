@@ -10,6 +10,9 @@ import {
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
 
+
+
+
 import UiTextArea from "@/components/ui/UiTextArea/UiTextArea.vue";
 import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 
@@ -45,30 +48,16 @@ const selected2 = ref();
         <UiButton :icon="IconName.LOGIN" :iconEnd="IconName.EYE">
           with props icon
         </UiButton>
-        <UiButton
-          :icon="IconName.LOGIN"
-          :iconEnd="IconName.EYE"
-          :size="ButtonSize.L"
-        >
+        <UiButton :icon="IconName.LOGIN" :iconEnd="IconName.EYE" :size="ButtonSize.L">
           with props icon - (l)
         </UiButton>
       </div>
-
       <div>
         <UiButton :theme="ButtonTheme.PRIMARY"> Default (m) </UiButton>
-        <UiButton
-          :theme="ButtonTheme.PRIMARY"
-          :icon="IconName.LOGIN"
-          :iconEnd="IconName.LOGIN"
-        >
+        <UiButton :theme="ButtonTheme.PRIMARY" :icon="IconName.LOGIN" :iconEnd="IconName.LOGIN">
           with props icon
         </UiButton>
-        <UiButton
-          :theme="ButtonTheme.PRIMARY"
-          :icon="IconName.LOGIN"
-          :iconEnd="IconName.EYE"
-          :size="ButtonSize.L"
-        >
+        <UiButton :theme="ButtonTheme.PRIMARY" :icon="IconName.LOGIN" :iconEnd="IconName.EYE" :size="ButtonSize.L">
           with props icon - (l)
         </UiButton>
       </div>
@@ -77,12 +66,7 @@ const selected2 = ref();
         <UiButton disabled :icon="IconName.LOGIN" :iconEnd="IconName.LOGIN">
           with props icon
         </UiButton>
-        <UiButton
-          disabled
-          :icon="IconName.LOGIN"
-          :iconEnd="IconName.EYE"
-          :size="ButtonSize.L"
-        >
+        <UiButton disabled :icon="IconName.LOGIN" :iconEnd="IconName.EYE" :size="ButtonSize.L">
           with props icon - (l)
         </UiButton>
       </div>
@@ -110,32 +94,15 @@ const selected2 = ref();
         </UiButton>
       </div>
       <div class="flex-col-16">
-        <UiInput
-          label="Label"
-          helperText="Helper text"
-          placeholder="Placeholder"
-        />
-        <UiInput
-          label="Label"
-          helperText="Helper text"
-          placeholder="Placeholder"
-        >
+        <UiInput label="Label" helperText="Helper text" placeholder="Placeholder" />
+        <UiInput label="Label" helperText="Helper text" placeholder="Placeholder">
           <template #icon>
             <UiIcon :icon="IconName.PLUS" />
           </template>
         </UiInput>
-        <UiInput
-          label="Label"
-          helperText="Helper text"
-          :icon="IconName.ZOOM"
-          placeholder="Placeholder"
-        />
+        <UiInput label="Label" helperText="Helper text" :icon="IconName.ZOOM" placeholder="Placeholder" />
         <UiInput disabled placeholder="Placeholder" />
-        <UiTextArea
-          label="Label"
-          helperText="Helper text"
-          placeholder="Placeholder"
-        />
+        <UiTextArea label="Label" helperText="Helper text" placeholder="Placeholder" />
       </div>
       <div class="flex-8">
         <router-link to="/"> Link - Home </router-link>
