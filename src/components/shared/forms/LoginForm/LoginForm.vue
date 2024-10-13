@@ -67,12 +67,15 @@ const fetchAuth = async (data) => {
       >
       <div class="login-form__controls">
         <UiButton
+          :size="ButtonSize.L"
           :iconEnd="IconName.LOGIN"
           @click.prevent="fetchAuth({ login, password })"
         >
           Sign in
         </UiButton>
-        <UiButton :theme="ButtonTheme.OUTLINE"> Contact support </UiButton>
+        <UiButton :theme="ButtonTheme.OUTLINE" :size="ButtonSize.L">
+          Contact support
+        </UiButton>
       </div>
     </div>
   </div>

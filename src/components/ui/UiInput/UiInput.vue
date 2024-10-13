@@ -11,6 +11,7 @@ export interface IProps {
   icon?: IconName;
   disabled?: boolean;
   helperText?: string;
+  size?: string;
 }
 
 const inputModel = defineModel();
@@ -18,10 +19,11 @@ const inputModel = defineModel();
 const props = withDefaults(defineProps<IProps>(), {
   type: "text",
   autocomplete: "off",
+  size: "m",
 });
 
 const inputClasses = computed(() => {
-  return [];
+  return [props.size ? `ui-input--size-${props.size}` : ""];
 });
 </script>
 

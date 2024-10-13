@@ -19,7 +19,7 @@ import {
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
 
-export interface IProps {
+interface IProps {
   theme?: ButtonTheme;
   size?: ButtonSize;
   format?: ButtonFormat;

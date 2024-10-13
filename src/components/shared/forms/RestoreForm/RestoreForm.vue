@@ -28,7 +28,9 @@ const restorePassword = () => {
         placeholder="name@domian.com"
       />
       <div class="restore-form__controls">
-        <UiButton @click.prevent="restorePassword"> Restore Password </UiButton>
+        <UiButton @click.prevent="restorePassword" :size="ButtonSize.L">
+          Restore Password
+        </UiButton>
       </div>
       <div class="restore-form__to-login">
         I remembered the password!

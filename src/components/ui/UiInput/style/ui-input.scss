@@ -3,6 +3,18 @@
   flex-direction: column;
   gap: 10px;
 
+  &--size-s {
+    & .ui-input__input {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    & .ui-input__icon,
+    .ui-input__icon-slot {
+      top: 21px;
+    }
+  }
+
   &__wrapper {
     display: flex;
     position: relative;
@@ -34,8 +46,8 @@
 
   &__icon {
     position: absolute;
-    bottom: 24px;
-    transform: translateY(50%);
+    top: 24px;
+    transform: translateY(-50%);
     right: 16px;
     color: var(--color-Text-Light-Grey);
   }
@@ -55,8 +67,8 @@
     display: flex;
     position: absolute;
     right: 16px;
-    top: 0;
-    transform: translateY(50%);
+    top: 24px;
+    transform: translateY(-50%);
     color: var(--color-Text-Light-Grey);
     cursor: pointer;
   }
