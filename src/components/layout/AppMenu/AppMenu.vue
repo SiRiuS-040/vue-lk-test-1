@@ -103,7 +103,7 @@ const authStore = useAuthStore();
   }
 
   &__header {
-    padding: 30px 16px;
+    padding: 16px 16px 30px 16px;
     font-size: 24px;
     line-height: 24px;
     text-align: center;

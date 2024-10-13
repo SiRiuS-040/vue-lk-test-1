@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
@@ -32,13 +33,16 @@ const selectOptions = [
   },
 ];
 
+const route = useRoute();
 const selected = ref();
 const selected2 = ref();
 </script>
 
 <template>
-  <main class="app-main">
-    <div>Cтраница компонентов</div>
+  <div class="page-content">
+    <h1 class="page-content__page-title">
+      {{ route.meta.title }}
+    </h1>
     <div class="app-main__content">
       <div>
         <UiButton> Default </UiButton>
@@ -150,11 +154,27 @@ const selected2 = ref();
         <UiIcon v-for="(icon, index) in IconName" :key="index" :icon="icon" />
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.app-main {
+.page-content {
+  &__page-title {
+    display: block;
+    padding-bottom: 16px;
+
+    @media (min-width: 768px) {
+      margin-top: 24px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-top: 0;
+      min-height: 42px;
+      padding-bottom: 30px;
+      max-width: 580px;
+    }
+  }
+
   &__content {
     display: flex;
     flex-direction: column;

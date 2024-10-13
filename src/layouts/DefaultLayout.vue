@@ -27,9 +27,6 @@ const authStore = useAuthStore();
       <AppMenu class="default-layout__app-menu" />
       <div class="default-layout__content">
         <div class="default-layout__header">
-          <h1 class="default-layout__page-title">
-            {{ route.meta.title }}
-          </h1>
           <div class="default-layout__header-info">
             <UiButton
               :format="ButtonFormat.SQUARE"
@@ -44,14 +41,14 @@ const authStore = useAuthStore();
               <span class="text-3">{{ authStore.userName }}</span>
             </span>
             <LangSelect />
-            <UiButton
-              :theme="ButtonTheme.CLEAR"
-              class="default-layout__header-burger"
-              @click="appMenuStore.triggerMenuState()"
-            >
-              <UiIcon :icon="IconName.MORE_HORIZONTAL" />
-            </UiButton>
           </div>
+          <UiButton
+            :theme="ButtonTheme.CLEAR"
+            class="default-layout__header-burger"
+            @click="appMenuStore.triggerMenuState()"
+          >
+            <UiIcon :icon="IconName.MORE_HORIZONTAL" />
+          </UiButton>
         </div>
         <div class="default-layout__main">
           <slot />
@@ -115,7 +112,7 @@ const authStore = useAuthStore();
 
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    // gap: 18px;
 
     @media (min-width: 768px) {
       width: min-content;
@@ -127,24 +124,24 @@ const authStore = useAuthStore();
   }
 
   &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
     color: var(--color-Text-Black);
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
 
     @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
     }
   }
 
-  &__page-title {
-    order: 2;
-
+  &__header-burger {
     @media (min-width: 768px) {
-      order: 1;
+      display: none;
+    }
+  }
+
+  &__main {
+    @media (min-width: 1440px) {
+      margin-top: -42px;
     }
   }
 
@@ -153,13 +150,11 @@ const authStore = useAuthStore();
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
-    order: 1;
 
     margin-right: 0;
     margin-left: auto;
 
     @media (min-width: 768px) {
-      order: 2;
       margin-right: unset;
       margin-left: unset;
     }
@@ -183,14 +178,6 @@ const authStore = useAuthStore();
     align-items: center;
     justify-content: center;
     background-color: var(--color-Primary-Light-Gray);
-  }
-
-  &__header-burger {
-    display: flex;
-
-    @media (min-width: 768px) {
-      display: none;
-    }
   }
 }
 </style>
