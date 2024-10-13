@@ -9,8 +9,10 @@ import {
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
 import { useAppMenuStore } from "@/stores/app-menu.ts";
+import { useAuthStore } from "@/stores/auth.ts";
 
 const appMenuStore = useAppMenuStore();
+const authStore = useAuthStore();
 </script>
 
 <template>
@@ -26,16 +28,6 @@ const appMenuStore = useAppMenuStore();
       </UiButton>
     </div>
     <ul class="app-menu__nav navigation-1">
-      <li>
-        <router-link class="app-menu__nav-item" to="/auth-login">
-          <UiIcon :icon="IconName.LOGIN" />Login
-        </router-link>
-      </li>
-      <li>
-        <router-link class="app-menu__nav-item" to="/auth-restore">
-          <UiIcon :icon="IconName.EDIT" />Restore
-        </router-link>
-      </li>
       <li>
         <router-link class="app-menu__nav-item" to="/">
           <UiIcon :icon="IconName.GLOBE" />Home
@@ -64,7 +56,11 @@ const appMenuStore = useAppMenuStore();
       </li>
     </ul>
     <div class="app-menu__footer">
-      <UiButton :theme="ButtonTheme.CLEAR" class="app-menu__footer-control">
+      <UiButton
+        :theme="ButtonTheme.CLEAR"
+        class="app-menu__footer-control"
+        @click.prevent="authStore.logout"
+      >
         <UiIcon :icon="IconName.LOGOUT" />
         Logout
       </UiButton>
@@ -119,9 +115,6 @@ const appMenuStore = useAppMenuStore();
 
     @media (min-width: 768px) {
       padding: 30px 30px 30px 56px;
-    }
-
-    @media (min-width: 1440px) {
     }
   }
 

@@ -12,13 +12,14 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 import LangSelect from "@/components/shared/LangSelect/LangSelect.vue";
-
 import { useAppMenuStore } from "@/stores/app-menu.ts";
+import { useAuthStore } from "@/stores/auth.ts";
 
 const router = useRouter();
 const route = useRoute();
 
 const appMenuStore = useAppMenuStore();
+const authStore = useAuthStore();
 </script>
 <template>
   <div class="default-layout">
@@ -40,7 +41,7 @@ const appMenuStore = useAppMenuStore();
               <span class="default-layout__header-user-icon">
                 <UiIcon :icon="IconName.USER" :size="IconSize.SIZE_32" />
               </span>
-              <span class="text-3">John Doe</span>
+              <span class="text-3">{{ authStore.userName }}</span>
             </span>
             <LangSelect />
             <UiButton

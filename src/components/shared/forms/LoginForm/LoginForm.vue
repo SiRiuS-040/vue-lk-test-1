@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, unref, watch } from "vue";
 import { useRouter } from "vue-router";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
@@ -10,11 +10,15 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
+import { useAuthStore } from "@/stores/auth.ts";
+import { log } from "console";
 
+const authStore = useAuthStore();
 const router = useRouter();
-const loginEmail = ref();
-const loginPassword = ref();
+const login = ref();
+const password = ref();
 const pwInputType = ref("password");
+const authErrorMessage = ref("");
 
 const changePasswordVisibility = () => {
   pwInputType.value === "password"
@@ -22,12 +26,13 @@ const changePasswordVisibility = () => {
     : (pwInputType.value = "password");
 };
 
-const checkLogin = () => {
-  if (loginEmail.value === "111" && loginPassword.value === "111") {
-    console.log("Данные верные - вход");
+const fetchAuth = async (data) => {
+  authErrorMessage.value = "";
+  authStore.authirize(data).catch(() => {
+    console.log("ошибка");
 
-    router.push("/");
-  }
+    authErrorMessage.value = "Incorrect Email address or Password";
+  });
 };
 </script>
 <template>
@@ -36,17 +41,20 @@ const checkLogin = () => {
     <h3>Hi there! Nice to see you again.</h3>
     <div class="login-form__form">
       <UiInput
-        v-model="loginEmail"
+        v-model="login"
         label="Email address"
         placeholder="name@domian.com"
       />
       <UiInput
-        v-model="loginPassword"
+        v-model="password"
         label="Password"
         placeholder="password"
         :type="pwInputType"
         autocomplete="new-password"
       >
+        <template #helperText>
+          <span class="login-form__error"> {{ authErrorMessage }}</span>
+        </template>
         <template #icon>
           <UiIcon
             :icon="IconName.EYE"
@@ -58,7 +66,10 @@ const checkLogin = () => {
         >Forgot Password?</router-link
       >
       <div class="login-form__controls">
-        <UiButton :iconEnd="IconName.LOGIN" @click.prevent="checkLogin">
+        <UiButton
+          :iconEnd="IconName.LOGIN"
+          @click.prevent="fetchAuth({ login, password })"
+        >
           Sign in
         </UiButton>
         <UiButton :theme="ButtonTheme.OUTLINE"> Contact support </UiButton>
@@ -81,6 +92,10 @@ const checkLogin = () => {
     @media (min-width: 768px) {
       gap: 24px;
     }
+  }
+
+  &__error {
+    color: var(--color-Secondary-Light-Red);
   }
 
   &__forget-password {

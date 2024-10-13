@@ -42,9 +42,10 @@ const inputClasses = computed(() => {
         <slot name="icon"> </slot>
       </span>
     </span>
-    <span v-if="helperText" class="ui-input__helper-text">{{
-      helperText
-    }}</span>
+    <span v-if="helperText" class="ui-input__helper-text">
+      {{ helperText }}
+    </span>
+    <slot name="helperText" />
   </label>
 </template>
 

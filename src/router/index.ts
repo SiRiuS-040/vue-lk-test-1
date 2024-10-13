@@ -9,6 +9,7 @@ import SettingsView from '@/views/SettingsView.vue'
 import ComponentsView from '@/views/ComponentsView.vue'
 
 import { loadLayoutMiddleware } from "@/router/middleware/loadLayoutMiddleware";
+import { checkAuth } from "@/router/middleware/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -80,5 +81,6 @@ const router = createRouter({
 })
 
 router.beforeEach(loadLayoutMiddleware)
+router.beforeEach(checkAuth)
 
 export default router
