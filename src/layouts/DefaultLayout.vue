@@ -112,7 +112,6 @@ const authStore = useAuthStore();
 
     display: flex;
     flex-direction: column;
-    // gap: 18px;
 
     @media (min-width: 768px) {
       width: min-content;

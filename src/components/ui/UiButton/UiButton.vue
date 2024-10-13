@@ -1,5 +1,5 @@
 <template>
-  <button class="ui-button" :class="buttonClasses">
+  <button class="ui-button" :class="buttonClasses" :disabled="disabled">
     <UiIcon v-if="icon" :icon="icon" class="ui-button__icon" />
     <slot></slot>
     <UiIcon
