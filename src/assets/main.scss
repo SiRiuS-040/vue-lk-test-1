@@ -10,54 +10,106 @@
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
   line-height: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 h1,
 .h1 {
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 22px;
+  line-height: 28px;
   font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 38px;
+  }
 }
 
 h2,
 .h2 {
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 500;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 
 h3,
 .h3 {
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 22px;
   font-weight: 400;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.navigation-1 {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .text-1 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 500;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 
 .text-2 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 
 .text-3 {
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 500;
+
+  @media (min-width: 768px) {
+    font-size: 15px;
+    line-height: 22px;
+  }
 }
 
 .text-4 {
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
+
+  @media (min-width: 768px) {
+    font-size: 15px;
+    line-height: 22px;
+  }
 }
 
-a {
+a,
+.link {
   color: var(--color-Secondary-Light-Red);
   transition: color 0.3s;
   text-decoration: none;
@@ -82,6 +134,7 @@ a {
 
 .flex-8 {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -100,4 +153,18 @@ a {
   display: grid;
   grid-template-columns: repeat(16, min-content);
   gap: 8px;
+}
+
+// animation
+
+@keyframes fade-out {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

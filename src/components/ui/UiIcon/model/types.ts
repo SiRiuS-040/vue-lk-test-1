@@ -1,4 +1,5 @@
 import Login from '@/assets/icons/log_in.svg'
+import Logout from '@/assets/icons/log_out.svg'
 import ArrowLeft from '@/assets/icons/arrow_left.svg'
 import ArrowRight from '@/assets/icons/arrow_right.svg'
 import Briefcase from '@/assets/icons/briefcase.svg'
@@ -75,6 +76,7 @@ export enum IconName {
     LOCATION = 'location',
     LOCK = 'lock',
     LOGIN = 'login',
+    LOGOUT = 'logout',
     MORE_HORIZONTAL = 'more_horizontal',
     MORE_VERTICAL = 'more_vertical',
     MOVE = 'move',
@@ -124,6 +126,7 @@ export const UIICON = {
     [IconName.LOCATION]: Location,
     [IconName.LOCK]: Lock,
     [IconName.LOGIN]: Login,
+    [IconName.LOGOUT]: Logout,
     [IconName.MORE_HORIZONTAL]: MoreHorizontal,
     [IconName.MORE_VERTICAL]: MoreVertical,
     [IconName.MOVE]: Move,

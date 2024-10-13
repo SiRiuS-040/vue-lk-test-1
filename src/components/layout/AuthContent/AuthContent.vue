@@ -39,23 +39,11 @@
   &__image-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
     color: var(--color-Text-White);
 
-    & img {
-      width: 100%;
-
-      @media (min-width: 1440px) {
-        max-width: none;
-        width: 577px;
-      }
-    }
-
-    & .restore-view__img {
-      @media (min-width: 1440px) {
-        max-width: none;
-        width: 488px;
-      }
+    @media (min-width: 768px) {
+      gap: 24px;
     }
   }
 

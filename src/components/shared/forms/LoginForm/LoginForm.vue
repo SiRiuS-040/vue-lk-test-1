@@ -76,7 +76,11 @@ const checkLogin = () => {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+
+    @media (min-width: 768px) {
+      gap: 24px;
+    }
   }
 
   &__forget-password {
@@ -87,7 +91,11 @@ const checkLogin = () => {
   &__controls {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+
+    @media (min-width: 768px) {
+      gap: 24px;
+    }
   }
 }
 </style>

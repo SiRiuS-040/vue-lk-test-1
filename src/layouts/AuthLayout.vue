@@ -26,7 +26,7 @@ const route = useRoute();
   align-items: center;
   justify-content: center;
 
-  padding: 16px 16px;
+  padding: 4px 4px;
   width: 100%;
 
   opacity: 1;
@@ -36,17 +36,16 @@ const route = useRoute();
 
   min-height: 100vh;
 
-  @media (min-width: 768px) {
-    padding: 20px 20px;
-  }
-
   @media (min-width: 1440px) {
-    padding: 30px 40px;
+    padding: 0;
   }
 
   &__wrapper {
+    flex-grow: 1;
     padding: 16px 16px;
     height: 100%;
+
+    width: -webkit-fill-available;
 
     border-radius: 20px;
     background: linear-gradient(
@@ -68,6 +67,7 @@ const route = useRoute();
     }
 
     @media (min-width: 1440px) {
+      flex-grow: 0;
       padding: 30px 40px;
       width: 1440px;
       height: 1024px;
@@ -80,7 +80,7 @@ const route = useRoute();
       bottom: 0;
       right: 0;
       width: 100%;
-      height: 630px;
+      height: 550px;
       background-color: var(--color-Primary-White);
       transition: all 0.5s;
 
@@ -102,17 +102,26 @@ const route = useRoute();
   }
 
   &__header {
-    padding: 30px 40px;
+    padding: 30px 16px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     z-index: 10;
 
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 18px;
+
+    @media (min-width: 768px) {
+      align-items: flex-start;
+      padding: 30px 40px;
+
+      font-size: 24px;
+      line-height: 24px;
+    }
   }
 
   &__langselect {

@@ -3,9 +3,9 @@ import AuthContent from "@/components/layout/AuthContent/AuthContent.vue";
 import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
 </script>
 <template>
-  <AuthContent>
+  <AuthContent class="login-view">
     <template #image>
-      <img src="@/assets/img/car-1.png" alt="" />
+      <img src="@/assets/img/car-1.png" alt="" class="login-view__img" />
       <h2>Digitale Lösungen für den Fahrzeughandel</h2>
     </template>
     <template #form>
@@ -14,5 +14,15 @@ import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
   </AuthContent>
 </template>
 <style lang="scss">
+.login-view {
+  &__img {
+    width: 100%;
+
+    @media (min-width: 1440px) {
+      max-width: none;
+      width: 577px;
+    }
+  }
+}
 </style>
 

@@ -41,13 +41,21 @@ const restorePassword = () => {
 .restore-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    gap: 16px;
+  }
 
   &__form {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+
+    @media (min-width: 768px) {
+      gap: 24px;
+    }
   }
 
   &__controls {

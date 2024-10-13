@@ -12,4 +12,15 @@ import RestoreForm from "@/components/shared/forms/RestoreForm/RestoreForm.vue";
     </template>
   </AuthContent>
 </template>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.restore-view {
+  &__img {
+    width: 100%;
+
+    @media (min-width: 1440px) {
+      max-width: none;
+      width: 488px;
+    }
+  }
+}
+</style>

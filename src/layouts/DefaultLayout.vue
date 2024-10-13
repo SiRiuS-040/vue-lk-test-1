@@ -30,12 +30,15 @@ const appMenuStore = useAppMenuStore();
             {{ route.meta.title }}
           </h1>
           <div class="default-layout__header-info">
-            <UiButton :format="ButtonFormat.SQUARE">
+            <UiButton
+              :format="ButtonFormat.SQUARE"
+              :theme="ButtonTheme.OUTLINE"
+            >
               <UiIcon :icon="IconName.PLUS" />
             </UiButton>
             <span class="default-layout__header-user">
               <span class="default-layout__header-user-icon">
-                <UiIcon :icon="IconName.USER" />
+                <UiIcon :icon="IconName.USER" :size="IconSize.SIZE_32" />
               </span>
               <span class="text-3">John Doe</span>
             </span>
@@ -49,7 +52,9 @@ const appMenuStore = useAppMenuStore();
             </UiButton>
           </div>
         </div>
-        <slot />
+        <div class="default-layout__main">
+          <slot />
+        </div>
       </div>
     </div>
   </div>
@@ -75,21 +80,15 @@ const appMenuStore = useAppMenuStore();
   max-height: 100vh;
 
   @media (min-width: 768px) {
-    padding: 20px 20px;
-
     max-height: none;
   }
 
   @media (min-width: 1440px) {
-    padding: 30px 40px;
-
-    // min-height: none;
+    padding: 0;
   }
 
   &__wrapper {
     flex-grow: 1;
-    // padding: 16px 16px;
-    // height: 100%;
     width: 100%;
     border-radius: 20px;
     background: var(--color-Primary-White);
@@ -97,19 +96,14 @@ const appMenuStore = useAppMenuStore();
     overflow: hidden;
 
     display: flex;
-    // align-items: center;
-    // justify-content: center;
 
     @media (min-width: 768px) {
-      // padding: 20px 20px;
       min-height: 1024px;
     }
 
     @media (min-width: 1440px) {
       flex-grow: 0;
-      // padding: 30px 40px;
       width: 1440px;
-      // height: 1024px;
     }
   }
 
@@ -117,6 +111,14 @@ const appMenuStore = useAppMenuStore();
     flex-grow: 1;
     overflow-y: auto;
     padding: 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    @media (min-width: 768px) {
+      width: min-content;
+    }
 
     @media (min-width: 1440px) {
       padding: 32px 30px;
@@ -143,15 +145,12 @@ const appMenuStore = useAppMenuStore();
     @media (min-width: 768px) {
       order: 1;
     }
-
-    @media (min-width: 1440px) {
-      // order: 1;
-    }
   }
 
   &__header-info {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 16px;
     order: 1;
 
@@ -160,7 +159,6 @@ const appMenuStore = useAppMenuStore();
 
     @media (min-width: 768px) {
       order: 2;
-
       margin-right: unset;
       margin-left: unset;
     }
@@ -192,18 +190,6 @@ const appMenuStore = useAppMenuStore();
     @media (min-width: 768px) {
       display: none;
     }
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 </style>

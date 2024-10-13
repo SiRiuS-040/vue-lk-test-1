@@ -15,7 +15,7 @@ const appMenuStore = useAppMenuStore();
 
 <template>
   <div class="app-menu" :class="{ 'is-open': appMenuStore.isOpen }">
-    <div class="app-menu__logo">
+    <div class="app-menu__header">
       <span>Demo Test</span>
       <UiButton
         :theme="ButtonTheme.CLEAR"
@@ -25,7 +25,7 @@ const appMenuStore = useAppMenuStore();
         <UiIcon :icon="IconName.CLOSE" />
       </UiButton>
     </div>
-    <ul class="app-menu__nav">
+    <ul class="app-menu__nav navigation-1">
       <li>
         <router-link class="app-menu__nav-item" to="/auth-login">
           <UiIcon :icon="IconName.LOGIN" />Login
@@ -58,10 +58,17 @@ const appMenuStore = useAppMenuStore();
       </li>
       <li>
         <router-link class="app-menu__nav-item" to="/components">
-          <UiIcon :icon="IconName.TRASH" />Components
+          <UiIcon :icon="IconName.TRASH" />
+          Components
         </router-link>
       </li>
     </ul>
+    <div class="app-menu__footer">
+      <UiButton :theme="ButtonTheme.CLEAR" class="app-menu__footer-control">
+        <UiIcon :icon="IconName.LOGOUT" />
+        Logout
+      </UiButton>
+    </div>
   </div>
 </template>
 
@@ -70,7 +77,6 @@ const appMenuStore = useAppMenuStore();
   width: 0;
   background-color: var(--color-Primary-Dark);
   overflow: hidden;
-  // color: var(--color-Text-White);
   overflow-y: auto;
 
   padding: 0 0 40px 0;
@@ -84,18 +90,14 @@ const appMenuStore = useAppMenuStore();
     z-index: 100;
 
     @media (min-width: 768px) {
-      width: 254px;
+      width: 256px;
       position: static;
       height: auto;
     }
   }
 
   @media (min-width: 768px) {
-    width: 254px;
-  }
-
-  @media (min-width: 1440px) {
-    width: 254px;
+    width: 256px;
   }
 
   &__menu-close {
@@ -104,7 +106,7 @@ const appMenuStore = useAppMenuStore();
     }
   }
 
-  &__logo {
+  &__header {
     padding: 30px 16px;
     font-size: 24px;
     line-height: 24px;
@@ -116,7 +118,7 @@ const appMenuStore = useAppMenuStore();
     justify-content: space-between;
 
     @media (min-width: 768px) {
-      padding: 30px 30px 30px 32px;
+      padding: 30px 30px 30px 56px;
     }
 
     @media (min-width: 1440px) {
@@ -129,10 +131,7 @@ const appMenuStore = useAppMenuStore();
     gap: 16px;
 
     margin-top: 32px;
-
-    @media (min-width: 768px) {
-      margin-top: 0;
-    }
+    margin-bottom: 32px;
   }
 
   &__nav-item {
@@ -165,6 +164,22 @@ const appMenuStore = useAppMenuStore();
         height: 100%;
         background-color: var(--color-Primary-Red);
       }
+    }
+  }
+
+  &__footer {
+    padding: 12px 16px 12px 18px;
+
+    @media (min-width: 768px) {
+      padding: 12px 30px 12px 32px;
+    }
+  }
+
+  &__footer-control {
+    color: var(--color-Text-White);
+
+    &:hover {
+      color: var(--color-Primary-Red);
     }
   }
 }
