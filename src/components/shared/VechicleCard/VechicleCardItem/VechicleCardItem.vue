@@ -9,7 +9,7 @@ interface IProps {
 defineProps<IProps>();
 </script>
 <template>
-  <div class="vechicle-card-item">
+  <div class="vechicle-card-item" v-if="vechicle">
     <div class="vechicle-card-item__img-wrapper">
       <img :src="vechicle.placeholder" alt="" class="vechicle-card-item__img" />
     </div>
@@ -19,19 +19,19 @@ defineProps<IProps>();
           vechicle["vehicle_name"] ? vechicle["vehicle_name"] : "Without name"
         }}
       </h3>
-      <p class="vechicle-card-item__vin">
+      <p v-if="vechicle.vin" class="vechicle-card-item__vin">
         <span> {{ vechicle["vin_postfix"] }} </span>
         <span>{{ vechicle.vin }}</span>
       </p>
-      <hr />
-      <div>
-        <span v-if="vechicle.hp" class="vechicle-card-item__ads"
-          >{{ vechicle.hp }}
-        </span>
-        <span v-if="vechicle['defect_state']" class="vechicle-card-item__ads">
-          {{ vechicle["defect_state"] }}
-        </span>
-      </div>
+    </div>
+    <hr class="vechicle-card-item__divider" />
+    <div class="vechicle-card-item__foter text-4">
+      <span v-if="vechicle.hp" class="vechicle-card-item__ads"
+        >{{ vechicle.hp }}
+      </span>
+      <span v-if="vechicle['defect_state']" class="vechicle-card-item__ads">
+        {{ vechicle["defect_state"] }}
+      </span>
     </div>
   </div>
 </template>
@@ -46,8 +46,8 @@ defineProps<IProps>();
     padding: 20px;
   }
 
-  & * {
-    // border: 1px solid red;
+  @media (min-width: 1440px) {
+    padding: 16px 24px;
   }
 
   &__img-wrapper {
@@ -61,7 +61,8 @@ defineProps<IProps>();
   &__img {
     border-radius: 10px;
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 26/13.5;
+    object-fit: cover;
   }
 
   &__vechicle-name {
@@ -81,11 +82,21 @@ defineProps<IProps>();
     gap: 12px;
   }
 
+  &__divider {
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  &__footer {
+    display: flex;
+    gap: 12px;
+  }
+
   &__ads {
+    text-transform: uppercase;
     border-radius: 6px;
-    padding: 4px 12px;
+    padding: 5px 12px;
     background-color: rgb(237, 237, 237);
   }
 }
 </style>
-

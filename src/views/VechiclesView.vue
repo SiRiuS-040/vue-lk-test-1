@@ -26,7 +26,7 @@ const fetchCarsByParams = async (perPage: number = 9, page: number = 1) => {
   vechiclesStore.fetchCarsByParams(perPage, page);
 };
 
-const changePage = async (page) => {
+const changePage = async (page: number) => {
   console.log("со страницы");
   console.log(page);
 
@@ -39,6 +39,7 @@ fetchCarsByParams(9, 1);
 watch(
   () => perPageselected.value,
   () => {
+    currentPage.value = 1;
     fetchCarsByParams(perPageselected.value, 1);
   }
 );
