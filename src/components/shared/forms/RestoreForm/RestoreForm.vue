@@ -72,4 +72,3 @@ const restorePassword = () => {
   }
 }
 </style>
-
