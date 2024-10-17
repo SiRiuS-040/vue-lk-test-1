@@ -20,8 +20,8 @@ const selectedLngIcon = computed(() => {
 <style scoped lang="scss">
 .lang-select {
   display: flex;
+  gap: 8px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
 }
 </style>

@@ -27,10 +27,10 @@ const route = useRoute();
     }
 
     @media (min-width: 1440px) {
-      margin-top: 0;
-      min-height: 42px;
-      padding-bottom: 30px;
       max-width: 580px;
+      min-height: 42px;
+      margin-top: 0;
+      padding-bottom: 30px;
     }
   }
 }

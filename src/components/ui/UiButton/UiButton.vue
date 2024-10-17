@@ -47,5 +47,5 @@ const buttonClasses = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@import "style/ui-button.scss";
+@import "style/ui-button";
 </style>

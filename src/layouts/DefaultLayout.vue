@@ -22,7 +22,7 @@ const appMenuStore = useAppMenuStore();
 const authStore = useAuthStore();
 </script>
 <template>
-  <div class="default-layout">
+  <div class="default-layout" :key="route.path">
     <div class="default-layout__wrapper">
       <AppMenu class="default-layout__app-menu" />
       <div class="default-layout__content">
@@ -64,18 +64,15 @@ const authStore = useAuthStore();
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4px 4px;
-
-  opacity: 1;
-  animation-name: fade-out;
-  transition: opacity 0.1s;
-  animation-duration: 0.3s;
-
-  height: 100%;
   width: 100%;
+  height: 100%;
   min-height: 100vh;
-
   max-height: 100vh;
+  padding: 4px 4px;
+  opacity: 1;
+  transition: opacity 0.3s;
+  animation-name: fade-out;
+  animation-duration: 0.3s;
 
   @media (min-width: 768px) {
     max-height: none;
@@ -86,14 +83,16 @@ const authStore = useAuthStore();
   }
 
   &__wrapper {
+    position: relative;
+
+    display: flex;
     flex-grow: 1;
+    overflow: hidden;
     width: 100%;
     border-radius: 20px;
     background: var(--color-Primary-White);
-    position: relative;
-    overflow: hidden;
 
-    display: flex;
+    transition: all 0.1s;
 
     @media (min-width: 768px) {
       min-height: 1024px;
@@ -106,12 +105,11 @@ const authStore = useAuthStore();
   }
 
   &__content {
+    display: flex;
     flex-grow: 1;
+    flex-direction: column;
     overflow-y: auto;
     padding: 16px 16px;
-
-    display: flex;
-    flex-direction: column;
 
     @media (min-width: 768px) {
       width: min-content;
@@ -123,13 +121,10 @@ const authStore = useAuthStore();
   }
 
   &__header {
-    color: var(--color-Text-Black);
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: flex-end;
-
-    @media (min-width: 768px) {
-    }
+    color: var(--color-Text-Black);
   }
 
   &__header-burger {
@@ -146,9 +141,9 @@ const authStore = useAuthStore();
 
   &__header-info {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     gap: 16px;
+    align-items: center;
 
     margin-right: 0;
     margin-left: auto;
@@ -165,17 +160,17 @@ const authStore = useAuthStore();
 
   &__header-user {
     display: flex;
-    align-items: center;
     gap: 16px;
+    align-items: center;
   }
 
   &__header-user-icon {
-    border-radius: 50%;
-    height: 46px;
-    width: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
     background-color: var(--color-Primary-Light-Gray);
   }
 }

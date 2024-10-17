@@ -50,10 +50,10 @@ const restorePassword = () => {
   }
 
   &__form {
-    margin-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: 24px;
 
     @media (min-width: 768px) {
       gap: 24px;
@@ -61,9 +61,9 @@ const restorePassword = () => {
   }
 
   &__controls {
-    margin-top: 8px;
     display: flex;
     flex-direction: column;
+    margin-top: 8px;
   }
 
   &__to-login {

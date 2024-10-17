@@ -19,8 +19,8 @@ import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
     width: 100%;
 
     @media (min-width: 1440px) {
-      max-width: none;
       width: 577px;
+      max-width: none;
     }
   }
 }

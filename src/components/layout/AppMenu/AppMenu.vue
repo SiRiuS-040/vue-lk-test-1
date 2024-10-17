@@ -70,30 +70,30 @@ const authStore = useAuthStore();
 
 <style scoped lang="scss">
 .app-menu {
-  width: 0;
-  background-color: var(--color-Primary-Dark);
   overflow: hidden;
   overflow-y: auto;
+  width: 0;
 
   padding: 0 0 40px 0;
+  background-color: var(--color-Primary-Dark);
+
+  @media (min-width: 768px) {
+    width: 256px;
+  }
 
   &.is-open {
-    width: 100%;
-    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
+    width: 100%;
+    height: 100vh;
 
     @media (min-width: 768px) {
-      width: 256px;
       position: static;
+      width: 256px;
       height: auto;
     }
-  }
-
-  @media (min-width: 768px) {
-    width: 256px;
   }
 
   &__menu-close {
@@ -103,15 +103,15 @@ const authStore = useAuthStore();
   }
 
   &__header {
-    padding: 16px 16px 30px 16px;
-    font-size: 24px;
-    line-height: 24px;
-    text-align: center;
-    color: var(--color-Text-White);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 16px 16px 30px 16px;
+    color: var(--color-Text-White);
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
 
     @media (min-width: 768px) {
       padding: 30px 30px 30px 56px;
@@ -128,20 +128,20 @@ const authStore = useAuthStore();
   }
 
   &__nav-item {
-    color: var(--color-Text-White);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 12px 16px 12px 18px;
     position: relative;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 12px 16px 12px 18px;
+    color: var(--color-Text-White);
 
     @media (min-width: 768px) {
       padding: 12px 30px 12px 32px;
     }
 
     &:hover {
-      transition: color 0.3s;
       color: var(--color-Primary-Red);
+      transition: color 0.3s;
     }
 
     &.router-link-active,

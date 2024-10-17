@@ -35,5 +35,5 @@ const classes = computed(() => {
   />
 </template>
 <style lang="scss">
-@import "style/ui-select.scss";
+@import "style/ui-select";
 </style>

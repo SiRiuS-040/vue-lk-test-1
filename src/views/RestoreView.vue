@@ -18,8 +18,8 @@ import RestoreForm from "@/components/shared/forms/RestoreForm/RestoreForm.vue";
     width: 100%;
 
     @media (min-width: 1440px) {
-      max-width: none;
       width: 488px;
+      max-width: none;
     }
   }
 }

@@ -37,10 +37,10 @@ defineProps<IProps>();
 </template>
 <style lang="scss">
 .vechicle-card-item {
-  border-radius: 10px;
   min-height: 335px;
-  background-color: var(--color-Primary-Light-Gray);
   padding: 16px;
+  border-radius: 10px;
+  background-color: var(--color-Primary-Light-Gray);
 
   @media (min-width: 768px) {
     padding: 20px;
@@ -59,16 +59,16 @@ defineProps<IProps>();
   }
 
   &__img {
-    border-radius: 10px;
-    width: 100%;
-    aspect-ratio: 26/13.5;
     object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 26/13.5;
   }
 
   &__vechicle-name {
+    font-weight: 700;
     font-size: 16px;
     line-height: 18px;
-    font-weight: 700;
 
     @media (min-width: 768px) {
       font-size: 20px;
@@ -93,10 +93,10 @@ defineProps<IProps>();
   }
 
   &__ads {
-    text-transform: uppercase;
-    border-radius: 6px;
     padding: 5px 12px;
+    border-radius: 6px;
     background-color: rgb(237, 237, 237);
+    text-transform: uppercase;
   }
 }
 </style>

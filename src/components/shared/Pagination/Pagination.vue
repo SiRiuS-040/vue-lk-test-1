@@ -91,7 +91,7 @@ const changePage = (page: number) => {
 <style scoped lang="scss">
 .pagination {
   display: flex;
-  align-items: center;
   gap: 16px;
+  align-items: center;
 }
 </style>

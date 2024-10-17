@@ -26,5 +26,5 @@ const currentIcon = UIICON[props.icon]
 </script>
 
 <style scoped lang="scss">
-@import 'style/ui-icon.scss'
+@import 'style/ui-icon'
 </style>

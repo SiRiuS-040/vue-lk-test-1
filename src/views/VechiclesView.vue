@@ -116,10 +116,10 @@ watch(
     }
 
     @media (min-width: 1440px) {
-      margin-top: 0;
-      min-height: 42px;
-      padding-bottom: 30px;
       max-width: 580px;
+      min-height: 42px;
+      margin-top: 0;
+      padding-bottom: 30px;
     }
   }
 
@@ -138,8 +138,8 @@ watch(
   &__filter {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     gap: 32px;
+    align-items: center;
 
     &-search {
       @media (min-width: 1440px) {
@@ -154,11 +154,10 @@ watch(
   }
 
   &__vechicle-cards {
-    margin-top: 32px;
-
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 16px;
+    margin-top: 32px;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
@@ -171,14 +170,11 @@ watch(
     }
   }
 
-  &__vechicle-card {
-  }
-
   &__footer {
-    margin-top: 32px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
   }
 }
 </style>

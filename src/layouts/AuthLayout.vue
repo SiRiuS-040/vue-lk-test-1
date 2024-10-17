@@ -25,27 +25,33 @@ const route = useRoute();
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  padding: 4px 4px;
   width: 100%;
 
-  opacity: 1;
-  animation-name: fade-out;
-  transition: opacity 0.1s;
-  animation-duration: 0.3s;
-
   min-height: 100vh;
+
+  padding: 4px 4px;
+
+  opacity: 1;
+  transition: opacity 0.1s;
+  animation-name: fade-out;
+  animation-duration: 0.3s;
 
   @media (min-width: 1440px) {
     padding: 0;
   }
 
   &__wrapper {
+    position: relative;
+
+    display: flex;
     flex-grow: 1;
-    padding: 16px 16px;
-    height: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 
     width: -webkit-fill-available;
+    height: 100%;
+    padding: 16px 16px;
 
     border-radius: 20px;
     background: linear-gradient(
@@ -55,12 +61,6 @@ const route = useRoute();
     );
 
     color: var(--color-Primary-White);
-    position: relative;
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     @media (min-width: 768px) {
       padding: 20px 20px;
@@ -68,17 +68,17 @@ const route = useRoute();
 
     @media (min-width: 1440px) {
       flex-grow: 0;
-      padding: 30px 40px;
       width: 1440px;
       height: 1024px;
+      padding: 30px 40px;
     }
 
     &::before {
       content: "";
       position: absolute;
       top: auto;
-      bottom: 0;
       right: 0;
+      bottom: 0;
       width: 100%;
       height: 550px;
       background-color: var(--color-Primary-White);
@@ -92,25 +92,25 @@ const route = useRoute();
       }
 
       @media (min-width: 1440px) {
-        width: 1024px;
         right: 0;
-        aspect-ratio: 1;
+        width: 1024px;
         border-radius: 50%;
         transform: translateX(35.2%) scale(1.172);
+        aspect-ratio: 1;
       }
     }
   }
 
   &__header {
-    padding: 30px 16px;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 10;
+    width: 100%;
+    padding: 30px 16px;
 
     font-size: 18px;
     line-height: 18px;
@@ -130,8 +130,8 @@ const route = useRoute();
 
   &__content {
     position: relative;
-    max-height: 80%;
     width: -webkit-fill-available;
+    max-height: 80%;
     margin-top: 100px;
     margin-bottom: 50px;
 

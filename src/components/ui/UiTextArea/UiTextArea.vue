@@ -28,5 +28,5 @@ const inputClasses = computed(() => {
 });
 </script>
 <style scoped lang="scss">
-@import "style/ui-textarea.scss";
+@import "style/ui-textarea";
 </style>

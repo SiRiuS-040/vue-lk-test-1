@@ -16,9 +16,9 @@
 .auth-content {
   display: grid;
   grid-template-columns: 1fr;
-  justify-content: space-between;
-  align-items: center;
   gap: 100px;
+  align-items: center;
+  justify-content: space-between;
 
   width: -webkit-fill-available;
   height: 80%;
@@ -32,8 +32,8 @@
     grid-template-columns: min-content auto;
     gap: 160px;
     height: 770px;
-    margin-left: 40px;
     margin-right: 115px;
+    margin-left: 40px;
   }
 
   &__image-wrapper {

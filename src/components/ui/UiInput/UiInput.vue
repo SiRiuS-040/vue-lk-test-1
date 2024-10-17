@@ -52,5 +52,5 @@ const inputClasses = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@import "style/ui-input.scss";
+@import "style/ui-input";
 </style>
