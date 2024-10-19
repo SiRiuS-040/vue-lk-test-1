@@ -4,7 +4,10 @@ import LoginView from '@/views/LoginView.vue'
 import RestoreView from '@/views/RestoreView.vue'
 import HomeView from '@/views/HomeView.vue'
 import ProfileView from '@/views/ProfileView.vue'
-import VechiclesView from '@/views/VechiclesView.vue'
+import VehiclesMainView from '@/views/VehiclesMainView.vue'
+import VehiclesView from '@/views/VehiclesView.vue'
+
+import VehiclesAddView from '@/views/VehiclesAddView.vue'
 import SettingsView from '@/views/SettingsView.vue'
 import ComponentsView from '@/views/ComponentsView.vue'
 
@@ -21,7 +24,7 @@ const router = createRouter({
       meta: {
         layout: 'AuthLayout',
         title: 'Login'
-      }
+      },
     },
     {
       path: '/auth-restore',
@@ -51,13 +54,33 @@ const router = createRouter({
       }
     },
     {
-      path: '/vechicles',
-      name: 'Vechicles',
-      component: VechiclesView,
+      path: '/vehicles',
+      name: 'VehiclesMain',
+      component: VehiclesMainView,
       meta: {
         layout: 'DefaultLayout',
-        title: 'Vechicles'
-      }
+        title: 'VehiclesMain'
+      },
+      children: [
+        {
+          path: '',
+          name: 'Vehicles',
+          component: VehiclesView,
+          meta: {
+            layout: 'DefaultLayout',
+            title: 'Vehicles'
+          },
+        },
+        {
+          path: '/vehicles/add-vehicle',
+          name: 'NewVehicles',
+          component: VehiclesAddView,
+          meta: {
+            layout: 'DefaultLayout',
+            title: 'New vehicles'
+          },
+        }
+      ],
     },
     {
       path: '/settings',

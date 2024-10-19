@@ -99,7 +99,6 @@ const changePage = (page: number) => {
   @media (min-width: 768px) {
     gap: 16px;
     align-items: flex-start;
-    justify-content: center;
     justify-content: flex-end;
   }
 }

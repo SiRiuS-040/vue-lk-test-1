@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import {
   ButtonTheme,
@@ -11,19 +11,20 @@ import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
-import type { IVechicle, IVechicles } from "@/repository/vechicles/models";
-import VechicleCardItem from "@/components/shared/VechicleCard/VechicleCardItem/VechicleCardItem.vue";
+import type { IVehicle, IVehicles } from "@/repository/vehicles/models";
+import VehicleCardItem from "@/components/shared/VehicleCard/VehicleCardItem/VehicleCardItem.vue";
 import Pagination from "@/components/shared/Pagination/Pagination.vue";
-import { useVechiclesStore } from "@/stores/vechicles.ts";
+import { useVehiclesStore } from "@/stores/vehicles.ts";
 
 const route = useRoute();
+const router = useRouter();
 const selectPerPageOptions = ref([9, 18, 36, 72]);
 const perPageselected = ref(9);
 const currentPage = ref(1);
-const vechiclesStore = useVechiclesStore();
+const vehiclesStore = useVehiclesStore();
 
 const fetchCarsByParams = async (perPage: number = 9, page: number = 1) => {
-  vechiclesStore.fetchCarsByParams(perPage, page);
+  vehiclesStore.fetchCarsByParams(perPage, page);
 };
 
 const changePage = async (page: number) => {
@@ -67,34 +68,37 @@ watch(
           <UiSelect v-model="perPageselected" :options="selectPerPageOptions" />
         </span>
 
-        <UiButton class="page-content__filter-add">
+        <UiButton
+          class="page-content__filter-add"
+          @click.prevent="router.push({ name: 'NewVehicles' })"
+        >
           <UiIcon :icon="IconName.PLUS" />
-          Add Vechicle
+          Add Vehicle
         </UiButton>
       </div>
-      <div class="page-content__vechicle-cards">
-        <VechicleCardItem
-          v-for="vechicle in vechiclesStore.vechicles"
-          :vechicle="vechicle"
-          :key="vechicle.id"
-          class="page-content__vechicle-card"
+      <div class="page-content__vehicle-cards">
+        <VehicleCardItem
+          v-for="vehicle in vehiclesStore.vehicles"
+          :vehicle="vehicle"
+          :key="vehicle.id"
+          class="page-content__vehicle-card"
         />
       </div>
       <div class="page-content__footer">
         <span>
           Showing
           {{
-            perPageselected < vechiclesStore.vechiclesTotal
+            perPageselected < vehiclesStore.vehiclesTotal
               ? perPageselected
-              : vechiclesStore.vechiclesTotal
+              : vehiclesStore.vehiclesTotal
           }}
           out of
-          {{ vechiclesStore.vechiclesTotal }}
+          {{ vehiclesStore.vehiclesTotal }}
         </span>
         <Pagination
           :currentPage="currentPage"
           :itemsPerPage="perPageselected"
-          :totalItems="vechiclesStore.vechiclesTotal"
+          :totalItems="vehiclesStore.vehiclesTotal"
           @changePage="(page) => changePage(page)"
         ></Pagination>
       </div>
@@ -153,7 +157,7 @@ watch(
     margin-left: auto;
   }
 
-  &__vechicle-cards {
+  &__vehicle-cards {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 16px;
@@ -173,8 +177,8 @@ watch(
   &__footer {
     display: flex;
     flex-direction: column;
-    margin-top: 32px;
     gap: 24px;
+    margin-top: 32px;
 
     @media (min-width: 768px) {
       flex-direction: row;

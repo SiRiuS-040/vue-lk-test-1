@@ -1,21 +1,21 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
-import type { IVechicle, IVechicles, IMetaLink } from '@/repository/vechicles/models'
+import type { IVechicle, IVehicles, IMetaLink } from '@/repository/vehicles/models'
 
 interface IStore {
-  vechicles?: IVechicle[]
-  vechiclesPerPage?: number
-  vechiclesTotal?: number
+  vehicles?: IVechicle[]
+  vehiclesPerPage?: number
+  vehiclesTotal?: number
   currentVechicle?: IVechicle
   paginationLinks?: IMetaLink[]
 
 }
 
-export const useVechiclesStore = defineStore('vechiclesStore', {
+export const useVehiclesStore = defineStore('vehiclesStore', {
   state: (): IStore => ({
-    vechicles: [],
-    vechiclesPerPage: 0,
-    vechiclesTotal: 0,
+    vehicles: [],
+    vehiclesPerPage: 0,
+    vehiclesTotal: 0,
     paginationLinks: []
   }),
   getters: {},
@@ -26,10 +26,10 @@ export const useVechiclesStore = defineStore('vechiclesStore', {
         .then((response) => {
           console.log(response);
 
-          this.vechicles = response.data.data;
-          this.vechiclesPerPage = response.data.meta["per_page"]
+          this.vehicles = response.data.data;
+          this.vehiclesPerPage = response.data.meta["per_page"]
           this.paginationLinks = response.data.meta.links
-          this.vechiclesTotal = response.data.meta.total
+          this.vehiclesTotal = response.data.meta.total
         })
         .catch((error) => {
           console.log(error);
@@ -42,10 +42,10 @@ export const useVechiclesStore = defineStore('vechiclesStore', {
         .then((response) => {
           console.log(response);
 
-          this.vechicles = response.data.data;
-          this.vechiclesPerPage = response.data.meta["per_page"]
+          this.vehicles = response.data.data;
+          this.vehiclesPerPage = response.data.meta["per_page"]
           this.paginationLinks = response.data.meta.links
-          this.vechiclesTotal = response.data.meta.total
+          this.vehiclesTotal = response.data.meta.total
         })
         .catch((error) => {
           console.log(error);

@@ -177,23 +177,3 @@ a,
     transform: scale(1);
   }
 }
-
-@keyframes book {
-  0% {
-    // opacity: 0;
-    transform: perspective(3000px) rotateY(-10deg);
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  50% {
-
-  }
-
-  100% {
-    opacity: 1;
-    transform: perspective(3000px) rotateX(0);
-  }
-}

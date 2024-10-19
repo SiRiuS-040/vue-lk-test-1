@@ -40,7 +40,7 @@ export interface IMetaLink {
     "active": boolean
 }
 
-export interface IVechicles {
+export interface IVehicles {
     "data": IVechicle[],
     "links": {
         "first": string

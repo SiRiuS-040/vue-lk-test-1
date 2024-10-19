@@ -39,8 +39,8 @@ const authStore = useAuthStore();
         </router-link>
       </li>
       <li>
-        <router-link class="app-menu__nav-item" to="/vechicles">
-          <UiIcon :icon="IconName.RIM" />Vechicles
+        <router-link class="app-menu__nav-item" to="/vehicles">
+          <UiIcon :icon="IconName.RIM" />Vehicles
         </router-link>
       </li>
       <li>
@@ -103,7 +103,6 @@ const authStore = useAuthStore();
   }
 
   &__header {
-
     display: flex;
     align-items: center;
     justify-content: space-between;

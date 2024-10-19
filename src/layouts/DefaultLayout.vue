@@ -93,8 +93,8 @@ const authStore = useAuthStore();
     transition: all 0.1s;
 
     @media (min-width: 768px) {
-      border-radius: 20px;
       min-height: 1024px;
+      border-radius: 20px;
     }
 
     @media (min-width: 1440px) {
