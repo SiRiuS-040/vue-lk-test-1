@@ -15,13 +15,15 @@ import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
 import AddVehicleForm from "@/components/shared/forms/AddVehicleForm/AddVehicleForm.vue";
 
+import PageContent from "@/components/layout/PageContent/PageContent.vue";
+
 const route = useRoute();
 const router = useRouter();
 </script>
 
 <template>
-  <div class="page-content">
-    <div class="page-content__page-title-wrapper">
+  <PageContent>
+    <template #title-control>
       <UiButton
         :theme="ButtonTheme.PLAIN"
         :format="ButtonFormat.SQUARE"
@@ -29,52 +31,16 @@ const router = useRouter();
       >
         <UiIcon :icon="IconName.ARROW_LEFT" />
       </UiButton>
-      <h1 class="page-content__page-title">{{ route.meta.title }}</h1>
-    </div>
+    </template>
 
-    <hr />
-    <div class="page-content__content">
-      <AddVehicleForm class="page-content__form" />
-    </div>
-  </div>
+    <template #default-content>
+      <AddVehicleForm class="page__form" />
+    </template>
+  </PageContent>
 </template>
 
 <style scoped lang="scss">
-.page-content {
-  flex-direction: column;
-  gap: 16px;
-
-  &__page-title-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-
-    @media (min-width: 768px) {
-      margin-top: 24px;
-    }
-
-    @media (min-width: 1440px) {
-      max-width: 580px;
-      min-height: 42px;
-      margin-top: 0;
-      margin-bottom: 30px;
-      min-height: 42px;
-    }
-  }
-
-  &__content {
-    margin-top: 16px;
-
-    @media (min-width: 768px) {
-      margin-top: 24px;
-    }
-
-    @media (min-width: 1440px) {
-      margin-top: 36px;
-    }
-  }
-
+.page {
   &__form {
     @media (min-width: 768px) {
       width: 400px;

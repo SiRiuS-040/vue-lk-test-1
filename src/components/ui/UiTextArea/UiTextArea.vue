@@ -20,6 +20,7 @@
 import { defineProps, computed } from "vue";
 
 export interface IProps {
+  required?: boolean;
   placeholder?: string;
   label?: string;
   disabled?: boolean;

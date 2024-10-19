@@ -15,6 +15,7 @@ import type { IVehicle, IVehicles } from "@/repository/vehicles/models";
 import VehicleCardItem from "@/components/shared/VehicleCard/VehicleCardItem/VehicleCardItem.vue";
 import Pagination from "@/components/shared/Pagination/Pagination.vue";
 import { useVehiclesStore } from "@/stores/vehicles.ts";
+import PageContent from "@/components/layout/PageContent/PageContent.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -47,21 +48,15 @@ watch(
 </script>
 
 <template>
-  <div class="page-content">
-    <h1 class="page-content__page-title">
-      {{ route.meta.title }}
-      <span class="page-content__ads text-5">{{
-        vehiclesStore.vehiclesTotal
-      }}</span>
-    </h1>
-    <hr />
-    <div class="page-content__content">
-      <div class="page-content__filter">
-        <UiInput
-          placeholder="Search VIN"
-          size="s"
-          class="page-content__filter-search"
-        >
+  <PageContent class="page">
+    <template #title-ads>
+      <span class="page__ads text-5">
+        {{ vehiclesStore.vehiclesTotal }}
+      </span>
+    </template>
+    <template #default-content>
+      <div class="page__filter">
+        <UiInput placeholder="Search VIN" size="s" class="page__filter-search">
           <template #icon>
             <UiIcon :icon="IconName.ZOOM" />
           </template>
@@ -70,24 +65,23 @@ watch(
           <span>Select vehicles per page:</span>
           <UiSelect v-model="perPageselected" :options="selectPerPageOptions" />
         </span>
-
         <UiButton
-          class="page-content__filter-add"
+          class="page__filter-add"
           @click.prevent="router.push({ name: 'NewVehicles' })"
         >
           <UiIcon :icon="IconName.PLUS" />
           Add Vehicle
         </UiButton>
       </div>
-      <div class="page-content__vehicle-cards">
+      <div class="page__vehicle-cards">
         <VehicleCardItem
           v-for="vehicle in vehiclesStore.vehicles"
           :vehicle="vehicle"
           :key="vehicle.id"
-          class="page-content__vehicle-card"
+          class="page__vehicle-card"
         />
       </div>
-      <div class="page-content__footer">
+      <div class="page__footer">
         <span>
           Showing
           {{
@@ -104,34 +98,12 @@ watch(
           @changePage="(page) => changePage(page)"
         ></Pagination>
       </div>
-    </div>
-  </div>
+    </template>
+  </PageContent>
 </template>
 
 <style scoped lang="scss">
-.page-content {
-  flex-direction: column;
-  gap: 16px;
-
-  &__page-title {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    margin-bottom: 16px;
-
-    @media (min-width: 768px) {
-      margin-top: 24px;
-    }
-
-    @media (min-width: 1440px) {
-      max-width: 580px;
-      min-height: 42px;
-      margin-top: 0;
-      margin-bottom: 30px;
-      min-height: 42px;
-    }
-  }
-
+.page {
   &__ads {
     padding: 5px 12px;
     border-radius: 6px;
@@ -145,18 +117,6 @@ watch(
     @media (min-width: 768px) {
       font-size: 15px;
       line-height: 22px;
-    }
-  }
-
-  &__content {
-    margin-top: 16px;
-
-    @media (min-width: 768px) {
-      margin-top: 24px;
-    }
-
-    @media (min-width: 1440px) {
-      margin-top: 36px;
     }
   }
 
