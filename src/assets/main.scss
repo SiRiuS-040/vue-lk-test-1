@@ -168,6 +168,12 @@ a,
   gap: 16px;
 }
 
+.flex-center-16 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .grid-8-8 {
   display: grid;
   grid-template-columns: repeat(16, min-content);

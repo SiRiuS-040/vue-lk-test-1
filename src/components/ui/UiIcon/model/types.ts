@@ -48,6 +48,7 @@ import Usa from '@/assets/icons/Flag/usa.svg'
 
 export enum IconSize {
     SIZE_16 = 16,
+    SIZE_20 = 20,
     SIZE_24 = 24,
     SIZE_32 = 32,
     SIZE_64 = 64,

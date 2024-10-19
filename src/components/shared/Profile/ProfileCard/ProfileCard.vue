@@ -18,8 +18,21 @@ const authStore = useAuthStore();
   <div class="profile-card">
     <div class="profile-card__info">
       <UiIcon :icon="IconName.USER" :size="IconSize.SIZE_82" />
-      <div>
+      <div class="flex-col-8">
         <h2 class="profile-card__name">{{ authStore.userName }}</h2>
+        <div class="flex-center-16">
+          <UiButton :theme="ButtonTheme.CLEAR" class="flex-8">
+            <UiIcon :icon="IconName.CAMERA" :size="IconSize.SIZE_20" />
+            Add photo
+          </UiButton>
+          <span class="profile-card__status flex-center-8">
+            <UiIcon
+              :icon="IconName.PATCH_CHECK_FILL"
+              :size="IconSize.SIZE_16"
+            />
+            Active
+          </span>
+        </div>
       </div>
     </div>
 
@@ -39,11 +52,12 @@ const authStore = useAuthStore();
 <style scoped lang="scss">
 .profile-card {
   padding: 18px;
-  border: 1px solid red;
+  border: 1px solid var(--color-Text-Line-Grey);
   border-radius: 6px;
 
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 
   @media (min-width: 768px) {
@@ -58,7 +72,13 @@ const authStore = useAuthStore();
 
   &__info {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 16px;
+  }
+
+  &__status {
+    color: var(--color-Secondary-Green);
   }
 
   &__stats {
