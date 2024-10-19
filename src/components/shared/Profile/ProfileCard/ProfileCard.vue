@@ -51,45 +51,41 @@ const authStore = useAuthStore();
 
 <style scoped lang="scss">
 .profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
   padding: 18px;
   border: 1px solid var(--color-Text-Line-Grey);
   border-radius: 6px;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-
   @media (min-width: 768px) {
-    border-radius: 10px;
-
-    align-items: center;
     flex-direction: row;
     gap: unset;
 
+    align-items: center;
+
     justify-content: space-between;
+    border-radius: 10px;
   }
 
   &__info {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     gap: 16px;
+    align-items: center;
   }
 
   &__status {
     color: var(--color-Secondary-Green);
-  }
-
-  &__stats {
   }
 }
 
 .profile-stats {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 16px;
+  align-items: center;
 
   //   flex-direction: column;
   justify-content: center;
@@ -106,13 +102,12 @@ const authStore = useAuthStore();
   }
 
   &__item {
-    padding: 0 16px;
-
     display: flex;
     flex-direction: column;
+    gap: 6px;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    padding: 0 16px;
   }
 }
 </style>

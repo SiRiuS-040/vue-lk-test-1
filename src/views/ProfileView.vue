@@ -13,6 +13,4 @@ import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue
 </template>
 
 <style scoped lang="scss">
-.page {
-}
 </style>

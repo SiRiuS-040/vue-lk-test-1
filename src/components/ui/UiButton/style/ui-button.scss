@@ -70,11 +70,11 @@
   }
 
   &--theme-clear {
+    min-height: unset;
     padding: 0;
     border-radius: 0;
     background-color: transparent;
     color: currentColor;
-    min-height: unset;
   }
 
   &--format-square {

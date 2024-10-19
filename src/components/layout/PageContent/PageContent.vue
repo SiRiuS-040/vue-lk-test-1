@@ -62,11 +62,11 @@ const changeTab = (tab: string) => {
 
   &__page-title-wrapper {
     display: flex;
-    align-items: center;
     gap: 16px;
+    align-items: center;
+    min-height: 42px;
     margin-top: 16px;
     margin-bottom: 16px;
-    min-height: 42px;
 
     @media (min-width: 1440px) {
       max-width: 580px;
@@ -78,8 +78,8 @@ const changeTab = (tab: string) => {
 
   &__page-title {
     display: flex;
-    align-items: center;
     gap: 16px;
+    align-items: center;
   }
 
   &__tabs {
@@ -108,8 +108,8 @@ const changeTab = (tab: string) => {
 
   &__item {
     padding-bottom: 14px;
-    transition: all 0.3s;
     cursor: pointer;
+    transition: all 0.3s;
 
     &.active {
       box-shadow: 0 3px 0px -1px var(--color-Primary-Red);
