@@ -1,37 +1,18 @@
 <script setup lang="ts">
-import { useRoute } from "vue-router";
-import UiButton from "@/components/ui/UiButton/UiButton.vue";
-
-const route = useRoute();
+import PageContent from "@/components/layout/PageContent/PageContent.vue";
+import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
 </script>
 
 <template>
-  <div class="page-content">
-    <h1 class="page-content__page-title">
-      {{ route.meta.title }}
-    </h1>
-  </div>
+  <PageContent class="page" :tabs="['Profile', 'Staff']">
+    <template #Profile-content>
+      <ProfileCard> </ProfileCard>
+    </template>
+    <template #Staff-content> Таб Staff </template>
+  </PageContent>
 </template>
 
 <style scoped lang="scss">
-.page-content {
-  flex-direction: column;
-  gap: 16px;
-
-  &__page-title {
-    display: block;
-    padding-bottom: 16px;
-
-    @media (min-width: 768px) {
-      margin-top: 24px;
-    }
-
-    @media (min-width: 1440px) {
-      max-width: 580px;
-      min-height: 42px;
-      margin-top: 0;
-      padding-bottom: 30px;
-    }
-  }
+.page {
 }
 </style>

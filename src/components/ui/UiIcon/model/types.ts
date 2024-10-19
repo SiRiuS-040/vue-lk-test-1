@@ -51,6 +51,7 @@ export enum IconSize {
     SIZE_24 = 24,
     SIZE_32 = 32,
     SIZE_64 = 64,
+    SIZE_82 = 82,
 }
 
 export enum IconName {
