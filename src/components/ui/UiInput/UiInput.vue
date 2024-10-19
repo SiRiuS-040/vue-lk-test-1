@@ -12,6 +12,7 @@ export interface IProps {
   disabled?: boolean;
   helperText?: string;
   size?: string;
+  required?: boolean;
 }
 
 const inputModel = defineModel();
@@ -29,7 +30,10 @@ const inputClasses = computed(() => {
 
 <template>
   <label class="ui-input" :class="inputClasses">
-    <span v-if="label" class="ui-input__label">{{ label }}</span>
+    <span v-if="label" class="ui-input__label"
+      >{{ label }}
+      <span v-if="required" class="ui-input__label-required">*</span>
+    </span>
     <span class="ui-input__wrapper">
       <input
         v-model="inputModel"
@@ -37,6 +41,7 @@ const inputClasses = computed(() => {
         :placeholder="placeholder"
         :type="type"
         :autocomplete="autocomplete"
+        :required="required"
         class="ui-input__input"
       />
       <UiIcon v-if="icon" class="ui-input__icon" :icon="icon" />

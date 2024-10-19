@@ -28,6 +28,10 @@
     }
   }
 
+  &__label-required {
+    color: var(--color-Primary-Red);
+  }
+
   &__icon {
     position: absolute;
     top: 24px;

@@ -1,8 +1,13 @@
 <template>
   <label class="ui-textarea" :class="inputClasses">
-    <span v-if="label" class="ui-textarea__label">{{ label }}</span>
+    <span v-if="label" class="ui-textarea__label"
+      >{{ label }}
+      <span v-if="required" class="ui-textarea__label-required">*</span>
+    </span>
     <span class="ui-textarea__wrapper">
       <textarea
+        v-model="inputModel"
+        :required="required"
         :disabled="disabled"
         :placeholder="placeholder"
         class="ui-textarea__input"
@@ -22,6 +27,7 @@ export interface IProps {
 }
 
 const props = defineProps<IProps>();
+const inputModel = defineModel();
 
 const inputClasses = computed(() => {
   return [];

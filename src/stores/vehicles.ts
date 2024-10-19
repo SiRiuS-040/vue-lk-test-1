@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
-import type { IVechicle, IVehicles, IMetaLink } from '@/repository/vehicles/models'
+import type { IVehicle, IVehicles, IMetaLink } from '@/repository/vehicles/models'
 
 interface IStore {
-  vehicles?: IVechicle[]
+  vehicles?: IVehicle[]
   vehiclesPerPage?: number
   vehiclesTotal?: number
-  currentVechicle?: IVechicle
+  currentVehicle?: IVehicle
   paginationLinks?: IMetaLink[]
 
 }

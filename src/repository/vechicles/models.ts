@@ -1,4 +1,4 @@
-export interface IVechicle {
+export interface IVehicle {
     "id": number,
     "user_id": number,
     "company_id": number,
@@ -41,7 +41,7 @@ export interface IMetaLink {
 }
 
 export interface IVehicles {
-    "data": IVechicle[],
+    "data": IVehicle[],
     "links": {
         "first": string
         "last": string,

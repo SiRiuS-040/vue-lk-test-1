@@ -50,6 +50,9 @@ watch(
   <div class="page-content">
     <h1 class="page-content__page-title">
       {{ route.meta.title }}
+      <span class="page-content__ads text-5">{{
+        vehiclesStore.vehiclesTotal
+      }}</span>
     </h1>
     <hr />
     <div class="page-content__content">
@@ -92,8 +95,7 @@ watch(
               ? perPageselected
               : vehiclesStore.vehiclesTotal
           }}
-          out of
-          {{ vehiclesStore.vehiclesTotal }}
+          out of {{ vehiclesStore.vehiclesTotal }}
         </span>
         <Pagination
           :currentPage="currentPage"
@@ -112,8 +114,10 @@ watch(
   gap: 16px;
 
   &__page-title {
-    display: block;
-    padding-bottom: 16px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 16px;
 
     @media (min-width: 768px) {
       margin-top: 24px;
@@ -123,7 +127,24 @@ watch(
       max-width: 580px;
       min-height: 42px;
       margin-top: 0;
-      padding-bottom: 30px;
+      margin-bottom: 30px;
+      min-height: 42px;
+    }
+  }
+
+  &__ads {
+    padding: 5px 12px;
+    border-radius: 6px;
+    background-color: rgb(237, 237, 237);
+
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    @media (min-width: 768px) {
+      font-size: 15px;
+      line-height: 22px;
     }
   }
 

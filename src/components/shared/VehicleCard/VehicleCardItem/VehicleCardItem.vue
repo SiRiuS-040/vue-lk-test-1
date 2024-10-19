@@ -66,6 +66,11 @@ defineProps<IProps>();
   padding: 16px;
   border-radius: 10px;
   background-color: var(--color-Primary-Light-Gray);
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.025);
+  }
 
   &__img-wrapper {
     position: relative;
