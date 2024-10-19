@@ -91,7 +91,16 @@ const changePage = (page: number) => {
 <style scoped lang="scss">
 .pagination {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
   align-items: center;
+  justify-content: flex-end;
+
+  @media (min-width: 768px) {
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: center;
+    justify-content: flex-end;
+  }
 }
 </style>

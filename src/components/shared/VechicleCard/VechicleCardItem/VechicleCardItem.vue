@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { defineProps, computed } from "vue";
 import type { IVechicle, IVechicles } from "@/repository/vechicles/models";
+import UiButton from "@/components/ui/UiButton/UiButton.vue";
+import {
+  ButtonTheme,
+  ButtonFormat,
+  ButtonSize,
+} from "@/components/ui/UiButton/model/types";
+import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
+import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 
 interface IProps {
   vechicle?: IVechicle;
@@ -11,6 +19,9 @@ defineProps<IProps>();
 <template>
   <div class="vechicle-card-item" v-if="vechicle">
     <div class="vechicle-card-item__img-wrapper">
+      <UiButton :theme="ButtonTheme.CLEAR" :format="ButtonFormat.SQUARE" class="vechicle-card-item__options">
+        <UiIcon :icon="IconName.MORE_HORIZONTAL" />
+      </UiButton>
       <img :src="vechicle.placeholder" alt="" class="vechicle-card-item__img" />
     </div>
     <div class="vechicle-card-item__info">
@@ -26,8 +37,7 @@ defineProps<IProps>();
     </div>
     <hr class="vechicle-card-item__divider" />
     <div class="vechicle-card-item__foter text-4">
-      <span v-if="vechicle.hp" class="vechicle-card-item__ads"
-        >{{ vechicle.hp }}
+      <span v-if="vechicle.hp" class="vechicle-card-item__ads">{{ vechicle.hp }}
       </span>
       <span v-if="vechicle['defect_state']" class="vechicle-card-item__ads">
         {{ vechicle["defect_state"] }}
@@ -35,33 +45,46 @@ defineProps<IProps>();
     </div>
   </div>
 </template>
-<style lang="scss">
+<style scoped lang="scss">
 .vechicle-card-item {
-  min-height: 335px;
   padding: 16px;
   border-radius: 10px;
   background-color: var(--color-Primary-Light-Gray);
 
-  @media (min-width: 768px) {
-    padding: 20px;
-  }
+  @media (min-width: 768px) {}
 
-  @media (min-width: 1440px) {
-    padding: 16px 24px;
-  }
+  @media (min-width: 1440px) {}
 
   &__img-wrapper {
-    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
 
-    @media (min-width: 768px) {
-      padding: 24px;
+    @media (min-width: 1440px) {}
+  }
+
+  &__options {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 2;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-Primary-Light-Gray);
+      z-index: -1;
+      transform: rotate(45deg) translateY(-16px) scale(1.5);
+
     }
   }
 
   &__img {
     object-fit: cover;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 6px;
     aspect-ratio: 26/13.5;
   }
 
@@ -80,6 +103,7 @@ defineProps<IProps>();
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: 16px;
   }
 
   &__divider {

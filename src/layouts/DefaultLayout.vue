@@ -22,7 +22,7 @@ const appMenuStore = useAppMenuStore();
 const authStore = useAuthStore();
 </script>
 <template>
-  <div class="default-layout" :key="route.path">
+  <div class="default-layout">
     <div class="default-layout__wrapper">
       <AppMenu class="default-layout__app-menu" />
       <div class="default-layout__content">
@@ -71,15 +71,13 @@ const authStore = useAuthStore();
   padding: 4px 4px;
   opacity: 1;
   transition: opacity 0.3s;
-  animation-name: fade-out;
-  animation-duration: 0.3s;
 
   @media (min-width: 768px) {
     max-height: none;
   }
 
   @media (min-width: 1440px) {
-    padding: 0;
+    justify-content: flex-start;
   }
 
   &__wrapper {
@@ -89,12 +87,13 @@ const authStore = useAuthStore();
     flex-grow: 1;
     overflow: hidden;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 4px;
     background: var(--color-Primary-White);
 
     transition: all 0.1s;
 
     @media (min-width: 768px) {
+      border-radius: 20px;
       min-height: 1024px;
     }
 

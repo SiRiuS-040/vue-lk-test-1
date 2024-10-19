@@ -49,7 +49,7 @@
 
   &--theme-outline {
     border-color: var(--color-Secondary-Light-Red);
-    background-color: transparent;
+    background-color: var(--color-Primary-White);
     color: var(--color-Secondary-Light-Red);
 
     &:hover {
@@ -60,7 +60,7 @@
 
   &--theme-plain {
     border-color: var(--color-Text-Line-Grey);
-    background-color: transparent;
+    background-color: var(--color-Primary-White);
     color: var(--color-Text-Grey);
 
     &:hover {
@@ -96,7 +96,7 @@
 
   &--disabled {
     border-color: var(--color-Text-Line-Grey);
-    background-color: transparent;
+    background-color: var(--color-Primary-White);
     color: var(--color-Text-Grey);
     cursor: no-drop;
 
