@@ -2,6 +2,22 @@
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
 import ProfileForm from "@/components/shared/forms/ProfileForm/ProfileForm.vue";
+import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
+import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
+import UiButton from "@/components/ui/UiButton/UiButton.vue";
+import {
+  ButtonTheme,
+  ButtonFormat,
+  ButtonSize,
+} from "@/components/ui/UiButton/model/types";
+import UiInput from "@/components/ui/UiInput/UiInput.vue";
+
+import Pagination from "@/components/shared/Pagination/Pagination.vue";
+import StaffList from "@/components/shared/Profile/StaffList/StaffList.vue";
+
+const changePage = async (page: number) => {
+  console.log("смена страницы пагинации");
+};
 </script>
 
 <template>
@@ -12,7 +28,27 @@ import ProfileForm from "@/components/shared/forms/ProfileForm/ProfileForm.vue";
         <ProfileForm class="page__form" />
       </div>
     </template>
-    <template #Staff-content> Таб Staff </template>
+    <template #Staff-content>
+      <div class="page__filter">
+        <UiInput placeholder="Search" size="s" class="page__filter-search">
+          <template #icon>
+            <UiIcon :icon="IconName.ZOOM" />
+          </template>
+        </UiInput>
+        <UiButton class="page__filter-add">
+          <UiIcon :icon="IconName.PLUS" />
+          Add new employee
+        </UiButton>
+      </div>
+      <StaffList />
+      <Pagination
+        :currentPage="1"
+        :itemsPerPage="9"
+        :totalItems="28"
+        @changePage="(page) => changePage(page)"
+        class="page__pagination"
+      />
+    </template>
   </PageContent>
 </template>
 
@@ -27,5 +63,28 @@ import ProfileForm from "@/components/shared/forms/ProfileForm/ProfileForm.vue";
       width: 50%;
     }
   }
+
+  &__filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+
+    &-search {
+      @media (min-width: 1440px) {
+        width: 355px;
+      }
+    }
+  }
+
+  &__filter-add {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  // &__pagination {
+  //   margin-top: auto;
+  //   margin-bottom: 0;
+  // }
 }
 </style>

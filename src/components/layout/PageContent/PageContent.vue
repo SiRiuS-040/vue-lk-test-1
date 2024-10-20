@@ -43,13 +43,13 @@ const changeTab = (tab: string) => {
     <hr />
     <div
       v-show="currentTab === tab"
-      class="page-content__content"
+      class="page-content__content flex-col-16"
       v-for="(tab, index) in tabs"
       :key="index"
     >
       <slot :name="`${tab}-content`" />
     </div>
-    <div class="page-content__content">
+    <div class="page-content__content flex-col-16">
       <slot name="default-content" />
     </div>
   </div>

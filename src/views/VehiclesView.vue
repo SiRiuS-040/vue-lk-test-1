@@ -81,23 +81,13 @@ watch(
           class="page__vehicle-card"
         />
       </div>
-      <div class="page__footer">
-        <span>
-          Showing
-          {{
-            perPageselected < vehiclesStore.vehiclesTotal
-              ? perPageselected
-              : vehiclesStore.vehiclesTotal
-          }}
-          out of {{ vehiclesStore.vehiclesTotal }}
-        </span>
-        <Pagination
-          :currentPage="currentPage"
-          :itemsPerPage="perPageselected"
-          :totalItems="vehiclesStore.vehiclesTotal"
-          @changePage="(page) => changePage(page)"
-        ></Pagination>
-      </div>
+      <Pagination
+        :currentPage="currentPage"
+        :itemsPerPage="perPageselected"
+        :totalItems="vehiclesStore.vehiclesTotal"
+        @changePage="(page) => changePage(page)"
+        class="page__pagination"
+      />
     </template>
   </PageContent>
 </template>
@@ -155,16 +145,9 @@ watch(
     }
   }
 
-  &__footer {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-top: 32px;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+  &__pagination {
+    margin-top: auto;
+    margin-bottom: 0;
   }
 }
 </style>
