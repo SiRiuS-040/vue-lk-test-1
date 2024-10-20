@@ -161,6 +161,7 @@ const authStore = useAuthStore();
 
   &__footer {
     padding: 12px 16px 12px 18px;
+    display: flex;
 
     @media (min-width: 768px) {
       padding: 12px 30px 12px 32px;

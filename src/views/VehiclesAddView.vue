@@ -43,7 +43,7 @@ const router = useRouter();
 .page {
   &__form {
     @media (min-width: 768px) {
-      width: 400px;
+      width: 470px;
     }
 
     @media (min-width: 1440px) {

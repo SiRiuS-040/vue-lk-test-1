@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, computed } from "vue";
+import { computed, ref } from "vue";
 import { IconName } from "@/components/ui/UiIcon/model/types";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 
@@ -15,17 +15,25 @@ export interface IProps {
   required?: boolean;
 }
 
-const inputModel = defineModel();
-
 const props = withDefaults(defineProps<IProps>(), {
   type: "text",
   autocomplete: "off",
   size: "m",
 });
 
+const inputModel = defineModel();
+const initialInputType = props.type;
+
 const inputClasses = computed(() => {
   return [props.size ? `ui-input--size-${props.size}` : ""];
 });
+
+const changedType = ref(props.type);
+const changePasswordVisibility = () => {
+  changedType.value === "password"
+    ? (changedType.value = "text")
+    : (changedType.value = "password");
+};
 </script>
 
 <template>
@@ -39,14 +47,19 @@ const inputClasses = computed(() => {
         v-model="inputModel"
         :disabled="disabled"
         :placeholder="placeholder"
-        :type="type"
+        :type="changedType"
         :autocomplete="autocomplete"
         :required="required"
         class="ui-input__input"
       />
       <UiIcon v-if="icon" class="ui-input__icon" :icon="icon" />
       <span class="ui-input__icon-slot">
-        <slot name="icon"> </slot>
+        <slot name="icon"></slot>
+        <UiIcon
+          v-if="initialInputType === 'password'"
+          :icon="IconName.EYE"
+          @click.prevent="changePasswordVisibility"
+        />
       </span>
     </span>
     <span v-if="helperText" class="ui-input__helper-text">

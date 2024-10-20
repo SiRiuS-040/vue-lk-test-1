@@ -15,16 +15,9 @@ import { log } from "console";
 
 const authStore = useAuthStore();
 const router = useRouter();
-const login = ref();
-const password = ref();
-const pwInputType = ref("password");
+const login = ref("222");
+const password = ref("222");
 const authErrorMessage = ref("");
-
-const changePasswordVisibility = () => {
-  pwInputType.value === "password"
-    ? (pwInputType.value = "text")
-    : (pwInputType.value = "password");
-};
 
 const fetchAuth = async (data) => {
   authErrorMessage.value = "";
@@ -49,17 +42,11 @@ const fetchAuth = async (data) => {
         v-model="password"
         label="Password"
         placeholder="password"
-        :type="pwInputType"
+        type="password"
         autocomplete="new-password"
       >
         <template #helperText>
           <span class="login-form__error"> {{ authErrorMessage }}</span>
-        </template>
-        <template #icon>
-          <UiIcon
-            :icon="IconName.EYE"
-            @click.prevent="changePasswordVisibility"
-          />
         </template>
       </UiInput>
       <router-link class="login-form__forget-password" to="/auth-restore"
@@ -117,4 +104,3 @@ const fetchAuth = async (data) => {
   }
 }
 </style>
-

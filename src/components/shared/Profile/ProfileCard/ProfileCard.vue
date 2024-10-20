@@ -20,10 +20,10 @@ const authStore = useAuthStore();
       <UiIcon :icon="IconName.USER" :size="IconSize.SIZE_82" />
       <div class="flex-col-8">
         <h2 class="profile-card__name">{{ authStore.userName }}</h2>
-        <div class="flex-center-16">
+        <div class="flex-center-16 flex-wrap">
           <UiButton :theme="ButtonTheme.CLEAR" class="flex-8">
             <UiIcon :icon="IconName.CAMERA" :size="IconSize.SIZE_20" />
-            Add photo
+            Upload new photo
           </UiButton>
           <span class="profile-card__status flex-center-8">
             <UiIcon
@@ -61,12 +61,13 @@ const authStore = useAuthStore();
 
   @media (min-width: 768px) {
     flex-direction: row;
-    gap: unset;
-
     align-items: center;
-
-    justify-content: space-between;
+    justify-content: space-around;
     border-radius: 10px;
+  }
+
+  @media (min-width: 1440px) {
+    justify-content: space-between;
   }
 
   &__info {
@@ -74,6 +75,7 @@ const authStore = useAuthStore();
     flex-wrap: wrap;
     gap: 16px;
     align-items: center;
+    justify-content: center;
   }
 
   &__status {
