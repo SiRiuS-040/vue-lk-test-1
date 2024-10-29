@@ -22,27 +22,37 @@ const router = useRouter();
 const selectPerPageOptions = ref([9, 18, 36, 72]);
 const perPageselected = ref(9);
 const currentPage = ref(1);
+const search = ref("");
 const vehiclesStore = useVehiclesStore();
 
-const fetchCarsByParams = async (perPage: number = 9, page: number = 1) => {
-  vehiclesStore.fetchCarsByParams(perPage, page);
+const fetchCarsByParams = async () => {
+  vehiclesStore.fetchCarsByParams(
+    perPageselected.value,
+    currentPage.value,
+    search.value
+  );
 };
 
 const changePage = async (page: number) => {
-  console.log("со страницы");
-  console.log(page);
-
   currentPage.value = page;
-  await fetchCarsByParams(perPageselected.value, currentPage.value);
+  await fetchCarsByParams();
 };
 
-fetchCarsByParams(9, 1);
+fetchCarsByParams();
+
+const clearSearch = () => {
+  search.value = "";
+};
+
+const searchFiltered = () => {
+  fetchCarsByParams();
+};
 
 watch(
   () => perPageselected.value,
   () => {
     currentPage.value = 1;
-    fetchCarsByParams(perPageselected.value, 1);
+    fetchCarsByParams();
   }
 );
 </script>
@@ -56,9 +66,15 @@ watch(
     </template>
     <template #default-content>
       <div class="page__filter">
-        <UiInput placeholder="Search VIN" size="s" class="page__filter-search">
+        <UiInput
+          v-model="search"
+          placeholder="Search Name, VIN, Model, Brand"
+          size="s"
+          class="page__filter-search"
+        >
           <template #icon>
-            <UiIcon :icon="IconName.ZOOM" />
+            <UiIcon v-if="search" :icon="IconName.CLOSE" @click="clearSearch" />
+            <UiIcon :icon="IconName.ZOOM" @click="searchFiltered" />
           </template>
         </UiInput>
         <span>
@@ -117,6 +133,10 @@ watch(
     align-items: center;
 
     &-search {
+      @media (min-width: 768px) {
+        width: 49%;
+      }
+
       @media (min-width: 1440px) {
         width: 355px;
       }

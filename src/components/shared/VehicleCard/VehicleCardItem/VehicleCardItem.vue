@@ -43,7 +43,7 @@ defineProps<IProps>();
     </div>
     <div class="vehicle-card-item__info">
       <h3 class="vehicle-card-item__vehicle-name">
-        {{ vehicle["vehicle_name"] ? vehicle["vehicle_name"] : "Without name" }}
+        {{ vehicle["vehicle_name"] ? vehicle["vehicle_name"] : "*" }}
       </h3>
       <p v-if="vehicle.vin" class="vehicle-card-item__vin">
         <span> {{ vehicle["vin_postfix"] }} </span>
@@ -51,12 +51,18 @@ defineProps<IProps>();
       </p>
     </div>
     <hr class="vehicle-card-item__divider" />
-    <div class="vehicle-card-item__foter text-4">
+    <div class="vehicle-card-item__footer text-4">
+      <span v-if="vehicle.brand" class="vehicle-card-item__ads"
+        >{{ vehicle.brand }}
+      </span>
+      <span v-if="vehicle.model" class="vehicle-card-item__ads"
+        >{{ vehicle.model }}
+      </span>
       <span v-if="vehicle.hp" class="vehicle-card-item__ads"
         >{{ vehicle.hp }}
       </span>
       <span v-if="vehicle['defect_state']" class="vehicle-card-item__ads">
-        {{ vehicle["defect_state"] }}
+        defect - {{ vehicle["defect_state"] }}
       </span>
     </div>
   </div>
