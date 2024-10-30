@@ -10,8 +10,8 @@ import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 
-const langOptions = ["UK", "PT", "GER"];
-const langModel = ref("PT");
+const langOptions = ["UK", "GER"];
+const langModel = ref("UK");
 const selectedLngIcon = computed(() => {
   return langModel.value ?? IconName[langModel.value];
 });
