@@ -120,7 +120,7 @@ watch(
     line-height: 16px;
     text-transform: uppercase;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       font-size: 15px;
       line-height: 22px;
     }
@@ -133,11 +133,11 @@ watch(
     align-items: center;
 
     &-search {
-      @media (min-width: 768px) {
+      @include media-breakpoint-up(md) {
         width: 49%;
       }
 
-      @media (min-width: 1440px) {
+      @include media-breakpoint-up(xl) {
         width: 355px;
       }
     }
@@ -154,12 +154,12 @@ watch(
     gap: 16px;
     margin-top: 32px;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
     }

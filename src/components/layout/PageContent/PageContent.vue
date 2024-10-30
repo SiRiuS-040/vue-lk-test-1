@@ -68,7 +68,7 @@ const changeTab = (tab: string) => {
     margin-top: 16px;
     margin-bottom: 16px;
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       max-width: 580px;
       min-height: 42px;
       margin-top: 0;
@@ -83,7 +83,7 @@ const changeTab = (tab: string) => {
   }
 
   &__tabs {
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       margin-top: -16px;
     }
   }
@@ -91,11 +91,11 @@ const changeTab = (tab: string) => {
   &__content {
     margin-top: 16px;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       margin-top: 24px;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       margin-top: 32px;
     }
   }

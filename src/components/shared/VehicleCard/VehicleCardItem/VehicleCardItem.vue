@@ -113,7 +113,7 @@ defineProps<IProps>();
     font-size: 16px;
     line-height: 18px;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       font-size: 20px;
       line-height: 22px;
     }

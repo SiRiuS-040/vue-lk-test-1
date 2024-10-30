@@ -59,14 +59,14 @@ const authStore = useAuthStore();
   border: 1px solid var(--color-Text-Line-Grey);
   border-radius: 6px;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     border-radius: 10px;
   }
 
-  @media (min-width: 1440px) {
+  @include media-breakpoint-up(xl) {
     justify-content: space-between;
   }
 
@@ -92,12 +92,12 @@ const authStore = useAuthStore();
   //   flex-direction: column;
   justify-content: center;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  @media (min-width: 1440px) {
+  @include media-breakpoint-up(xl) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;

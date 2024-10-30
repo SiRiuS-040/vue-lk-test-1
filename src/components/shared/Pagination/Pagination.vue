@@ -102,7 +102,7 @@ const changePage = (page: number) => {
   gap: 24px;
   margin-top: 32px;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -115,7 +115,7 @@ const changePage = (page: number) => {
     align-items: center;
     justify-content: flex-end;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       gap: 16px;
       align-items: flex-start;
       justify-content: flex-end;

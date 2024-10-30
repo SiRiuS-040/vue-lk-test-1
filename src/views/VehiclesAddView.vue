@@ -42,11 +42,11 @@ const router = useRouter();
 <style scoped lang="scss">
 .page {
   &__form {
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       width: 470px;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       width: 50%;
     }
   }

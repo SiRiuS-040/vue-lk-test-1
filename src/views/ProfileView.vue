@@ -55,11 +55,11 @@ const changePage = async (page: number) => {
 <style scoped lang="scss">
 .page {
   &__form {
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       width: 470px;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       width: 50%;
     }
   }
@@ -71,7 +71,7 @@ const changePage = async (page: number) => {
     align-items: center;
 
     &-search {
-      @media (min-width: 1440px) {
+      @include media-breakpoint-up(md) {
         width: 355px;
       }
     }
@@ -81,10 +81,5 @@ const changePage = async (page: number) => {
     margin-right: 0;
     margin-left: auto;
   }
-
-  // &__pagination {
-  //   margin-top: auto;
-  //   margin-bottom: 0;
-  // }
 }
 </style>

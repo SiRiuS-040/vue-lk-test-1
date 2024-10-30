@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="auth-content">
@@ -23,12 +22,12 @@
   width: -webkit-fill-available;
   height: 80%;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     grid-template-columns: 1fr 350px;
     gap: 60px;
   }
 
-  @media (min-width: 1440px) {
+  @include media-breakpoint-up(xl) {
     grid-template-columns: min-content auto;
     gap: 160px;
     height: 770px;
@@ -42,7 +41,7 @@
     gap: 12px;
     color: var(--color-Text-White);
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       gap: 24px;
     }
   }
@@ -50,7 +49,7 @@
   &__form-wrapper {
     color: var(--color-Text-Black);
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       width: 384px;
     }
   }

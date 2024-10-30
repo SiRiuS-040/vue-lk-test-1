@@ -45,7 +45,7 @@ const restorePassword = () => {
   flex-direction: column;
   gap: 12px;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     gap: 16px;
   }
 
@@ -55,7 +55,7 @@ const restorePassword = () => {
     gap: 12px;
     margin-top: 24px;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       gap: 24px;
     }
   }

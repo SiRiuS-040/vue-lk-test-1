@@ -18,11 +18,10 @@ import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
   &__img {
     width: 100%;
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       width: 577px;
       max-width: none;
     }
   }
 }
 </style>
-

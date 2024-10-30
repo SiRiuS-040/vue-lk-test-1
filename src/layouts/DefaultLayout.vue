@@ -72,11 +72,11 @@ const authStore = useAuthStore();
   opacity: 1;
   transition: opacity 0.3s;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
     max-height: none;
   }
 
-  @media (min-width: 1440px) {
+  @include media-breakpoint-up(xl) {
     justify-content: flex-start;
   }
 
@@ -92,12 +92,12 @@ const authStore = useAuthStore();
 
     transition: all 0.1s;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       min-height: 1024px;
       border-radius: 20px;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       flex-grow: 0;
       width: 1440px;
     }
@@ -110,11 +110,11 @@ const authStore = useAuthStore();
     overflow-y: auto;
     padding: 16px 16px;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       width: min-content;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       padding: 32px 30px;
     }
   }
@@ -127,13 +127,13 @@ const authStore = useAuthStore();
   }
 
   &__header-burger {
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       display: none;
     }
   }
 
   &__main {
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       margin-top: -42px;
     }
   }
@@ -147,12 +147,12 @@ const authStore = useAuthStore();
     margin-right: 0;
     margin-left: auto;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       margin-right: unset;
       margin-left: unset;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       gap: 32px;
     }
   }

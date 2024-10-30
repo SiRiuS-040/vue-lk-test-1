@@ -36,7 +36,7 @@ const route = useRoute();
   animation-name: fade-out;
   animation-duration: 0.3s;
 
-  @media (min-width: 1440px) {
+  @include media-breakpoint-up(xl) {
     padding: 0;
   }
 
@@ -62,11 +62,11 @@ const route = useRoute();
 
     color: var(--color-Primary-White);
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       padding: 20px 20px;
     }
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       flex-grow: 0;
       width: 1440px;
       height: 1024px;
@@ -84,14 +84,14 @@ const route = useRoute();
       background-color: var(--color-Primary-White);
       transition: all 0.5s;
 
-      @media (min-width: 768px) {
+      @include media-breakpoint-up(md) {
         top: 0;
         bottom: auto;
         width: 400px;
         height: 100%;
       }
 
-      @media (min-width: 1440px) {
+      @include media-breakpoint-up(xl) {
         right: 0;
         width: 1024px;
         border-radius: 50%;
@@ -115,10 +115,9 @@ const route = useRoute();
     font-size: 18px;
     line-height: 18px;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(md) {
       align-items: flex-start;
       padding: 30px 40px;
-
       font-size: 24px;
       line-height: 24px;
     }
@@ -135,22 +134,10 @@ const route = useRoute();
     margin-top: 100px;
     margin-bottom: 50px;
 
-    @media (min-width: 1440px) {
+    @include media-breakpoint-up(xl) {
       margin-top: 0;
       margin-bottom: 0;
     }
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 </style>
