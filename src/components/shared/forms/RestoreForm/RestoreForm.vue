@@ -41,23 +41,23 @@ const restorePassword = () => {
 </template>
 <style lang="scss">
 .restore-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 
   @include media-breakpoint-up(md) {
     gap: 16px;
   }
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 
   &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
 
     @include media-breakpoint-up(md) {
       gap: 24px;
     }
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
   }
 
   &__controls {

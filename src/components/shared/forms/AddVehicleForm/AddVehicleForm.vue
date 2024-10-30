@@ -47,13 +47,13 @@ const authErrorMessage = ref("");
   gap: 16px;
 
   &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 
     @include media-breakpoint-up(md) {
       gap: 24px;
     }
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   &__error {
@@ -66,13 +66,13 @@ const authErrorMessage = ref("");
   }
 
   &__controls {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 
     @include media-breakpoint-up(md) {
       gap: 24px;
     }
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 }
 </style>

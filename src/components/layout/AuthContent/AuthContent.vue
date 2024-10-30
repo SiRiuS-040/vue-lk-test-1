@@ -13,14 +13,6 @@
 
 <style scoped lang="scss">
 .auth-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 100px;
-  align-items: center;
-  justify-content: space-between;
-
-  width: -webkit-fill-available;
-  height: 80%;
 
   @include media-breakpoint-up(md) {
     grid-template-columns: 1fr 350px;
@@ -34,24 +26,32 @@
     margin-right: 115px;
     margin-left: 40px;
   }
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 100px;
+  align-items: center;
+  justify-content: space-between;
+
+  width: -webkit-fill-available;
+  height: 80%;
 
   &__image-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    color: var(--color-Text-White);
 
     @include media-breakpoint-up(md) {
       gap: 24px;
     }
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--color-Text-White);
   }
 
   &__form-wrapper {
-    color: var(--color-Text-Black);
 
     @include media-breakpoint-up(xl) {
       width: 384px;
     }
+    color: var(--color-Text-Black);
   }
 }
 </style>

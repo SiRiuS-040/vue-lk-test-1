@@ -109,14 +109,14 @@ defineProps<IProps>();
   }
 
   &__vehicle-name {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 18px;
 
     @include media-breakpoint-up(md) {
       font-size: 20px;
       line-height: 22px;
     }
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
   }
 
   &__info {

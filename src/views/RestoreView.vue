@@ -15,12 +15,12 @@ import RestoreForm from "@/components/shared/forms/RestoreForm/RestoreForm.vue";
 <style scoped lang="scss">
 .restore-view {
   &__img {
-    width: 100%;
 
     @include media-breakpoint-up(xl) {
       width: 488px;
       max-width: none;
     }
+    width: 100%;
   }
 }
 </style>

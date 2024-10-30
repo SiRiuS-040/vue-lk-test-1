@@ -21,6 +21,10 @@ const route = useRoute();
 
 <style scoped lang="scss">
 .auth-layout {
+
+  @include media-breakpoint-up(xl) {
+    padding: 0;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,11 +40,18 @@ const route = useRoute();
   animation-name: fade-out;
   animation-duration: 0.3s;
 
-  @include media-breakpoint-up(xl) {
-    padding: 0;
-  }
-
   &__wrapper {
+
+    @include media-breakpoint-up(md) {
+      padding: 20px 20px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      flex-grow: 0;
+      width: 1440px;
+      height: 1024px;
+      padding: 30px 40px;
+    }
     position: relative;
 
     display: flex;
@@ -62,27 +73,7 @@ const route = useRoute();
 
     color: var(--color-Primary-White);
 
-    @include media-breakpoint-up(md) {
-      padding: 20px 20px;
-    }
-
-    @include media-breakpoint-up(xl) {
-      flex-grow: 0;
-      width: 1440px;
-      height: 1024px;
-      padding: 30px 40px;
-    }
-
     &::before {
-      content: "";
-      position: absolute;
-      top: auto;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 550px;
-      background-color: var(--color-Primary-White);
-      transition: all 0.5s;
 
       @include media-breakpoint-up(md) {
         top: 0;
@@ -98,10 +89,26 @@ const route = useRoute();
         transform: translateX(35.2%) scale(1.172);
         aspect-ratio: 1;
       }
+      content: "";
+      position: absolute;
+      top: auto;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 550px;
+      background-color: var(--color-Primary-White);
+      transition: all 0.5s;
     }
   }
 
   &__header {
+
+    @include media-breakpoint-up(md) {
+      align-items: flex-start;
+      padding: 30px 40px;
+      font-size: 24px;
+      line-height: 24px;
+    }
     position: absolute;
     top: 0;
     left: 0;
@@ -114,13 +121,6 @@ const route = useRoute();
 
     font-size: 18px;
     line-height: 18px;
-
-    @include media-breakpoint-up(md) {
-      align-items: flex-start;
-      padding: 30px 40px;
-      font-size: 24px;
-      line-height: 24px;
-    }
   }
 
   &__langselect {
@@ -128,16 +128,16 @@ const route = useRoute();
   }
 
   &__content {
-    position: relative;
-    width: -webkit-fill-available;
-    max-height: 80%;
-    margin-top: 100px;
-    margin-bottom: 50px;
 
     @include media-breakpoint-up(xl) {
       margin-top: 0;
       margin-bottom: 0;
     }
+    position: relative;
+    width: -webkit-fill-available;
+    max-height: 80%;
+    margin-top: 100px;
+    margin-bottom: 50px;
   }
 }
 </style>

@@ -111,6 +111,11 @@ watch(
 <style scoped lang="scss">
 .page {
   &__ads {
+
+    @include media-breakpoint-up(md) {
+      font-size: 15px;
+      line-height: 22px;
+    }
     padding: 5px 12px;
     border-radius: 6px;
     background-color: rgb(237, 237, 237);
@@ -119,11 +124,6 @@ watch(
     font-size: 10px;
     line-height: 16px;
     text-transform: uppercase;
-
-    @include media-breakpoint-up(md) {
-      font-size: 15px;
-      line-height: 22px;
-    }
   }
 
   &__filter {
@@ -149,10 +149,6 @@ watch(
   }
 
   &__vehicle-cards {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 16px;
-    margin-top: 32px;
 
     @include media-breakpoint-up(md) {
       grid-template-columns: repeat(2, 1fr);
@@ -163,6 +159,10 @@ watch(
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
     }
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    margin-top: 32px;
   }
 
   &__pagination {

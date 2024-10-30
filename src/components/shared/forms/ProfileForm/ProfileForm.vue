@@ -15,9 +15,9 @@ import { useAuthStore } from "@/stores/auth.ts";
 const router = useRouter();
 const authStore = useAuthStore();
 
-const userName = ref();
-const email = ref();
-const password = authStore.userPassword;
+const userName = ref(authStore.userName);
+const email = ref(authStore.userLogin);
+const password = ref(authStore.userPassword);
 const contactPhone = ref();
 
 const oldPassword = ref();
@@ -101,13 +101,13 @@ const changePwVisibility = () => {
   gap: 16px;
 
   &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 
     @include media-breakpoint-up(md) {
       gap: 24px;
     }
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   &__change-pw {
@@ -119,16 +119,16 @@ const changePwVisibility = () => {
   }
 
   &__change-pw-wrapper {
+
+    @include media-breakpoint-up(md) {
+      gap: 24px;
+    }
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 16px;
     border-radius: 10px;
     background-color: var(--color-Primary-Light-Gray);
-
-    @include media-breakpoint-up(md) {
-      gap: 24px;
-    }
   }
 }
 </style>

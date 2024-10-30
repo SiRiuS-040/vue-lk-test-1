@@ -19,8 +19,6 @@ const route = useRoute();
   gap: 16px;
 
   &__page-title {
-    display: block;
-    padding-bottom: 16px;
 
     @include media-breakpoint-up(md) {
       margin-top: 24px;
@@ -32,6 +30,8 @@ const route = useRoute();
       margin-top: 0;
       padding-bottom: 30px;
     }
+    display: block;
+    padding-bottom: 16px;
   }
 }
 </style>

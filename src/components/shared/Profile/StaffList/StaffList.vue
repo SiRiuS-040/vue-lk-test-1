@@ -16,11 +16,8 @@ const props = withDefaults(defineProps<IProps>(), {});
 
 <style scoped lang="scss">
 .staff-list {
-  border-radius: 10px;
   height: 600px;
+  border-radius: 10px;
   background-color: var(--color-Primary-Light-Gray);
-
-  &__header {
-  }
 }
 </style>

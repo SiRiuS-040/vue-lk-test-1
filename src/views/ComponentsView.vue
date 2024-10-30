@@ -160,8 +160,6 @@ const selected2 = ref();
 <style scoped lang="scss">
 .page-content {
   &__page-title {
-    display: block;
-    padding-bottom: 16px;
 
     @include media-breakpoint-up(md) {
       margin-top: 24px;
@@ -173,6 +171,8 @@ const selected2 = ref();
       margin-top: 0;
       padding-bottom: 30px;
     }
+    display: block;
+    padding-bottom: 16px;
   }
 
   &__content {

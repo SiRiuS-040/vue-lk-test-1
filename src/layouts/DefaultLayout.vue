@@ -60,6 +60,14 @@ const authStore = useAuthStore();
 
 <style scoped lang="scss">
 .default-layout {
+
+  @include media-breakpoint-up(md) {
+    max-height: none;
+  }
+
+  @include media-breakpoint-up(xl) {
+    justify-content: flex-start;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,25 +80,7 @@ const authStore = useAuthStore();
   opacity: 1;
   transition: opacity 0.3s;
 
-  @include media-breakpoint-up(md) {
-    max-height: none;
-  }
-
-  @include media-breakpoint-up(xl) {
-    justify-content: flex-start;
-  }
-
   &__wrapper {
-    position: relative;
-
-    display: flex;
-    flex-grow: 1;
-    overflow: hidden;
-    width: 100%;
-    border-radius: 4px;
-    background: var(--color-Primary-White);
-
-    transition: all 0.1s;
 
     @include media-breakpoint-up(md) {
       min-height: 1024px;
@@ -101,14 +91,19 @@ const authStore = useAuthStore();
       flex-grow: 0;
       width: 1440px;
     }
+    position: relative;
+
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 4px;
+    background: var(--color-Primary-White);
+
+    transition: all 0.1s;
   }
 
   &__content {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    overflow-y: auto;
-    padding: 16px 16px;
 
     @include media-breakpoint-up(md) {
       width: min-content;
@@ -117,6 +112,11 @@ const authStore = useAuthStore();
     @include media-breakpoint-up(xl) {
       padding: 32px 30px;
     }
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 16px 16px;
   }
 
   &__header {
@@ -139,13 +139,6 @@ const authStore = useAuthStore();
   }
 
   &__header-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: center;
-
-    margin-right: 0;
-    margin-left: auto;
 
     @include media-breakpoint-up(md) {
       margin-right: unset;
@@ -155,6 +148,13 @@ const authStore = useAuthStore();
     @include media-breakpoint-up(xl) {
       gap: 32px;
     }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+
+    margin-right: 0;
+    margin-left: auto;
   }
 
   &__header-user {

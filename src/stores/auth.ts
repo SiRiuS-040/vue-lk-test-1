@@ -4,6 +4,7 @@ interface IStore {
   isAuthorized: boolean;
   userName: string;
   userPassword: string;
+  userLogin: string;
 }
 
 interface IAuth {
@@ -27,6 +28,7 @@ export const useAuthStore = defineStore("auth", {
     isAuthorized: false,
     userName: "",
     userPassword: "",
+    userLogin: "",
   }),
   getters: {},
   actions: {
@@ -49,10 +51,13 @@ export const useAuthStore = defineStore("auth", {
       this.isAuthorized = true;
       this.userName = usersData[data.login].userName;
       this.userPassword = usersData[data.login].password;
+      this.userLogin = data.login;
     },
     logout() {
       this.isAuthorized = false;
       this.userName = "";
+      this.userLogin = "";
+      this.userPassword = "";
     },
   },
 });

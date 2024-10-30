@@ -30,11 +30,6 @@ const authStore = useAuthStore();
     <ul class="app-menu__nav navigation-1">
       <li>
         <router-link class="app-menu__nav-item" to="/">
-          <UiIcon :icon="IconName.GLOBE" />Home
-        </router-link>
-      </li>
-      <li>
-        <router-link class="app-menu__nav-item" to="/profile">
           <UiIcon :icon="IconName.USER_MINI" />Profile
         </router-link>
       </li>
@@ -43,11 +38,11 @@ const authStore = useAuthStore();
           <UiIcon :icon="IconName.RIM" />Vehicles
         </router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link class="app-menu__nav-item" to="/settings">
           <UiIcon :icon="IconName.SETTINGS" />Settings
         </router-link>
-      </li>
+      </li> -->
       <li>
         <router-link class="app-menu__nav-item" to="/components">
           <UiIcon :icon="IconName.TRASH" />
@@ -70,6 +65,10 @@ const authStore = useAuthStore();
 
 <style scoped lang="scss">
 .app-menu {
+
+  @include media-breakpoint-up(md) {
+    width: 256px;
+  }
   overflow: hidden;
   overflow-y: auto;
   width: 0;
@@ -77,23 +76,19 @@ const authStore = useAuthStore();
   padding: 0 0 40px 0;
   background-color: var(--color-Primary-Dark);
 
-  @include media-breakpoint-up(md) {
-    width: 256px;
-  }
-
   &.is-open {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    height: 100vh;
 
     @include media-breakpoint-up(md) {
       position: static;
       width: 256px;
       height: auto;
     }
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
   }
 
   &__menu-close {
@@ -103,6 +98,10 @@ const authStore = useAuthStore();
   }
 
   &__header {
+
+    @include media-breakpoint-up(md) {
+      padding: 30px 30px 30px 56px;
+    }
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -111,10 +110,6 @@ const authStore = useAuthStore();
     font-size: 24px;
     line-height: 24px;
     text-align: center;
-
-    @include media-breakpoint-up(md) {
-      padding: 30px 30px 30px 56px;
-    }
   }
 
   &__nav {
@@ -127,16 +122,16 @@ const authStore = useAuthStore();
   }
 
   &__nav-item {
+
+    @include media-breakpoint-up(md) {
+      padding: 12px 30px 12px 32px;
+    }
     position: relative;
     display: flex;
     gap: 20px;
     align-items: center;
     padding: 12px 16px 12px 18px;
     color: var(--color-Text-White);
-
-    @include media-breakpoint-up(md) {
-      padding: 12px 30px 12px 32px;
-    }
 
     &:hover {
       color: var(--color-Primary-Red);
@@ -160,12 +155,12 @@ const authStore = useAuthStore();
   }
 
   &__footer {
-    padding: 12px 16px 12px 18px;
-    display: flex;
 
     @include media-breakpoint-up(md) {
       padding: 12px 30px 12px 32px;
     }
+    display: flex;
+    padding: 12px 16px 12px 18px;
   }
 
   &__footer-control {

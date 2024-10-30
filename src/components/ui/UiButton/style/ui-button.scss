@@ -70,16 +70,16 @@
   }
 
   &--theme-clear {
-    text-transform: none;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: start;
+    width: fit-content;
     min-height: unset;
     padding: 0;
     border-radius: 0;
     background-color: transparent;
     color: currentColor;
-    align-items: flex-start;
-    justify-content: start;
-    gap: 20px;
-    width: fit-content;
+    text-transform: none;
   }
 
   &--format-square {
