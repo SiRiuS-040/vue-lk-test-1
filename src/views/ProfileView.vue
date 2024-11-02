@@ -11,13 +11,8 @@ import {
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
-
-import Pagination from "@/components/shared/Pagination/Pagination.vue";
 import StaffList from "@/components/shared/Profile/StaffList/StaffList.vue";
-
-const changePage = async (page: number) => {
-  console.log("смена страницы пагинации");
-};
+import { staffList } from "@/components/shared/Profile/StaffList/model/mock.ts";
 </script>
 
 <template>
@@ -40,14 +35,7 @@ const changePage = async (page: number) => {
           Add new employee
         </UiButton>
       </div>
-      <StaffList />
-      <Pagination
-        :currentPage="1"
-        :itemsPerPage="9"
-        :totalItems="28"
-        @changePage="(page) => changePage(page)"
-        class="page__pagination"
-      />
+      <StaffList :items="staffList" />
     </template>
   </PageContent>
 </template>

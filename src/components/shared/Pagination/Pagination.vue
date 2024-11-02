@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { defineEmits, defineProps, withDefaults, computed } from "vue";
+import { defineEmits, defineProps, withDefaults, computed, ref } from "vue";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import {
   ButtonTheme,
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
+import { log } from "console";
 
 interface pagLink {
   url: null | string;
@@ -18,12 +19,17 @@ interface IProps {
   currentPage?: number;
   totalItems?: number;
   links?: pagLink[];
+  frontPagination?: boolean;
+  items?: any[];
 }
 
-const emit = defineEmits(["changePage"]);
+const visibleItems = defineModel<any[]>();
+
+const emit = defineEmits(["changePage", "update:modelValue"]);
 
 const props = withDefaults(defineProps<IProps>(), {
   currentPage: 1,
+  frontPagination: false,
 });
 
 const totalPages = computed(() => {
@@ -59,9 +65,45 @@ const changeToNext = () => {
   emit("changePage", props.currentPage + 1);
 };
 
+const frontCurrentPage = ref(props.currentPage);
+
+const filterdeItems = computed(() => {
+  console.log(props.items);
+
+  return props.items
+    .map((item) => item)
+    .slice(
+      props.currentPage > 1
+        ? (frontCurrentPage.value - 1) * props.itemsPerPage - 1
+        : 0,
+      frontCurrentPage.value * props.itemsPerPage
+    );
+
+  // return [
+  //   {
+  //     id: 17,
+  //     userName: "Wade Warren",
+  //     email: "name@domian.com",
+  //     phone: "+497074559490",
+  //     credits: 90,
+  //     userStatus: "ACTIVE",
+  //   },
+  // ];
+});
+
 const changePage = (page: number) => {
-  emit("changePage", page);
+  if (!props.frontPagination) {
+    emit("changePage", page);
+  } else {
+    console.log("Пагинация на фронте");
+    frontCurrentPage.value = page;
+    visibleItems.value = filterdeItems.value;
+  }
 };
+
+if (props.frontPagination) {
+  visibleItems.value = filterdeItems.value;
+}
 </script>
 
 <template>
@@ -97,7 +139,6 @@ const changePage = (page: number) => {
 
 <style scoped lang="scss">
 .pagination {
-
   @include media-breakpoint-up(md) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -109,7 +150,6 @@ const changePage = (page: number) => {
   margin-top: 32px;
 
   &__pagination {
-
     @include media-breakpoint-up(md) {
       gap: 16px;
       align-items: flex-start;
