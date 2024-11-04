@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { defineEmits, defineProps, withDefaults, computed, ref } from "vue";
 import Pagination from "@/components/shared/Pagination/Pagination.vue";
-
-import { staffList } from "@/components/shared/Profile/StaffList/model/mock.ts";
 import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
 
 interface IProps {
@@ -11,9 +9,10 @@ interface IProps {
 
 const emit = defineEmits(["changePage"]);
 const props = withDefaults(defineProps<IProps>(), {});
+const currentPage = ref(1);
 
 const changePage = async (page: number) => {
-  console.log("смена страницы пагинации");
+  currentPage.value = page;
 };
 
 const visibleList = ref([]);
@@ -49,10 +48,10 @@ const visibleList = ref([]);
     </div>
     <Pagination
       v-model="visibleList"
-      :currentPage="1"
+      :currentPage="currentPage"
       :itemsPerPage="12"
-      :totalItems="staffList.length"
-      :items="staffList"
+      :totalItems="items.length"
+      :items="items"
       frontPagination
       @changePage="(page) => changePage(page)"
       class="page__pagination"
@@ -67,7 +66,6 @@ const visibleList = ref([]);
   background-color: var(--color-Primary-Light-Gray);
 
   &__header {
-
     display: grid;
     grid-template-columns: 80px 230px 230px 230px 115px 80px;
     gap: 24px;

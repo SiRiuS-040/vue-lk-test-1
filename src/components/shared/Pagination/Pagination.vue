@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { defineEmits, defineProps, withDefaults, computed, ref } from "vue";
+import {
+  defineEmits,
+  defineProps,
+  withDefaults,
+  computed,
+  ref,
+  watch,
+} from "vue";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import {
   ButtonTheme,
@@ -18,18 +25,20 @@ interface IProps {
   itemsPerPage?: number;
   currentPage?: number;
   totalItems?: number;
+  maxVisibleLinks?: number;
+
   links?: pagLink[];
   frontPagination?: boolean;
   items?: any[];
 }
 
 const visibleItems = defineModel<any[]>();
-
 const emit = defineEmits(["changePage", "update:modelValue"]);
 
 const props = withDefaults(defineProps<IProps>(), {
   currentPage: 1,
   frontPagination: false,
+  maxVisibleLinks: 0,
 });
 
 const totalPages = computed(() => {
@@ -43,9 +52,25 @@ const totalPages = computed(() => {
   return pages;
 });
 
-const changeToPrev = () => {
-  console.log(props.currentPage);
+const visiblePages = computed(() => {
+  if (props.maxVisibleLinks > 0) {
+    const start =
+      props.currentPage - Math.ceil(props.maxVisibleLinks / 2) > 0
+        ? props.currentPage - Math.ceil(props.maxVisibleLinks / 2)
+        : 0;
+    const end =
+      props.currentPage + Math.ceil(props.maxVisibleLinks / 2) <=
+      totalPages.value.length
+        ? props.currentPage + Math.ceil(props.maxVisibleLinks / 2) - 1
+        : undefined;
 
+    return totalPages.value.slice(start, end);
+  }
+
+  return totalPages.value;
+});
+
+const changeToPrev = () => {
   if (props.currentPage <= 1) {
     return;
   }
@@ -54,8 +79,6 @@ const changeToPrev = () => {
 };
 
 const changeToNext = () => {
-  console.log(props.currentPage);
-
   if (
     props.currentPage >= totalPages.value.length[totalPages.value.length - 1]
   ) {
@@ -68,42 +91,29 @@ const changeToNext = () => {
 const frontCurrentPage = ref(props.currentPage);
 
 const filterdeItems = computed(() => {
-  console.log(props.items);
-
-  return props.items
-    .map((item) => item)
-    .slice(
-      props.currentPage > 1
-        ? (frontCurrentPage.value - 1) * props.itemsPerPage - 1
-        : 0,
-      frontCurrentPage.value * props.itemsPerPage
-    );
-
-  // return [
-  //   {
-  //     id: 17,
-  //     userName: "Wade Warren",
-  //     email: "name@domian.com",
-  //     phone: "+497074559490",
-  //     credits: 90,
-  //     userStatus: "ACTIVE",
-  //   },
-  // ];
+  return props.items.slice(
+    props.currentPage > 1
+      ? (frontCurrentPage.value - 1) * props.itemsPerPage
+      : 0,
+    frontCurrentPage.value * props.itemsPerPage
+  );
 });
 
 const changePage = (page: number) => {
-  if (!props.frontPagination) {
-    emit("changePage", page);
-  } else {
-    console.log("Пагинация на фронте");
+  emit("changePage", page);
+
+  if (props.frontPagination) {
     frontCurrentPage.value = page;
-    visibleItems.value = filterdeItems.value;
   }
 };
 
 if (props.frontPagination) {
   visibleItems.value = filterdeItems.value;
 }
+
+watch(frontCurrentPage, () => {
+  visibleItems.value = filterdeItems.value;
+});
 </script>
 
 <template>
@@ -119,6 +129,7 @@ if (props.frontPagination) {
       </UiButton>
       <UiButton
         v-for="(page, index) in totalPages"
+        v-show="visiblePages.includes(page)"
         :key="index"
         :size="ButtonSize.S"
         :disabled="page === currentPage"

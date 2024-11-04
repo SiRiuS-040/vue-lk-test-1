@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import StaffList from "@/components/shared/Profile/StaffList/StaffList.vue";
-import { staffList } from "@/components/shared/Profile/StaffList/model/mock.ts";
+import { staffListMock } from "@/components/shared/Profile/StaffList/model/mock.ts";
 </script>
 
 <template>
@@ -35,7 +35,7 @@ import { staffList } from "@/components/shared/Profile/StaffList/model/mock.ts";
           Add new employee
         </UiButton>
       </div>
-      <StaffList :items="staffList" />
+      <StaffList :items="staffListMock" />
     </template>
   </PageContent>
 </template>
