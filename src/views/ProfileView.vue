@@ -32,40 +32,11 @@ const searchFiltered = () => {
   filteredList.value = staffList
     .map((item) => item)
     .filter((staffItem) => {
-      if (
-        staffItem.userName &&
-        staffItem.userName.toLowerCase().match(search.value.toLowerCase())
-      ) {
-        return staffItem;
-      }
-
-      if (
-        staffItem.email &&
-        staffItem.email.toLowerCase().match(search.value.toLowerCase())
-      ) {
-        return staffItem;
-      }
-
-      if (
-        staffItem.phone &&
+      return (
+        staffItem.userName.toLowerCase().match(search.value.toLowerCase()) ||
+        staffItem.userName.toLowerCase().match(search.value.toLowerCase()) ||
         staffItem.phone.toLowerCase().match(search.value.toLowerCase())
-      ) {
-        return staffItem;
-      }
-
-      // return searchFields.filter((field) => {
-      //   console.log(staffItem[field]);
-      //   console.log(
-      //     staffItem[field].toLowerCase().match(search.value.toLowerCase())
-      //   );
-
-      //   if (
-      //     staffItem[field] &&
-      //     staffItem[field].toLowerCase().match(search.value.toLowerCase())
-      //   ) {
-      //     return staffItem;
-      //   }
-      // });
+      );
     });
 };
 
