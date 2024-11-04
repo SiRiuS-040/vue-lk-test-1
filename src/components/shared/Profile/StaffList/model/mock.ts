@@ -13,7 +13,7 @@ export const staffList = reactive([
     id: 2,
     userName: "Darrell Steward",
     email: "name@domian.com",
-    phone: "+497074559490",
+    phone: "+497074559999",
     credits: 25,
     userStatus: "ACTIVE",
   },
