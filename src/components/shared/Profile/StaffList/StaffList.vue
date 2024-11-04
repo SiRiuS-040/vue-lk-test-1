@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { defineEmits, defineProps, withDefaults, computed, ref } from "vue";
 import Pagination from "@/components/shared/Pagination/Pagination.vue";
+import UiStatusMarker from "@/components/ui/UiStatusMarker/UiStatusMarker.vue";
 import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
+import {
+  StatusCode,
+  StatusTheme,
+  STATUSES,
+} from "@/components/ui/UiStatusMarker/types";
 
 interface IProps {
   items?: IStaffItem[];
@@ -42,7 +48,7 @@ const visibleList = ref([]);
           <span class="text-4"> {{ item.email }} </span>
           <span class="text-4"> {{ item.phone }} </span>
           <span class="text-4"> {{ item.credits }} </span>
-          <span> {{ item.userStatus }} </span>
+          <UiStatusMarker :statusCode="StatusCode[item.userStatus]" />
         </li>
       </ul>
     </div>

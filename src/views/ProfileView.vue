@@ -35,7 +35,8 @@ const searchFiltered = () => {
       return (
         staffItem.userName.toLowerCase().match(search.value.toLowerCase()) ||
         staffItem.userName.toLowerCase().match(search.value.toLowerCase()) ||
-        staffItem.phone.toLowerCase().match(search.value.toLowerCase())
+        staffItem.phone.toLowerCase().match(search.value.toLowerCase()) ||
+        staffItem.userStatus.toLowerCase().match(search.value.toLowerCase())
       );
     });
 };

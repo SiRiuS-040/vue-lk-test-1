@@ -1,0 +1,32 @@
+.status-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  border: 1px solid var(--color-Secondary-Gray);
+  background-color: var(--color-Primary-White);
+  text-transform: uppercase;
+
+  &--color {
+    &-active {
+      color: var(--color-Secondary-Green);
+      background-color: rgb(228, 245, 221);
+      border-color: rgb(210, 236, 199);
+    }
+
+    &-blocked {
+      color: var(--color-Secondary-Light-Red);
+      background-color: rgb(251, 212, 212);
+      border-color: rgb(252, 190, 190);
+    }
+  }
+
+  &--theme-outline {
+    background-color: var(--color-Primary-White);
+  }
+}
