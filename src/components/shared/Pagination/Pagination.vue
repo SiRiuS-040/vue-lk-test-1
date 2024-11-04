@@ -139,27 +139,27 @@ if (props.frontPagination) {
 
 <style scoped lang="scss">
 .pagination {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 32px;
   @include media-breakpoint-up(md) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 32px;
 
   &__pagination {
-    @include media-breakpoint-up(md) {
-      gap: 16px;
-      align-items: flex-start;
-      justify-content: flex-end;
-    }
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
     justify-content: flex-end;
+    @include media-breakpoint-up(md) {
+      gap: 16px;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
   }
 }
 </style>

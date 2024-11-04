@@ -62,18 +62,18 @@ const visibleList = ref([]);
 
 <style scoped lang="scss">
 .staff-list {
+  overflow: auto;
   border-radius: 10px;
   background-color: var(--color-Primary-Light-Gray);
-  overflow: auto;
 
   &__header {
-    padding: 18px 24px;
-    text-transform: uppercase;
-    color: var(--color-Text-Light-Grey);
 
     display: grid;
     grid-template-columns: 80px 230px 230px 230px 115px 80px;
     gap: 24px;
+    padding: 18px 24px;
+    color: var(--color-Text-Light-Grey);
+    text-transform: uppercase;
 
     @include media-breakpoint-up(xl) {
       grid-template-columns: 80px 1fr 1fr 1fr 0.5fr 80px;
@@ -81,10 +81,10 @@ const visibleList = ref([]);
   }
 
   &__list {
-    border-radius: 0 0 10px 10px;
-    border: 1px solid var(--color-Text-Line-Grey);
-    width: max-content;
     overflow: hidden;
+    width: max-content;
+    border: 1px solid var(--color-Text-Line-Grey);
+    border-radius: 0 0 10px 10px;
 
     @include media-breakpoint-up(xl) {
       width: auto;
@@ -93,11 +93,11 @@ const visibleList = ref([]);
 }
 
 .staff-list-item {
-  padding: 14px 24px;
   display: grid;
   grid-template-columns: 80px 230px 230px 230px 115px 80px;
   gap: 24px;
   width: max-content;
+  padding: 14px 24px;
   background-color: var(--color-Primary-White);
 
   @include media-breakpoint-up(xl) {

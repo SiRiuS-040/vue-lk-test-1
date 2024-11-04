@@ -41,26 +41,26 @@ const scrollToTop = () => {
 @use '@west/assets/scss/variables' as *;
 
 .back-top {
+
+  position: fixed;
+  right: 12px;
+  bottom: 16px;
+
+  z-index: 80;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   background-color: $newGrey200;
   opacity: 0.3;
-  border-radius: 50%;
   cursor: pointer;
 
-  position: fixed;
-  bottom: 16px;
-  right: 12px;
-
-  z-index: 80;
-
   @include media-breakpoint-up (md) {
-    bottom: 90px;
     right: 24px;
+    bottom: 90px;
   }
 
   @include media-breakpoint-up (xl) {

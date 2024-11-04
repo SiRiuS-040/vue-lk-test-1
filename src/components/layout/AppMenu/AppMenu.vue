@@ -65,10 +65,6 @@ const authStore = useAuthStore();
 
 <style scoped lang="scss">
 .app-menu {
-
-  @include media-breakpoint-up(md) {
-    width: 256px;
-  }
   overflow: hidden;
   overflow-y: auto;
   width: 0;
@@ -76,19 +72,23 @@ const authStore = useAuthStore();
   padding: 0 0 40px 0;
   background-color: var(--color-Primary-Dark);
 
-  &.is-open {
+  @include media-breakpoint-up(md) {
+    width: 256px;
+  }
 
-    @include media-breakpoint-up(md) {
-      position: static;
-      width: 256px;
-      height: auto;
-    }
+  &.is-open {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
     width: 100%;
     height: 100vh;
+
+    @include media-breakpoint-up(md) {
+      position: static;
+      width: 256px;
+      height: auto;
+    }
   }
 
   &__menu-close {
@@ -98,10 +98,6 @@ const authStore = useAuthStore();
   }
 
   &__header {
-
-    @include media-breakpoint-up(md) {
-      padding: 30px 30px 30px 56px;
-    }
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -110,6 +106,10 @@ const authStore = useAuthStore();
     font-size: 24px;
     line-height: 24px;
     text-align: center;
+
+    @include media-breakpoint-up(md) {
+      padding: 30px 30px 30px 56px;
+    }
   }
 
   &__nav {
@@ -122,16 +122,16 @@ const authStore = useAuthStore();
   }
 
   &__nav-item {
-
-    @include media-breakpoint-up(md) {
-      padding: 12px 30px 12px 32px;
-    }
     position: relative;
     display: flex;
     gap: 20px;
     align-items: center;
     padding: 12px 16px 12px 18px;
     color: var(--color-Text-White);
+
+    @include media-breakpoint-up(md) {
+      padding: 12px 30px 12px 32px;
+    }
 
     &:hover {
       color: var(--color-Primary-Red);
@@ -155,12 +155,12 @@ const authStore = useAuthStore();
   }
 
   &__footer {
+    display: flex;
+    padding: 12px 16px 12px 18px;
 
     @include media-breakpoint-up(md) {
       padding: 12px 30px 12px 32px;
     }
-    display: flex;
-    padding: 12px 16px 12px 18px;
   }
 
   &__footer-control {

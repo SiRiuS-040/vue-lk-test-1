@@ -16,12 +16,12 @@ import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
 <style lang="scss">
 .login-view {
   &__img {
+    width: 100%;
 
     @include media-breakpoint-up(xl) {
       width: 577px;
       max-width: none;
     }
-    width: 100%;
   }
 }
 </style>

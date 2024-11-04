@@ -51,6 +51,13 @@ const authStore = useAuthStore();
 
 <style scoped lang="scss">
 .profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 18px;
+  border: 1px solid var(--color-Text-Line-Grey);
+  border-radius: 6px;
 
   @include media-breakpoint-up(md) {
     flex-direction: row;
@@ -62,13 +69,6 @@ const authStore = useAuthStore();
   @include media-breakpoint-up(xl) {
     justify-content: space-between;
   }
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  padding: 18px;
-  border: 1px solid var(--color-Text-Line-Grey);
-  border-radius: 6px;
 
   &__info {
     display: flex;
@@ -84,6 +84,13 @@ const authStore = useAuthStore();
 }
 
 .profile-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+
+  //   flex-direction: column;
+  justify-content: center;
 
   @include media-breakpoint-up(md) {
     flex-direction: row;
@@ -95,13 +102,6 @@ const authStore = useAuthStore();
     flex-wrap: wrap;
     justify-content: flex-start;
   }
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-
-  //   flex-direction: column;
-  justify-content: center;
 
   &__item {
     display: flex;
