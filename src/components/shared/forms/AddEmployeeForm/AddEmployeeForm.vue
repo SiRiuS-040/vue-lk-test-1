@@ -10,13 +10,37 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
+import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
 
 const router = useRouter();
-const userName = ref();
-const email = ref();
-const phone = ref();
-const credits = ref();
-const tokens = ref();
+
+const id = Math.ceil(Math.random() * 10000); // простой рандом
+const userName = ref("New User");
+const email = ref("");
+const phone = ref("");
+const credits = ref(0);
+const tokens = ref(0);
+const userStatusFlag = ref(false);
+
+const cardData = computed<IStaffItem>(() => {
+  return {
+    id,
+    userName: userName.value,
+    email: email.value,
+    phone: phone.value,
+    credits: credits.value,
+    tokens: tokens.value,
+    userStatus: userStatusFlag.value ? "ACTIVE" : "BLOCKED",
+  };
+});
+
+const cardDataModel = defineModel();
+
+cardDataModel.value = cardData.value;
+
+watch(cardData, () => {
+  cardDataModel.value = cardData.value;
+});
 </script>
 <template>
   <div class="add-employee-form">

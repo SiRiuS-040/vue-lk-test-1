@@ -29,4 +29,11 @@
   &--theme-outline {
     background-color: var(--color-Primary-White);
   }
+
+  &--theme-badge {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    text-transform: capitalize;
+  }
 }

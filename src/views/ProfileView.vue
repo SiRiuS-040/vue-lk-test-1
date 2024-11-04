@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { reactive, ref, computed, watch } from "vue";
 import { useRouter } from "vue-router";
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
@@ -15,12 +15,24 @@ import {
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import StaffList from "@/components/shared/Profile/StaffList/StaffList.vue";
 import { staffList } from "@/components/shared/Profile/StaffList/model/mock.ts";
+import { useAuthStore } from "@/stores/auth.ts";
+
+const authStore = useAuthStore();
+
+const authUser = computed(() => {
+  return {
+    id: authStore.id,
+    userName: authStore.userName,
+    email: authStore.email,
+    phone: authStore.phone,
+    credits: authStore.credits,
+    tokens: authStore.tokens,
+  };
+});
 
 const router = useRouter();
 const search = ref("");
-
 const filteredList = ref([]);
-
 filteredList.value = staffList;
 
 const clearSearch = () => {
@@ -47,7 +59,7 @@ const searchFiltered = () => {
   <PageContent class="page" :tabs="['Profile', 'Staff']">
     <template #Profile-content>
       <div class="flex-col-16">
-        <ProfileCard />
+        <ProfileCard :cardData="authUser" />
         <ProfileForm class="page__form" />
       </div>
     </template>

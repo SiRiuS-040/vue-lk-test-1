@@ -5,6 +5,11 @@ interface IStore {
   userName: string;
   userPassword: string;
   userLogin: string;
+  id: number;
+  email: string;
+  phone: string;
+  credits: number;
+  tokens: number;
 }
 
 interface IAuth {
@@ -16,19 +21,36 @@ const usersData = {
   "111": {
     password: "111",
     userName: "John Doe",
+    id: 100,
+    email: "test@test",
+    phone: "+71111111111",
+    credits: 22,
+    tokens: 33,
+    userStatus: "ACTIVE",
   },
   "222": {
     password: "222",
     userName: "Darrell Steward",
+    id: 101,
+    email: "test@test",
+    phone: "+71111111111",
+    credits: 11,
+    tokens: 55,
+    userStatus: "ACTIVE",
   },
 };
 
 export const useAuthStore = defineStore("auth", {
   state: (): IStore => ({
     isAuthorized: false,
-    userName: "",
     userPassword: "",
     userLogin: "",
+    id: 1,
+    userName: "",
+    email: "",
+    phone: "",
+    credits: 0,
+    tokens: 0,
   }),
   getters: {},
   actions: {
@@ -52,6 +74,8 @@ export const useAuthStore = defineStore("auth", {
       this.userName = usersData[data.login].userName;
       this.userPassword = usersData[data.login].password;
       this.userLogin = data.login;
+      this.credits = usersData[data.login].credits;
+      this.tokens = usersData[data.login].tokens;
     },
     logout() {
       this.isAuthorized = false;

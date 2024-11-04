@@ -1,4 +1,5 @@
 export enum StatusCode {
+  EMPTY = "empty",
   ACTIVE = "active",
   BLOCKED = "blocked",
 }
@@ -6,6 +7,7 @@ export enum StatusCode {
 export enum StatusTheme {
   DEFAULT = "default",
   OUTLINE = "outline",
+  BADGE = "badge",
 }
 
 interface IStatus {
@@ -15,6 +17,10 @@ interface IStatus {
 }
 
 export const STATUSES: Record<StatusCode, IStatus> = {
+  [StatusCode.EMPTY]: {
+    text: "",
+    color: "",
+  },
   [StatusCode.ACTIVE]: {
     text: "active",
     color: "active",

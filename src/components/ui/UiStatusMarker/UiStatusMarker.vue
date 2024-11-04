@@ -1,12 +1,18 @@
 <template>
   <span v-if="text || adsText" :class="statusClasses" class="status-marker">
+    <UiIcon
+      v-if="theme === StatusTheme.BADGE"
+      :icon="IconName.PATCH_CHECK_FILL"
+      :size="IconSize.SIZE_16"
+    />
     <span>{{ text }}</span>
     <span v-if="adsText"> {{ adsText }}</span>
   </span>
 </template>
 <script setup lang="ts">
 import { defineProps, computed } from "vue";
-
+import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
+import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 import {
   StatusCode,
   StatusTheme,

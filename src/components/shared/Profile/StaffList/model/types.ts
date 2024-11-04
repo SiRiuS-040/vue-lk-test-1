@@ -4,5 +4,6 @@ export interface IStaffItem {
   email: string;
   phone: string;
   credits: number;
+  tokens: number;
   userStatus: string;
 }

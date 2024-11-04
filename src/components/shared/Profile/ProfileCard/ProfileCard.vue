@@ -9,9 +9,17 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
-import { useAuthStore } from "@/stores/auth.ts";
 
-const authStore = useAuthStore();
+import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
+
+import UiStatusMarker from "@/components/ui/UiStatusMarker/UiStatusMarker.vue";
+import { StatusCode, StatusTheme } from "@/components/ui/UiStatusMarker/types";
+
+export interface IProps {
+  cardData: IStaffItem;
+}
+
+const props = defineProps<IProps>();
 </script>
 
 <template>
@@ -19,18 +27,20 @@ const authStore = useAuthStore();
     <div class="profile-card__info">
       <UiIcon :icon="IconName.USER" :size="IconSize.SIZE_82" />
       <div class="flex-col-8">
-        <h2 class="profile-card__name">{{ authStore.userName }}</h2>
+        <h2 class="profile-card__name">{{ cardData.userName }}</h2>
         <div class="flex-center-16 flex-wrap">
           <UiButton :theme="ButtonTheme.CLEAR" class="flex-8">
             <UiIcon :icon="IconName.CAMERA" :size="IconSize.SIZE_20" />
             Upload new photo
           </UiButton>
-          <span class="profile-card__status flex-center-8">
-            <UiIcon
-              :icon="IconName.PATCH_CHECK_FILL"
-              :size="IconSize.SIZE_16"
+          <span
+            class="profile-card__status flex-center-8"
+            :class="{ bloced: cardData.userStatus === 'BLOCKED' }"
+          >
+            <UiStatusMarker
+              :statusCode="StatusCode[cardData.userStatus]"
+              :theme="StatusTheme.BADGE"
             />
-            Active
           </span>
         </div>
       </div>
@@ -38,11 +48,11 @@ const authStore = useAuthStore();
     <div class="profile-card__stats profile-stats">
       <div class="profile-stats__item">
         <p class="text-3">Total Credit</p>
-        <p class="text-2">79</p>
+        <p class="text-2">{{ cardData.credits }}</p>
       </div>
       <div class="profile-stats__item">
         <p class="text-3">Available Tokens</p>
-        <p class="text-2">12</p>
+        <p class="text-2">{{ cardData.tokens }}</p>
       </div>
     </div>
   </div>
@@ -79,6 +89,10 @@ const authStore = useAuthStore();
 
   &__status {
     color: var(--color-Secondary-Green);
+
+    &.blocked {
+      color: var(--color-Secondary-Light-Red);
+    }
   }
 }
 

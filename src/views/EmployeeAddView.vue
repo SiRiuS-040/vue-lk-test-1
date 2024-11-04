@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, computed, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import {
@@ -18,8 +18,11 @@ import AddEmployeeForm from "@/components/shared/forms/AddEmployeeForm/AddEmploy
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
 
+import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
+
 const route = useRoute();
 const router = useRouter();
+const cardData = ref({} as IStaffItem);
 </script>
 
 <template>
@@ -35,8 +38,8 @@ const router = useRouter();
     </template>
 
     <template #default-content>
-      <ProfileCard />
-      <AddEmployeeForm class="page__form" />
+      <ProfileCard :cardData="cardData" />
+      <AddEmployeeForm v-model="cardData" class="page__form" />
     </template>
   </PageContent>
 </template>
