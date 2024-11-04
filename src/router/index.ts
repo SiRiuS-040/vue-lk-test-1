@@ -3,11 +3,15 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginView from "@/views/LoginView.vue";
 import RestoreView from "@/views/RestoreView.vue";
 import HomeView from "@/views/HomeView.vue";
+
+import ProfileMainView from "@/views/ProfileMainView.vue";
 import ProfileView from "@/views/ProfileView.vue";
+import EmployeeAddView from "@/views/EmployeeAddView.vue";
+
 import VehiclesMainView from "@/views/VehiclesMainView.vue";
 import VehiclesView from "@/views/VehiclesView.vue";
-
 import VehiclesAddView from "@/views/VehiclesAddView.vue";
+
 import SettingsView from "@/views/SettingsView.vue";
 import ComponentsView from "@/views/ComponentsView.vue";
 
@@ -37,13 +41,34 @@ const router = createRouter({
     },
     {
       path: "/",
-      name: "Profile",
-      component: ProfileView,
+      name: "ProfileMain",
+      component: ProfileMainView,
       meta: {
         layout: "DefaultLayout",
-        title: "Profile",
+        title: "ProfileMain",
       },
+      children: [
+        {
+          path: "",
+          name: "Profile",
+          component: ProfileView,
+          meta: {
+            layout: "DefaultLayout",
+            title: "Profile",
+          },
+        },
+        {
+          path: "/profile/add-employee",
+          name: "NewEmployee",
+          component: EmployeeAddView,
+          meta: {
+            layout: "DefaultLayout",
+            title: "New employee",
+          },
+        },
+      ],
     },
+
     {
       path: "/vehicles",
       name: "VehiclesMain",

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { useRouter } from "vue-router";
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
 import ProfileForm from "@/components/shared/forms/ProfileForm/ProfileForm.vue";
@@ -15,6 +16,7 @@ import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import StaffList from "@/components/shared/Profile/StaffList/StaffList.vue";
 import { staffList } from "@/components/shared/Profile/StaffList/model/mock.ts";
 
+const router = useRouter();
 const search = ref("");
 
 const filteredList = ref([]);
@@ -28,7 +30,6 @@ const clearSearch = () => {
 const searchFields = ["userName", "email", "phone"];
 
 const searchFiltered = () => {
-  console.log("searchFiltered");
   filteredList.value = staffList
     .map((item) => item)
     .filter((staffItem) => {
@@ -40,10 +41,6 @@ const searchFiltered = () => {
       );
     });
 };
-
-watch(search, () => {
-  console.log(search.value);
-});
 </script>
 
 <template>
@@ -67,7 +64,10 @@ watch(search, () => {
             <UiIcon :icon="IconName.ZOOM" @click="searchFiltered" />
           </template>
         </UiInput>
-        <UiButton class="page__filter-add">
+        <UiButton
+          class="page__filter-add"
+          @click.prevent="router.push({ name: 'NewEmployee' })"
+        >
           <UiIcon :icon="IconName.PLUS" />
           Add new employee
         </UiButton>

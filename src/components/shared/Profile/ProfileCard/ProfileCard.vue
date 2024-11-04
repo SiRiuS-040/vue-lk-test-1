@@ -35,7 +35,6 @@ const authStore = useAuthStore();
         </div>
       </div>
     </div>
-
     <div class="profile-card__stats profile-stats">
       <div class="profile-stats__item">
         <p class="text-3">Total Credit</p>
