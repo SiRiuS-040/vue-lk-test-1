@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useToast } from "vue-toastification";
 import { useRouter } from "vue-router";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
@@ -15,6 +16,7 @@ import { Employee } from "@/repository/employee/types.ts";
 import { staffList } from "@/repository/employee/mock.ts";
 import { useAuthStore } from "@/stores/auth.ts";
 
+const toast = useToast();
 const router = useRouter();
 const authStore = useAuthStore();
 
@@ -32,7 +34,7 @@ const changePw = ref({
 const saveProfileChanges = () => {
   // console.log("сохранение новых данных пользовалетя");
   if (!userName.value && !email.value) {
-    // console.log("не заполнены обязательные поля");
+    toast.warning("Please input required fields!");
     return;
   }
 
@@ -46,6 +48,8 @@ const saveProfileChanges = () => {
       ? changePw.value.newPw
       : password.value;
     userDbData.phone = contactPhone.value;
+
+    toast.success("Changes saved !");
   }
 };
 </script>

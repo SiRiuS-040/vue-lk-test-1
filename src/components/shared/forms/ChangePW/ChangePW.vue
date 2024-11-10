@@ -8,7 +8,9 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
+import { useToast } from "vue-toastification";
 
+const toast = useToast();
 const oldPassword = ref();
 const newPassword = ref();
 const newPasswordRepeat = ref();
@@ -42,6 +44,7 @@ const checkChangePw = () => {
   }
 
   // console.log("смена пароля готова");
+  toast.info("смена пароля готова");
   changePasswordModel.value.newPw = newPasswordRepeat.value;
 };
 

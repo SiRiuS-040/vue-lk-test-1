@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, toRaw } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { useToast } from "vue-toastification";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import {
   ButtonTheme,
@@ -24,14 +25,14 @@ import {
   Employee,
 } from "@/repository/employee/types.ts";
 
+const toast = useToast();
 const route = useRoute();
 const router = useRouter();
 const cardData = ref(new Employee());
 
 const addEmployee = () => {
   if (!cardData.value.userName || !cardData.value.email) {
-    alert("Please input required fields!");
-
+    toast.warning("Please input required fields!");
     return;
   }
 
@@ -40,7 +41,7 @@ const addEmployee = () => {
 
   const newEmployee = { ...toRaw(cardData.value) };
   staffList.push(newEmployee);
-  alert(`New employee created succesfully! Password is ${newUserPw}`);
+  toast.success(`New employee created succesfully! Password is ${newUserPw}`);
 };
 </script>
 

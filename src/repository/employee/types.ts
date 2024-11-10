@@ -27,7 +27,7 @@ export class Employee implements IStaffItem {
 
   constructor() {
     this.id = Math.ceil(Math.random() * 10000);
-    this.userName = "New User";
+    this.userName = "";
     this.avatar = "";
     this.email = "";
     this.password = "111";
