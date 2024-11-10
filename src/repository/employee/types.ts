@@ -9,7 +9,7 @@ export interface IStaffItem {
   userStatus: string;
 }
 
-export enum UserSStatus {
+export enum UserStatus {
   ACTIVE = "ACTIVE",
   BLOCKED = "BLOCKED",
 }
@@ -23,7 +23,7 @@ export class Employee implements IStaffItem {
   phone: string;
   credits: number;
   tokens: number;
-  userStatus: UserSStatus;
+  userStatus: UserStatus;
 
   constructor() {
     this.id = Math.ceil(Math.random() * 10000);
@@ -34,6 +34,11 @@ export class Employee implements IStaffItem {
     this.phone = "";
     this.credits = 0;
     this.tokens = 0;
-    this.userStatus = UserSStatus.ACTIVE;
+    this.userStatus = UserStatus.ACTIVE;
   }
+}
+
+export interface IChangePw {
+  oldPw: string;
+  newPw: string;
 }

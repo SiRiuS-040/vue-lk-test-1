@@ -10,10 +10,10 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
-import { IStaffItem } from "@/repository/employee/types.ts";
+import type { IStaffItem } from "@/repository/employee/types";
 
 const router = useRouter();
-const employeeData = defineModel();
+const employeeData = defineModel<IStaffItem>();
 </script>
 <template>
   <div class="add-employee-form">

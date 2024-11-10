@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, unref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { useAuthStore } from "@/stores/auth.ts";
+import { useAuthStore } from "@/stores/auth";
 import AppLayout from "@/layouts/AppLayout.vue";
 
 const route = useRoute();

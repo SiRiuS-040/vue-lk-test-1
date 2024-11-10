@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
-import { IStaffItem } from "@/repository/employee/types.ts";
+import type { IStaffItem } from "@/repository/employee/types";
 import UiStatusMarker from "@/components/ui/UiStatusMarker/UiStatusMarker.vue";
 import { StatusCode, StatusTheme } from "@/components/ui/UiStatusMarker/types";
 
@@ -46,7 +46,7 @@ const props = defineProps<IProps>();
           </UiButton>
           <span
             class="profile-card__status flex-center-8"
-            :class="{ bloced: cardData.userStatus === 'BLOCKED' }"
+            :class="{ blocked: cardData.userStatus === 'BLOCKED' }"
           >
             <UiStatusMarker
               :statusCode="StatusCode[cardData.userStatus]"

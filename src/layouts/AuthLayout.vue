@@ -9,7 +9,7 @@ const route = useRoute();
   <div class="auth-layout" :key="route.path">
     <div class="auth-layout__wrapper">
       <div class="auth-layout__header">
-        <span class="">Demo Test</span>
+        <span class="">Demo LK</span>
         <LangSelect class="auth-layout__langselect" />
       </div>
       <div class="auth-layout__content">

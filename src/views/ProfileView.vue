@@ -14,26 +14,28 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import StaffList from "@/components/shared/Profile/StaffList/StaffList.vue";
-import { staffList } from "@/repository/employee/mock.ts";
-import { useAuthStore } from "@/stores/auth.ts";
+import { staffList } from "@/repository/employee/mock";
+import type { IStaffItem } from "@/repository/employee/types";
+import { useAuthStore } from "@/stores/auth";
 
 const authStore = useAuthStore();
 
-const authUser = computed(() => {
+const authUser = computed<IStaffItem>(() => {
   return {
     id: authStore.id,
     userName: authStore.userName,
+    avatar: authStore.avatar,
     email: authStore.email,
     phone: authStore.phone,
     credits: authStore.credits,
     tokens: authStore.tokens,
-    avatar: authStore.avatar,
+    userStatus: authStore.userStatus,
   };
 });
 
 const router = useRouter();
 const search = ref("");
-const filteredList = ref([]);
+const filteredList = ref([] as IStaffItem[]);
 filteredList.value = staffList;
 
 const clearSearch = () => {

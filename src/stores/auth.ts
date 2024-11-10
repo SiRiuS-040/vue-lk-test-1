@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
-import { UserSStatus } from "@/repository/employee/types.ts";
-import { staffList } from "@/repository/employee/mock.ts";
+import type { UserStatus } from "@/repository/employee/types";
+import type { IAuth } from "@/repository/auth/types";
+import { staffList } from "@/repository/employee/mock";
 
 interface IStore {
   isAuthorized: boolean;
@@ -11,13 +12,8 @@ interface IStore {
   credits: number;
   tokens: number;
   avatar: string;
-  userStatus: string | UserSStatus;
+  userStatus: string | UserStatus;
   userPassword: string;
-}
-
-interface IAuth {
-  login: string;
-  password: string;
 }
 
 export const useAuthStore = defineStore("auth", {
@@ -35,7 +31,7 @@ export const useAuthStore = defineStore("auth", {
   }),
   getters: {},
   actions: {
-    async authirize(data: IAuth) {
+    async authorize(data: IAuth) {
       console.log("имитация authorize");
 
       if (

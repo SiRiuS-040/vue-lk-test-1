@@ -13,7 +13,6 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
-import { log } from "console";
 
 interface pagLink {
   url: null | string;
@@ -24,7 +23,7 @@ interface pagLink {
 interface IProps {
   itemsPerPage?: number;
   currentPage?: number;
-  totalItems?: number;
+  totalItems: number;
   maxVisibleLinks?: number;
 
   links?: pagLink[];
@@ -38,6 +37,7 @@ const emit = defineEmits(["changePage", "update:modelValue"]);
 const props = withDefaults(defineProps<IProps>(), {
   currentPage: 1,
   frontPagination: false,
+  itemsPerPage: 10,
   maxVisibleLinks: 0,
 });
 
@@ -79,9 +79,7 @@ const changeToPrev = () => {
 };
 
 const changeToNext = () => {
-  if (
-    props.currentPage >= totalPages.value.length[totalPages.value.length - 1]
-  ) {
+  if (props.currentPage >= totalPages.value[-1]) {
     return;
   }
 
@@ -91,7 +89,7 @@ const changeToNext = () => {
 const frontCurrentPage = ref(props.currentPage);
 
 const filterdeItems = computed(() => {
-  return props.items.slice(
+  return props.items?.slice(
     props.currentPage > 1
       ? (frontCurrentPage.value - 1) * props.itemsPerPage
       : 0,

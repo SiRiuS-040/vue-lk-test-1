@@ -2,7 +2,7 @@
 import { defineEmits, defineProps, withDefaults, computed, ref } from "vue";
 import Pagination from "@/components/shared/Pagination/Pagination.vue";
 import UiStatusMarker from "@/components/ui/UiStatusMarker/UiStatusMarker.vue";
-import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
+import type { IStaffItem } from "@/repository/employee/types";
 import {
   StatusCode,
   StatusTheme,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/UiStatusMarker/types";
 
 interface IProps {
-  items?: IStaffItem[];
+  items: IStaffItem[];
 }
 
 const emit = defineEmits(["changePage"]);
@@ -21,7 +21,7 @@ const changePage = async (page: number) => {
   currentPage.value = page;
 };
 
-const visibleList = ref([]);
+const visibleList = ref<IStaffItem[]>([]);
 </script>
 
 <template>
@@ -48,7 +48,9 @@ const visibleList = ref([]);
           <span class="text-4"> {{ item.email }} </span>
           <span class="text-4"> {{ item.phone }} </span>
           <span class="text-4"> {{ item.credits }} </span>
-          <UiStatusMarker :statusCode="StatusCode[item.userStatus]" />
+          <UiStatusMarker
+            :statusCode="StatusCode[item.userStatus as keyof typeof StatusCode]"
+          />
         </li>
       </ul>
     </div>

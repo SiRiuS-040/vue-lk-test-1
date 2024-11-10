@@ -8,8 +8,8 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
-import { useAppMenuStore } from "@/stores/app-menu.ts";
-import { useAuthStore } from "@/stores/auth.ts";
+import { useAppMenuStore } from "@/stores/app-menu";
+import { useAuthStore } from "@/stores/auth";
 
 const appMenuStore = useAppMenuStore();
 const authStore = useAuthStore();
@@ -18,7 +18,7 @@ const authStore = useAuthStore();
 <template>
   <div class="app-menu" :class="{ 'is-open': appMenuStore.isOpen }">
     <div class="app-menu__header">
-      <span>Demo Test</span>
+      <span>Demo LK</span>
       <UiButton
         :theme="ButtonTheme.CLEAR"
         class="app-menu__menu-close"

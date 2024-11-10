@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, unref, watch } from "vue";
+import { useToast } from "vue-toastification";
 import { useRouter } from "vue-router";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
@@ -10,19 +11,20 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
-import { useAuthStore } from "@/stores/auth.ts";
-import { log } from "console";
+import { useAuthStore } from "@/stores/auth";
+import type { IAuth } from "@/repository/auth/types";
 
+const toast = useToast();
 const authStore = useAuthStore();
 const router = useRouter();
 const login = ref("admin2@test");
 const password = ref("222");
 const authErrorMessage = ref("");
 
-const fetchAuth = async (data) => {
+const fetchAuth = async (data: IAuth) => {
   authErrorMessage.value = "";
-  authStore.authirize(data).catch(() => {
-    console.log("ошибка");
+  authStore.authorize(data).catch(() => {
+    toast.warning("Incorrect Email address or Password");
     authErrorMessage.value = "Incorrect Email address or Password";
   });
 };

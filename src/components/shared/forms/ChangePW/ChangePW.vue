@@ -9,12 +9,13 @@ import {
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
 import { useToast } from "vue-toastification";
+import type { IChangePw } from "@/repository/employee/types";
 
 const toast = useToast();
 const oldPassword = ref();
 const newPassword = ref();
 const newPasswordRepeat = ref();
-const changePasswordModel = defineModel<{ oldPw: string; newPw: string }>();
+const changePasswordModel = defineModel<IChangePw>({});
 const isChangePwVisible = ref(false);
 
 const changePwVisibility = () => {

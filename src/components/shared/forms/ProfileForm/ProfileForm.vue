@@ -12,9 +12,10 @@ import {
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
 import ChangePW from "@/components/shared/forms/ChangePW/ChangePW.vue";
-import { Employee } from "@/repository/employee/types.ts";
-import { staffList } from "@/repository/employee/mock.ts";
-import { useAuthStore } from "@/stores/auth.ts";
+import { Employee } from "@/repository/employee/types";
+import type { IChangePw } from "@/repository/employee/types";
+import { staffList } from "@/repository/employee/mock";
+import { useAuthStore } from "@/stores/auth";
 
 const toast = useToast();
 const router = useRouter();
@@ -26,7 +27,7 @@ const password = ref(authStore.userPassword);
 const avatar = ref(authStore.avatar);
 const contactPhone = ref(authStore.phone);
 
-const changePw = ref({
+const changePw = ref<IChangePw>({
   oldPw: authStore.userPassword,
   newPw: "",
 });

@@ -18,17 +18,17 @@ import EmployeeForm from "@/components/shared/forms/EmployeeForm/EmployeeForm.vu
 
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
-import { staffList } from "@/repository/employee/mock.ts";
+import { staffList } from "@/repository/employee/mock";
 import {
   IStaffItem,
-  UserSStatus,
+  UserStatus,
   Employee,
 } from "@/repository/employee/types.ts";
 
 const toast = useToast();
 const route = useRoute();
 const router = useRouter();
-const cardData = ref(new Employee());
+const cardData = ref(new Employee() as IStaffItem);
 
 const addEmployee = () => {
   if (!cardData.value.userName || !cardData.value.email) {

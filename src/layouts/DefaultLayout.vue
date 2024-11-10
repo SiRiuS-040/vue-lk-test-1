@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 import LangSelect from "@/components/shared/LangSelect/LangSelect.vue";
-import { useAppMenuStore } from "@/stores/app-menu.ts";
-import { useAuthStore } from "@/stores/auth.ts";
+import { useAppMenuStore } from "@/stores/app-menu";
+import { useAuthStore } from "@/stores/auth";
 
 const router = useRouter();
 const route = useRoute();
