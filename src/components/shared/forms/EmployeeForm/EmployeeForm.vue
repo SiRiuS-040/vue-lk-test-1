@@ -13,46 +13,19 @@ import {
 import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
 
 const router = useRouter();
-
-const id = Math.ceil(Math.random() * 10000); // простой рандом
-const userName = ref("New User");
-const email = ref("");
-const phone = ref("");
-const credits = ref(0);
-const tokens = ref(0);
-const userStatusFlag = ref(false);
-
-const cardData = computed<IStaffItem>(() => {
-  return {
-    id,
-    userName: userName.value,
-    email: email.value,
-    phone: phone.value,
-    credits: credits.value,
-    tokens: tokens.value,
-    userStatus: userStatusFlag.value ? "ACTIVE" : "BLOCKED",
-  };
-});
-
-const cardDataModel = defineModel();
-
-cardDataModel.value = cardData.value;
-
-watch(cardData, () => {
-  cardDataModel.value = cardData.value;
-});
+const employeeData = defineModel();
 </script>
 <template>
   <div class="add-employee-form">
     <div class="add-employee-form__form">
       <UiInput
-        v-model="userName"
+        v-model="employeeData.userName"
         required
         label="Username"
         placeholder="Username"
       />
       <UiInput
-        v-model="email"
+        v-model="employeeData.email"
         required
         label="Email address"
         placeholder="Email address"
@@ -64,12 +37,16 @@ watch(cardData, () => {
         </template>
       </UiInput>
       <UiInput
-        v-model="phone"
+        v-model="employeeData.phone"
         label="Contact phone"
         placeholder="+7999 999 99 99"
       />
-      <UiInput v-model="credits" label="Credit" placeholder="0" />
-      <UiInput v-model="tokens" label="Aviailable tokens" placeholder="0" />
+      <UiInput v-model="employeeData.credits" label="Credit" placeholder="0" />
+      <UiInput
+        v-model="employeeData.tokens"
+        label="Aviailable tokens"
+        placeholder="0"
+      />
       <UiButton :size="ButtonSize.L"> Add employee </UiButton>
     </div>
   </div>

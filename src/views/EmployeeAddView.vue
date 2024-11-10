@@ -13,16 +13,20 @@ import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 
 import LoginForm from "@/components/shared/forms/LoginForm/LoginForm.vue";
-import AddEmployeeForm from "@/components/shared/forms/AddEmployeeForm/AddEmployeeForm.vue";
+import EmployeeForm from "@/components/shared/forms/EmployeeForm/EmployeeForm.vue";
 
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
 
-import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
+import {
+  IStaffItem,
+  UserSStatus,
+  Employee,
+} from "@/repository/employee/types.ts";
 
 const route = useRoute();
 const router = useRouter();
-const cardData = ref({} as IStaffItem);
+const cardData = ref(new Employee());
 </script>
 
 <template>
@@ -36,10 +40,9 @@ const cardData = ref({} as IStaffItem);
         <UiIcon :icon="IconName.ARROW_LEFT" />
       </UiButton>
     </template>
-
     <template #default-content>
       <ProfileCard :cardData="cardData" />
-      <AddEmployeeForm v-model="cardData" class="page__form" />
+      <EmployeeForm v-model="cardData" class="page__form" />
     </template>
   </PageContent>
 </template>
