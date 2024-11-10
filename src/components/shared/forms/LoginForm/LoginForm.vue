@@ -15,7 +15,7 @@ import { log } from "console";
 
 const authStore = useAuthStore();
 const router = useRouter();
-const login = ref("222");
+const login = ref("admin2@test");
 const password = ref("222");
 const authErrorMessage = ref("");
 

@@ -10,6 +10,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "BLOCKED",
+    password: "888",
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 6,
@@ -60,6 +65,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 7,
@@ -70,6 +76,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "BLOCKED",
+    password: "888",
   },
   {
     id: 8,
@@ -80,6 +87,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 9,
@@ -90,6 +98,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 10,
@@ -100,6 +109,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 11,
@@ -110,6 +120,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 12,
@@ -120,6 +131,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "BLOCKED",
+    password: "888",
   },
 
   {
@@ -131,6 +143,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 14,
@@ -141,6 +154,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 15,
@@ -151,6 +165,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 16,
@@ -161,6 +176,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 17,
@@ -171,6 +187,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 18,
@@ -181,6 +198,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 19,
@@ -191,6 +209,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 20,
@@ -201,6 +220,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 21,
@@ -211,6 +231,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 22,
@@ -221,6 +242,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 23,
@@ -231,6 +253,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "BLOCKED",
+    password: "888",
   },
   {
     id: 24,
@@ -241,6 +264,7 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
   },
   {
     id: 25,
@@ -251,5 +275,29 @@ export const staffList = reactive([
     tokens: 0,
     avatar: "",
     userStatus: "ACTIVE",
+    password: "888",
+  },
+
+  {
+    id: 100,
+    userName: "John Doe",
+    email: "admin1@test",
+    phone: "+71111111111",
+    credits: 22,
+    tokens: 33,
+    avater: "",
+    userStatus: "ACTIVE",
+    password: "111",
+  },
+  {
+    id: 101,
+    userName: "Darrell Steward",
+    email: "admin2@test",
+    phone: "+72222222222",
+    credits: 11,
+    tokens: 55,
+    avater: "",
+    userStatus: "ACTIVE",
+    password: "222",
   },
 ]);

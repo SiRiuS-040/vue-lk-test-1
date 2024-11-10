@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, toRaw } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import {
@@ -17,7 +17,7 @@ import EmployeeForm from "@/components/shared/forms/EmployeeForm/EmployeeForm.vu
 
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
-
+import { staffList } from "@/repository/employee/mock.ts";
 import {
   IStaffItem,
   UserSStatus,
@@ -27,6 +27,21 @@ import {
 const route = useRoute();
 const router = useRouter();
 const cardData = ref(new Employee());
+
+const addEmployee = () => {
+  if (!cardData.value.userName || !cardData.value.email) {
+    alert("Please input required fields!");
+
+    return;
+  }
+
+  const newUserPw = "333";
+  cardData.value.password = newUserPw;
+
+  const newEmployee = { ...toRaw(cardData.value) };
+  staffList.push(newEmployee);
+  alert(`New employee created succesfully! Password is ${newUserPw}`);
+};
 </script>
 
 <template>
@@ -44,7 +59,9 @@ const cardData = ref(new Employee());
       <ProfileCard :cardData="cardData" />
       <EmployeeForm v-model="cardData" class="page__form">
         <template #form-actions>
-          <UiButton :size="ButtonSize.L"> Add employee </UiButton>
+          <UiButton :size="ButtonSize.L" @click.prevent="addEmployee()">
+            Add employee
+          </UiButton>
         </template>
       </EmployeeForm>
     </template>

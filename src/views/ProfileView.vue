@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import StaffList from "@/components/shared/Profile/StaffList/StaffList.vue";
-import { staffList } from "@/components/shared/Profile/StaffList/model/mock.ts";
+import { staffList } from "@/repository/employee/mock.ts";
 import { useAuthStore } from "@/stores/auth.ts";
 
 const authStore = useAuthStore();

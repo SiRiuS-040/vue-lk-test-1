@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { staffList } from "@/repository/employee/mock.ts";
 
 interface IStore {
   isAuthorized: boolean;
@@ -17,29 +18,6 @@ interface IAuth {
   password: string;
 }
 
-const usersData = {
-  "111": {
-    password: "111",
-    userName: "John Doe",
-    id: 100,
-    email: "test@test",
-    phone: "+71111111111",
-    credits: 22,
-    tokens: 33,
-    userStatus: "ACTIVE",
-  },
-  "222": {
-    password: "222",
-    userName: "Darrell Steward",
-    id: 101,
-    email: "test@test",
-    phone: "+71111111111",
-    credits: 11,
-    tokens: 55,
-    userStatus: "ACTIVE",
-  },
-};
-
 export const useAuthStore = defineStore("auth", {
   state: (): IStore => ({
     isAuthorized: false,
@@ -57,25 +35,25 @@ export const useAuthStore = defineStore("auth", {
     async authirize(data: IAuth) {
       console.log("имитация authorize");
 
-      if (data.login && !usersData[data.login]) {
-        console.log("имитация - нет таког опользователя");
-
+      if (
+        staffList.find((item) => item.email === data.login) &&
+        staffList.find((item) => item.email === data.login)?.password !==
+          data.password
+      ) {
+        console.log("имитация - нет такого пользователя или не верный пароль");
         throw new Error("Incorrect Email address or Password");
       }
-
-      if (usersData[data.login].password !== data.password) {
-        console.log("имитация - Пароль НЕ верный");
-
-        throw new Error("Неверные логин или пароль");
-      }
-
       console.log("имитация - Пароль верный");
-      this.isAuthorized = true;
-      this.userName = usersData[data.login].userName;
-      this.userPassword = usersData[data.login].password;
-      this.userLogin = data.login;
-      this.credits = usersData[data.login].credits;
-      this.tokens = usersData[data.login].tokens;
+
+      const isExist = staffList.find((item) => item.email === data.login);
+      if (isExist) {
+        this.isAuthorized = true;
+        this.userName = isExist.userName;
+        this.userPassword = isExist.password;
+        this.userLogin = data.login;
+        this.credits = isExist.credits;
+        this.tokens = isExist.tokens;
+      }
     },
     logout() {
       this.isAuthorized = false;
