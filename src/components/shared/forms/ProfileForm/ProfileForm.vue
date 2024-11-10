@@ -11,16 +11,43 @@ import {
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
 import ChangePW from "@/components/shared/forms/ChangePW/ChangePW.vue";
+import { Employee } from "@/repository/employee/types.ts";
+import { staffList } from "@/repository/employee/mock.ts";
 import { useAuthStore } from "@/stores/auth.ts";
 
 const router = useRouter();
 const authStore = useAuthStore();
 
 const userName = ref(authStore.userName);
-const email = ref(authStore.userLogin);
+const email = ref(authStore.email);
 const password = ref(authStore.userPassword);
 const avatar = ref(authStore.avatar);
-const contactPhone = ref();
+const contactPhone = ref(authStore.phone);
+
+const changePw = ref({
+  oldPw: authStore.userPassword,
+  newPw: "",
+});
+
+const saveProfileChanges = () => {
+  // console.log("сохранение новых данных пользовалетя");
+  if (!userName.value && !email.value) {
+    // console.log("не заполнены обязательные поля");
+    return;
+  }
+
+  const userDbData = staffList.find((item) => item.email === authStore.email);
+
+  if (userDbData) {
+    userDbData.userName = userName.value;
+    userDbData.email = email.value;
+    userDbData.avatar = avatar.value;
+    userDbData.password = changePw.value.newPw
+      ? changePw.value.newPw
+      : password.value;
+    userDbData.phone = contactPhone.value;
+  }
+};
 </script>
 <template>
   <div class="profile-form">
@@ -47,13 +74,15 @@ const contactPhone = ref();
         autocomplete="new-password"
         disabled
       />
-      <ChangePW />
+      <ChangePW v-model="changePw" />
       <UiInput
         v-model="contactPhone"
         label="Contact phone"
         placeholder="+79991234567"
       />
-      <UiButton :size="ButtonSize.L"> Save changes </UiButton>
+      <UiButton :size="ButtonSize.L" @click.prevent="saveProfileChanges">
+        Save changes
+      </UiButton>
     </div>
   </div>
 </template>

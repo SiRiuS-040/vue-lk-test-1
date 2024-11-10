@@ -1,17 +1,18 @@
 import { defineStore } from "pinia";
+import { UserSStatus } from "@/repository/employee/types.ts";
 import { staffList } from "@/repository/employee/mock.ts";
 
 interface IStore {
   isAuthorized: boolean;
-  userName: string;
-  avatar: string;
-  userPassword: string;
-  userLogin: string;
   id: number;
+  userName: string;
   email: string;
   phone: string;
   credits: number;
   tokens: number;
+  avatar: string;
+  userStatus: string | UserSStatus;
+  userPassword: string;
 }
 
 interface IAuth {
@@ -22,15 +23,15 @@ interface IAuth {
 export const useAuthStore = defineStore("auth", {
   state: (): IStore => ({
     isAuthorized: false,
-    userPassword: "",
-    userLogin: "",
     id: 1,
     userName: "",
-    avatar: "",
     email: "",
     phone: "",
     credits: 0,
     tokens: 0,
+    avatar: "",
+    userStatus: "ACTIVE",
+    userPassword: "",
   }),
   getters: {},
   actions: {
@@ -50,18 +51,20 @@ export const useAuthStore = defineStore("auth", {
       const isExist = staffList.find((item) => item.email === data.login);
       if (isExist) {
         this.isAuthorized = true;
+        this.id = isExist.id;
         this.userName = isExist.userName;
-        this.userPassword = isExist.password;
-        this.userLogin = data.login;
+        this.email = data.login;
+        this.phone = isExist.phone;
         this.credits = isExist.credits;
         this.tokens = isExist.tokens;
         this.avatar = isExist.avatar;
+        this.userPassword = isExist.password;
+        this.userStatus = isExist.userStatus;
       }
     },
     logout() {
       this.isAuthorized = false;
       this.userName = "";
-      this.userLogin = "";
       this.userPassword = "";
     },
   },

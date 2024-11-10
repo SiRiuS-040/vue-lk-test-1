@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
@@ -12,11 +12,48 @@ import {
 const oldPassword = ref();
 const newPassword = ref();
 const newPasswordRepeat = ref();
-
+const changePasswordModel = defineModel<{ oldPw: string; newPw: string }>();
 const isChangePwVisible = ref(false);
+
 const changePwVisibility = () => {
+  oldPassword.value = "";
+  newPassword.value = "";
+  newPasswordRepeat.value = "";
+  changePasswordModel.value.newPw = "";
   isChangePwVisible.value = !isChangePwVisible.value;
 };
+
+const checkChangePw = () => {
+  changePasswordModel.value.newPw = "";
+
+  if (!oldPassword.value) {
+    // console.log("не введен старый пароль");
+    return;
+  }
+
+  if (oldPassword.value !== changePasswordModel.value.oldPw) {
+    // console.log("старый пароль не верный");
+    return;
+  }
+
+  if (!newPassword.value || newPassword.value !== newPasswordRepeat.value) {
+    // console.log("пустой пароль или новые пароли не совпадают");
+    return;
+  }
+
+  // console.log("смена пароля готова");
+  changePasswordModel.value.newPw = newPasswordRepeat.value;
+};
+
+watch(oldPassword, () => {
+  checkChangePw();
+});
+watch(newPassword, () => {
+  checkChangePw();
+});
+watch(newPasswordRepeat, () => {
+  checkChangePw();
+});
 </script>
 <template>
   <div class="change-password">
@@ -26,7 +63,7 @@ const changePwVisibility = () => {
       class="change-password__change-pw"
       @click="changePwVisibility"
     >
-      Change password
+      {{ isChangePwVisible ? "Cancel" : "Change password" }}
     </UiButton>
     <div v-if="isChangePwVisible" class="change-password__wrapper">
       <UiInput
