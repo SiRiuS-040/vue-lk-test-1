@@ -10,7 +10,7 @@ import {
   ButtonFormat,
   ButtonSize,
 } from "@/components/ui/UiButton/model/types";
-import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
+import { IStaffItem } from "@/repository/employee/types.ts";
 
 const router = useRouter();
 const employeeData = defineModel();
@@ -47,7 +47,7 @@ const employeeData = defineModel();
         label="Aviailable tokens"
         placeholder="0"
       />
-      <UiButton :size="ButtonSize.L"> Add employee </UiButton>
+      <slot name="form-actions" />
     </div>
   </div>
 </template>

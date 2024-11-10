@@ -7,6 +7,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -15,6 +17,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559999",
     credits: 25,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -23,6 +27,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 10,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -31,6 +37,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 5,
+    tokens: 0,
+    avatar: "",
     userStatus: "BLOCKED",
   },
   {
@@ -39,6 +47,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -47,6 +57,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -55,6 +67,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 8,
+    tokens: 0,
+    avatar: "",
     userStatus: "BLOCKED",
   },
   {
@@ -63,6 +77,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -71,6 +87,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 12,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -79,6 +97,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 1,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -87,6 +107,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -95,6 +117,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 3,
+    tokens: 0,
+    avatar: "",
     userStatus: "BLOCKED",
   },
 
@@ -104,6 +128,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -112,6 +138,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 22,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -120,6 +148,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -128,6 +158,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 777,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -136,6 +168,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 90,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -144,6 +178,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 7,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -152,6 +188,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 7,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -160,6 +198,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 43,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -168,6 +208,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 234,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -176,6 +218,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 1,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -184,6 +228,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 0,
+    tokens: 0,
+    avatar: "",
     userStatus: "BLOCKED",
   },
   {
@@ -192,6 +238,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 258,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
   {
@@ -200,6 +248,8 @@ export const staffList = reactive([
     email: "name@domian.com",
     phone: "+497074559490",
     credits: 660,
+    tokens: 0,
+    avatar: "",
     userStatus: "ACTIVE",
   },
 ]);

@@ -10,7 +10,7 @@ import {
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
 
-import { IStaffItem } from "@/components/shared/Profile/StaffList/model/types.ts";
+import { IStaffItem } from "@/repository/employee/types.ts";
 
 import UiStatusMarker from "@/components/ui/UiStatusMarker/UiStatusMarker.vue";
 import { StatusCode, StatusTheme } from "@/components/ui/UiStatusMarker/types";

@@ -42,7 +42,11 @@ const cardData = ref(new Employee());
     </template>
     <template #default-content>
       <ProfileCard :cardData="cardData" />
-      <EmployeeForm v-model="cardData" class="page__form" />
+      <EmployeeForm v-model="cardData" class="page__form">
+        <template #form-actions>
+          <UiButton :size="ButtonSize.L"> Add employee </UiButton>
+        </template>
+      </EmployeeForm>
     </template>
   </PageContent>
 </template>
