@@ -31,6 +31,7 @@ const authStore = useAuthStore();
             <UiButton
               :format="ButtonFormat.SQUARE"
               :theme="ButtonTheme.OUTLINE"
+              @click.prevent="router.push({ name: 'NewEmployee' })"
             >
               <UiIcon :icon="IconName.PLUS" />
             </UiButton>
@@ -164,11 +165,13 @@ const authStore = useAuthStore();
     align-items: center;
 
     margin-right: 0;
-    margin-left: auto;
+    // margin-left: auto;
+    flex-grow: 1;
 
     @include media-breakpoint-up(md) {
       margin-right: unset;
       margin-left: unset;
+      flex-grow: unset;
     }
 
     @include media-breakpoint-up(xl) {
@@ -180,6 +183,11 @@ const authStore = useAuthStore();
     display: flex;
     gap: 16px;
     align-items: center;
+    margin-right: auto;
+
+    @include media-breakpoint-up(md) {
+      margin-right: unset;
+    }
   }
 
   &__header-user-icon {

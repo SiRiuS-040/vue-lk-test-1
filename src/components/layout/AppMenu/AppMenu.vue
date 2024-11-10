@@ -74,6 +74,7 @@ const authStore = useAuthStore();
 
   @include media-breakpoint-up(md) {
     width: 256px;
+    min-width: 256px;
   }
 
   &.is-open {

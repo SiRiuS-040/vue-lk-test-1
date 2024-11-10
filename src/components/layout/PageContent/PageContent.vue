@@ -8,7 +8,6 @@ interface IProps {
 
 const props = defineProps<IProps>();
 const route = useRoute();
-
 const currentTab = ref("");
 
 if (props.tabs) {
@@ -72,7 +71,7 @@ const changeTab = (tab: string) => {
       max-width: 580px;
       min-height: 42px;
       margin-top: 0;
-      margin-bottom: 30px;
+      margin-bottom: 52px;
     }
   }
 
@@ -84,7 +83,7 @@ const changeTab = (tab: string) => {
 
   &__tabs {
     @include media-breakpoint-up(xl) {
-      margin-top: -16px;
+      margin-top: -38px;
     }
   }
 
