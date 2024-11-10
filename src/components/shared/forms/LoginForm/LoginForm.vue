@@ -23,7 +23,6 @@ const fetchAuth = async (data) => {
   authErrorMessage.value = "";
   authStore.authirize(data).catch(() => {
     console.log("ошибка");
-
     authErrorMessage.value = "Incorrect Email address or Password";
   });
 };

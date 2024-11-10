@@ -285,7 +285,8 @@ export const staffList = reactive([
     phone: "+71111111111",
     credits: 22,
     tokens: 33,
-    avater: "",
+    avatar:
+      "https://cs14.pikabu.ru/post_img/2023/02/13/8/1676295806139337963.jpg",
     userStatus: "ACTIVE",
     password: "111",
   },
@@ -296,7 +297,8 @@ export const staffList = reactive([
     phone: "+72222222222",
     credits: 11,
     tokens: 55,
-    avater: "",
+    avatar:
+      "https://cs13.pikabu.ru/post_img/2023/02/13/8/1676295806122712757.jpg",
     userStatus: "ACTIVE",
     password: "222",
   },

@@ -27,6 +27,7 @@ const authUser = computed(() => {
     phone: authStore.phone,
     credits: authStore.credits,
     tokens: authStore.tokens,
+    avatar: authStore.avatar,
   };
 });
 

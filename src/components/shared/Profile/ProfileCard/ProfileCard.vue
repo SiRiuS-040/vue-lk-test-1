@@ -9,9 +9,7 @@ import {
 } from "@/components/ui/UiButton/model/types";
 import UiIcon from "@/components/ui/UiIcon/UiIcon.vue";
 import { IconSize, IconName } from "@/components/ui/UiIcon/model/types";
-
 import { IStaffItem } from "@/repository/employee/types.ts";
-
 import UiStatusMarker from "@/components/ui/UiStatusMarker/UiStatusMarker.vue";
 import { StatusCode, StatusTheme } from "@/components/ui/UiStatusMarker/types";
 
@@ -25,7 +23,20 @@ const props = defineProps<IProps>();
 <template>
   <div class="profile-card">
     <div class="profile-card__info">
-      <UiIcon :icon="IconName.USER" :size="IconSize.SIZE_82" />
+      <div class="profile-card__avatar-wrapper">
+        <img
+          v-if="cardData.avatar"
+          :src="cardData.avatar"
+          alt="Аватар"
+          class="profile-card__avatar"
+        />
+        <UiIcon
+          v-else
+          :icon="IconName.USER"
+          :size="IconSize.SIZE_82"
+          class="profile-card__avatar"
+        />
+      </div>
       <div class="flex-col-8">
         <h2 class="profile-card__name">{{ cardData.userName }}</h2>
         <div class="flex-center-16 flex-wrap">
@@ -93,6 +104,20 @@ const props = defineProps<IProps>();
     &.blocked {
       color: var(--color-Secondary-Light-Red);
     }
+  }
+
+  &__avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__avatar {
+    width: 82px;
+    height: 82px;
+    overflow: hidden;
+    border-radius: 12px;
   }
 }
 

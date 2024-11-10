@@ -4,6 +4,7 @@ import { staffList } from "@/repository/employee/mock.ts";
 interface IStore {
   isAuthorized: boolean;
   userName: string;
+  avatar: string;
   userPassword: string;
   userLogin: string;
   id: number;
@@ -25,6 +26,7 @@ export const useAuthStore = defineStore("auth", {
     userLogin: "",
     id: 1,
     userName: "",
+    avatar: "",
     email: "",
     phone: "",
     credits: 0,
@@ -53,6 +55,7 @@ export const useAuthStore = defineStore("auth", {
         this.userLogin = data.login;
         this.credits = isExist.credits;
         this.tokens = isExist.tokens;
+        this.avatar = isExist.avatar;
       }
     },
     logout() {

@@ -19,6 +19,7 @@ const authStore = useAuthStore();
 const userName = ref(authStore.userName);
 const email = ref(authStore.userLogin);
 const password = ref(authStore.userPassword);
+const avatar = ref(authStore.avatar);
 const contactPhone = ref();
 </script>
 <template>
@@ -37,6 +38,7 @@ const contactPhone = ref();
         helperText="This is your login"
         required
       />
+      <UiInput v-model="avatar" label="Avatar path" placeholder="avatar" />
       <UiInput
         v-model="password"
         label="Password"

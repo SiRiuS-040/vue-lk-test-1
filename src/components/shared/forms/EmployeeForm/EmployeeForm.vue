@@ -37,6 +37,11 @@ const employeeData = defineModel();
         </template>
       </UiInput>
       <UiInput
+        v-model="employeeData.avatar"
+        label="Avatar path"
+        placeholder="https://..."
+      />
+      <UiInput
         v-model="employeeData.phone"
         label="Contact phone"
         placeholder="+7999 999 99 99"

@@ -35,8 +35,14 @@ const authStore = useAuthStore();
               <UiIcon :icon="IconName.PLUS" />
             </UiButton>
             <span class="default-layout__header-user">
-              <span class="default-layout__header-user-icon">
-                <UiIcon :icon="IconName.USER" :size="IconSize.SIZE_32" />
+              <span class="default-layout__header-user-avatar-wrapper">
+                <img
+                  v-if="authStore.avatar"
+                  :src="authStore.avatar"
+                  alt="Аватар"
+                  class="default-layout__header-user-avatar"
+                />
+                <UiIcon v-else :icon="IconName.USER" :size="IconSize.SIZE_32" />
               </span>
               <span class="text-3">{{ authStore.userName }}</span>
             </span>
@@ -124,6 +130,19 @@ const authStore = useAuthStore();
     flex-wrap: wrap-reverse;
     justify-content: flex-end;
     color: var(--color-Text-Black);
+  }
+
+  &__header-user-avatar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__header-user-avatar {
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    border-radius: 8px;
   }
 
   &__header-burger {
