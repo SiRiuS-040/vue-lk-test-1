@@ -13,7 +13,7 @@ interface IStore {
   tokens: number;
   avatar: string;
   userStatus: string | UserStatus;
-  userPassword: string | number;
+  userPassword: string;
 }
 
 export const useAuthStore = defineStore("auth", {

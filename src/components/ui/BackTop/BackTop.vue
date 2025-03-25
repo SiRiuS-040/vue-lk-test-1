@@ -5,18 +5,16 @@
     class="back-top"
     @click.prevent="scrollToTop"
   >
-    <Icon
-      :icon="IconName.expand_less"
+    <UiIcon
+      :icon="IconName.CHEVRON_DOWN"
       class="button__icon"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
-import Icon from '@west/components/ui/Icon/Icon.vue'
-import { IconName } from '@west/components/ui/Icon/types'
+import UiIcon from '@/components/ui/UiIcon/UiIcon.vue'
+import { IconName } from '@/components/ui/UiIcon/model/types'
 
 export interface IProps {
   scrolled: boolean
@@ -41,7 +39,6 @@ const scrollToTop = () => {
 @use '@west/assets/scss/variables' as *;
 
 .back-top {
-
   position: fixed;
   right: 12px;
   bottom: 16px;
@@ -65,6 +62,10 @@ const scrollToTop = () => {
 
   @include media-breakpoint-up (xl) {
     bottom: 60px;
+  }
+
+  &__icon {
+    transform: rotate(180deg)
   }
 }
 </style>

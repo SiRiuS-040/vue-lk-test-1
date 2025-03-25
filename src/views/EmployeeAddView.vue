@@ -33,7 +33,7 @@ const addEmployee = () => {
     return;
   }
 
-  const newUserPw: string | number = "333";
+  const newUserPw: string = "333";
   cardData.value.password = newUserPw;
 
   const newEmployee = { ...toRaw(cardData.value) };

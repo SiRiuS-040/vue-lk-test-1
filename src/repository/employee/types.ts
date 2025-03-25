@@ -7,7 +7,7 @@ export interface IStaffItem {
   credits: number;
   tokens: number;
   userStatus: string;
-  password: string | number;
+  password: string;
 }
 
 export enum UserStatus {
@@ -20,7 +20,7 @@ export class Employee implements IStaffItem {
   userName: string;
   avatar: string;
   email: string;
-  password: string | number;
+  password: string;
   phone: string;
   credits: number;
   tokens: number;
@@ -40,6 +40,6 @@ export class Employee implements IStaffItem {
 }
 
 export interface IChangePw {
-  oldPw: string | number;
-  newPw: string | number;
+  oldPw: string;
+  newPw: string;
 }
