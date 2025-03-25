@@ -13,7 +13,7 @@ interface IStore {
   tokens: number;
   avatar: string;
   userStatus: string | UserStatus;
-  userPassword: string;
+  userPassword: string | number;
 }
 
 export const useAuthStore = defineStore("auth", {
@@ -37,7 +37,7 @@ export const useAuthStore = defineStore("auth", {
       if (
         staffList.find((item) => item.email === data.login) &&
         staffList.find((item) => item.email === data.login)?.password !==
-          data.password
+        data.password
       ) {
         console.log("имитация - нет такого пользователя или не верный пароль");
         throw new Error("Incorrect Email address or Password");

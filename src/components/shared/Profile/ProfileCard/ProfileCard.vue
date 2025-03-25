@@ -49,7 +49,7 @@ const props = defineProps<IProps>();
             :class="{ blocked: cardData.userStatus === 'BLOCKED' }"
           >
             <UiStatusMarker
-              :statusCode="StatusCode[cardData.userStatus]"
+              :statusCode="StatusCode[cardData.userStatus as keyof typeof StatusCode]"
               :theme="StatusTheme.BADGE"
             />
           </span>

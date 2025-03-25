@@ -13,7 +13,7 @@ import {
 import type { IStaffItem } from "@/repository/employee/types";
 
 const router = useRouter();
-const employeeData = defineModel<IStaffItem>();
+const employeeData = defineModel<IStaffItem>({required: true});
 </script>
 <template>
   <div class="add-employee-form">

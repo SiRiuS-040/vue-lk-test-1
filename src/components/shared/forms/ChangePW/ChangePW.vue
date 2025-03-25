@@ -15,7 +15,7 @@ const toast = useToast();
 const oldPassword = ref();
 const newPassword = ref();
 const newPasswordRepeat = ref();
-const changePasswordModel = defineModel<IChangePw>({});
+const changePasswordModel = defineModel<IChangePw>({ required: true });
 const isChangePwVisible = ref(false);
 
 const changePwVisibility = () => {

@@ -19,11 +19,8 @@ import EmployeeForm from "@/components/shared/forms/EmployeeForm/EmployeeForm.vu
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
 import { staffList } from "@/repository/employee/mock";
-import {
-  IStaffItem,
-  UserStatus,
-  Employee,
-} from "@/repository/employee/types.ts";
+import { UserStatus, Employee } from "@/repository/employee/types.ts";
+import type { IStaffItem } from "@/repository/employee/types.ts";
 
 const toast = useToast();
 const route = useRoute();
@@ -36,7 +33,7 @@ const addEmployee = () => {
     return;
   }
 
-  const newUserPw = "333";
+  const newUserPw: string | number = "333";
   cardData.value.password = newUserPw;
 
   const newEmployee = { ...toRaw(cardData.value) };

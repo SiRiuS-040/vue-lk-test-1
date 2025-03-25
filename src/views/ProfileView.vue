@@ -30,7 +30,8 @@ const authUser = computed<IStaffItem>(() => {
     credits: authStore.credits,
     tokens: authStore.tokens,
     userStatus: authStore.userStatus,
-  };
+    password: authStore.userPassword
+  }
 });
 
 const router = useRouter();
@@ -87,7 +88,7 @@ const searchFiltered = () => {
           Add new employee
         </UiButton>
       </div>
-      <StaffList :items="filteredList" :key="filteredList" />
+      <StaffList :items="filteredList" :key="filteredList.length" />
     </template>
   </PageContent>
 </template>
