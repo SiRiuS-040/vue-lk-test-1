@@ -1,6 +1,6 @@
 <template>
   <span class="lang-select">
-    <UiIcon :icon="IconName[selectedLngIcon as keyof typeof IconName]" :key="selectedLngIcon" />
+    <UiIcon :icon="IconName[selectedLngIcon as keyof typeof Item]" :key="selectedLngIcon" />
     <UiSelect v-model="langModel" :options="langOptions" />
   </span>
 </template>
