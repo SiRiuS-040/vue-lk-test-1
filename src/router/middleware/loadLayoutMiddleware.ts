@@ -1,4 +1,4 @@
-export async function loadLayoutMiddleware(route) {
+export async function loadLayoutMiddleware(route: any) {
     try {
         let layout = route.meta.layout
         let layoutComponent = await import(`@/layouts/${layout}.vue`)

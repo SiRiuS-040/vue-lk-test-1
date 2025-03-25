@@ -31,7 +31,7 @@ export class Employee implements IStaffItem {
     this.userName = "";
     this.avatar = "";
     this.email = "";
-    this.password = String("111");
+    this.password = "111";
     this.phone = "";
     this.credits = 0;
     this.tokens = 0;

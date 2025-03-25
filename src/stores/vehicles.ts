@@ -9,7 +9,7 @@ import type {
 interface IStore {
   vehicles?: IVehicle[];
   vehiclesPerPage?: number;
-  vehiclesTotal?: number;
+  vehiclesTotal: number;
   currentVehicle?: IVehicle;
   paginationLinks?: IMetaLink[];
 }

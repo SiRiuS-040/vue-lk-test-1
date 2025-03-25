@@ -14,7 +14,7 @@ import UiSelect from "@/components/ui/UiSelect/UiSelect.vue";
 import type { IVehicle, IVehicles } from "@/repository/vehicles/models";
 import VehicleCardItem from "@/components/shared/VehicleCard/VehicleCardItem/VehicleCardItem.vue";
 import Pagination from "@/components/shared/Pagination/Pagination.vue";
-import { useVehiclesStore } from "@/stores/vehicles.ts";
+import { useVehiclesStore } from "@/stores/vehicles";
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 
 const route = useRoute();

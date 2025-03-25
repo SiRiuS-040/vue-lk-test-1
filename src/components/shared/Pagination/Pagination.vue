@@ -25,7 +25,6 @@ interface IProps {
   currentPage?: number;
   totalItems: number;
   maxVisibleLinks?: number;
-
   links?: pagLink[];
   frontPagination?: boolean;
   items?: any[];

@@ -28,7 +28,7 @@ export interface IProps {
 }
 
 const props = defineProps<IProps>();
-const inputModel = defineModel();
+const inputModel = defineModel<string | number>();
 
 const inputClasses = computed(() => {
   return [];

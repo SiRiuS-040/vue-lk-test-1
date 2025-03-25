@@ -19,7 +19,7 @@ import EmployeeForm from "@/components/shared/forms/EmployeeForm/EmployeeForm.vu
 import PageContent from "@/components/layout/PageContent/PageContent.vue";
 import ProfileCard from "@/components/shared/Profile/ProfileCard/ProfileCard.vue";
 import { staffList } from "@/repository/employee/mock";
-import { UserStatus, Employee } from "@/repository/employee/types.ts";
+import { UserStatus, Employee } from "@/repository/employee/types";
 import type { IStaffItem } from "@/repository/employee/types.ts";
 
 const toast = useToast();
