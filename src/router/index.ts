@@ -19,7 +19,7 @@ import { loadLayoutMiddleware } from "@/router/middleware/loadLayoutMiddleware";
 import { checkAuth } from "@/router/middleware/auth";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: "/auth-login",
